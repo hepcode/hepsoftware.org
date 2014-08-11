@@ -1,0 +1,283 @@
+{% load static %}<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en"><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block pagetitle %} HEPsoftware.org {% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+
+  <!-- app level customizations -->
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/"><span> <img src="/static/img/hepsoftware-logo-white-40.png"  width=40 height=40/> HEPsoftware.org</a></span></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-dropdown">
+        <a href="#">Help</a>
+        <ul class="dropdown">
+          <li><a href="/">About</a></li>
+          <li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>
+          <!-- <li><a href="/e/?type=definition">Glossary</a></li> -->
+          <li><a href="mailto:hepsoftware@gmail.com">Contact</a>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-dropdown">
+        <a href="#">{% if loggedin %} {{ user.first_name }} {{ user.last_name }} {% else %} Account {% endif %}</a>
+        <ul class="dropdown">
+      {% if not loggedin %}    <li><a href="/accounts/login/?next=/">Login</a></li> {% endif %}
+       {% if loggedin %}
+        <li><a href="/my/">Profile</a></li>
+        <li><a href="/accounts/logout/?next=/">Logout</a></li>
+       {% endif %}
+       {% if not loggedin %}   <li><a href="/register/">Register</a></li> {% endif %}
+        </ul>
+      </li>
+    </ul>
+
+    {% if loggedin %}
+    <ul class="right">
+        <li class="divider"></li>
+        <li> <a href="/in/">Add entry</a> </li>
+    </ul>
+    {% endif %}
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="has-dropdown">
+        <a href="#"><font color=lightgrey>Data</font></a>
+        <ul class="dropdown">
+          <li><a href="/el/">Entities</a></li>
+          <li><a href="/tl/">Tags</a></li>
+          <li><a href="/rl/">References</a></li>
+          <li><a href="/rl/?type=credit">Credits</a></li>
+          <li><a href="/rl/?type=contributor">Contributors</a></li>
+          <li><a href="/rl/?type=contact">Contacts</a></li>
+          <li><a href="/rl/?type=web">Web references</a></li>
+          <li><a href="/rl/?type=docref">Document references</a></li>
+          <li><a href="/rl/?type=paper">Paper references</a></li>
+          <li><a href="/rl/?type=status">Status entries</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">      <a href="#">Science</a>
+        <ul class="dropdown">
+          <li><a href="/e/accelerator/">Accelerators</a></li>
+          <li><a href="/e/cosmos/">Astrophysics and cosmology</a></li>
+          <li><a href="/e/bphysics/">b physics</a></li>
+          <li><a href="/e/energy/">Energy frontier</a></li>
+          <li><a href="/e/intensity/">Intensity frontier</a></li>
+          <li><a href="/e/neutrino/">Neutrino physics</a></li>
+          <li><a href="/e/nuclear/">Nuclear physics</a></li>
+          <li><a href="/e/qcd/">QCD</a></li>
+          <li><a href="/e/theory/">Theory</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">      <a href="#">Software</a>
+        <ul class="dropdown">
+          <li><a href="/e/software/">All</a></li>
+          <li><a href="/e/opensource/">Open source</a></li>
+          <li><a href="/e/concurrency/">Concurrency</a></li>
+          <li><a href="/e/performance/">Performance</a></li>
+          <li><a href="/e/gener/">Event generators</a></li>
+          <li><a href="/e/detsimu/">Detector simulation</a></li>
+          <li><a href="/e/reco/">Reconstruction</a></li>
+          <li><a href="/e/analysis/">Analysis tools</a></li>
+          <li><a href="/e/distsw/">Distributed software</a></li>
+          <li><a href="/e/datamgmt/">Data management</a></li>
+          <li><a href="/e/wms/">Workload management</a></li>
+          <li><a href="/e/infomgmt/">Information management</a></li>
+          <li><a href="/e/database/">Databases</a></li>
+          <li><a href="/e/graphics/">Graphics</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">      <a href="#">Tools &amp; infrastructure</a>
+        <ul class="dropdown">
+          <li><a href="/e/infrastructure/">All</a></li>
+          <li><a href="/e/tool/">Tools</a></li>
+          <li><a href="/e/infrastructure/">Infrastructure</a></li>
+          <li><a href="/e/codemgmt/">Code management</a></li>
+          <li><a href="/e/buildmgmt/">Build management</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">      <a href="#">Computing</a>
+        <ul class="dropdown">
+          <li><a href="/e/computing/">All</a></li>
+          <li><a href="/e/facility/">Computing facilities</a></li>
+          <li><a href="/e/entityInfo %}?tag=hpc|htc&querytype=supercomputing">Supercomputing</a></li>
+          <li><a href="/e/network/">Networking</a></li>
+          <li><a href="/e/datamgmt/">Data management</a></li>
+          <li><a href="/e/wms/">Workload management</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-dropdown">      <a href="#">Community</a>
+        <ul class="dropdown">
+          <li><a href="/e/community/">Community ventures</a></li>
+          <li><a href="/el/?type=org">Organizations</a></li>
+          <li><a href="/e/experiment/">Experiments</a></li>
+          <li><a href="/el/?type=org&tag=lab">Laboratories</a></li>
+          <li><a href="/el/?type=org&tag=university">Universities</a></li>
+          <li><a href="/el/?type=org&tag=provider">Resource providers</a></li>
+          <li><a href="/el/?type=person">People</a></li>
+          <li><a href="/e/series">Meeting and conference series</a></li>
+          <li><a href="/el/?type=meeting">Meetings</a></li>
+          <li><a href="/e/conference/">Conferences</a></li>
+        </ul>
+      </li>
+    </ul>
+
+  </section>
+</nav>
+
+  <div class="top-subbar">
+
+    <div class="left" id="div-subtitle" style="color:grey; padding:3px; font-size:12px; ">{% block subtitle %}
+    {% if requestParams %}
+{% for key, value in requestParams.items %}
+&nbsp; {{key}}{% if value %}={{value}} {% endif %}
+{% endfor %}
+{% else %}
+&nbsp;
+{% endif %}
+{% endblock %}</div>
+
+    <div class="right">
+      {% block header-nav-chain %}
+      <font size=-1> 
+{% if created_at %} Created {{ created_at|date:"Y-m-d H:i" }} {% endif %}
+      
+ </font>
+      {% endblock %}
+    </div>
+
+  </div>
+<br>
+
+{% if messages %}
+<div class="messages">
+<table>
+    {% for message in messages %}
+   <tr><td><b><span {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|safe }}</span></b></td></tr>
+    {% endfor %}
+</table>
+</div>
+{% endif %}
+
+{% block premainbody %}
+
+{% endblock %}
+
+<table><tr><td>
+
+<p><h3>
+{% block bodyheader %}
+
+bodyheader
+
+{% endblock %}
+</h3></p>
+
+{% block mainbody %}
+
+Main page body
+
+{% endblock %}
+
+
+{% if 'debug' in requestParams %}
+{% if ent %}
+<p>
+<table>
+{% for key, value in ent.items %}
+{% if value and key != 'id' and key != 'description' and key != 'name' %}
+<tr><td>{{ key }}</td><td>{{ value|safe }}</td></tr>
+{% endif %}
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% if tag %}
+<p>
+<table>
+{% for key, value in tag.items %}
+{% if value and key != 'id' and key != 'description' and key != 'name' %}
+<tr><td>{{ key }}</td><td>{{ value|safe }}</td></tr>
+{% endif %}
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% if refs %}
+<p>
+<table>
+{% for ref in refs %}
+{% for key, value in ref.items %}
+{% if value and key != 'id' and key != 'description' and key != 'name' %}
+<tr><td>{{ key }}</td><td>{{ value|safe }}</td></tr>
+{% endif %}
+{% endfor %}
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% endif %}
+
+</td></tr></table>
+
+  <script src="{% static 'js/vendor/modernizr.js' %}"></script>
+
+  <script src="{% static 'js/vendor/jquery.js' %}"></script>
+  {% include 'autocomplete_light/static.html' %}
+  <script src="{% static 'js/foundation/foundation.js' %}"></script>
+  <script src="{% static 'js/foundation/foundation.topbar.js' %}"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+
+
+</body>
+</html>

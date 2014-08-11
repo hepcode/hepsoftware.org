@@ -1,0 +1,3083 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<hepsoftware>
+
+<content>
+<name>intro</name>
+<description>
+[HEPsoftware.org](http://HEPsoftware.org) / [HEPcomputing.org](http://HEPcomputing.org) is an information gathering and exchange service for the HEP software and computing community. Your contributions are welcome! Ensure that your experiment, your facility, your favorite software and tools, and your own developments are properly represented. Sign up in seconds and you can immediately start submitting and editing entries via simple forms. All entries are preserved and archived with their revision history, with quick and easy reversion to previous versions when needed.
+
+#### Goals
+
+* Facilitate collaboration by increasing awareness of the activities and resources within our field.
+* Engage HEP S&amp;C experts directly in creating and maintaining a useful information resource.
+* Offer a grass roots complement to the more structured community activities taking shape, the [HEP Software Foundation](/e/hsf) and in the US the [HEP Forum for Computational Excellence](/e/fce).
+* Promote, through greater awareness, open source tools and approaches within our community.
+
+#### Elements thus far
+* This website app
+* A #reddit topic (subreddit) being set up as a discussion forum [http://www.reddit.com/r/hepsoftware/](http://www.reddit.com/r/hepsoftware/)
+* A github project organization to host common repositories [https://github.com/hepcode](https://github.com/hepcode). The first contribution will be the source for this site.
+* [@hepsoftware](https://twitter.com/hepsoftware) on Twitter where significant developments will be posted. Also as a community we should put the [[[hash]]hepsoftware](https://twitter.com/hashtag/hepsoftware) and [[[hash]]hepcomputing](https://twitter.com/hashtag/hepcomputing) hashtags to use!
+
+#### This website
+
+* This is a django app backed by a MySQL database, hosted privately on Amazon EC2.
+* The content was bootstrapped from a handwritten xml file, but the primary means of data entry is via web forms. Entries and edits are archived as json as well as going to the DB. The json archives are kept in github with the rest of the system.
+* Entries describe software projects and tools, experiments, facilities, organizations, etc. and can be added and edited by any registered participant.
+* Entries are formatted using [markdown](http://daringfireball.net/projects/markdown/syntax), making it easy to implement pages with embedded links, images, and structured formatting.
+* Tags are used to categorize entries and to represent their interconnections. This is the central purpose of the site, to expose entities and their interconnections, with links to drill deeper for more information.
+<!-- * Pages include a link to their xml source as a guide to composing the xml. Also there's [an annotated xml template here](/static/entity-template.xml) for use as a starting point for writing your own. -->
+* The site supports a data API so content can be programmatically accessed as json.
+* This initiative was begun mid July 2014 by Torre Wenaus (BNL/ATLAS, wenaus@gmail.com). It is raw and incomplete, and depends on community input and participation to mature and succeed. Please join in and help shape it!
+
+#### Examples
+
+Here are some representative pages:
+
+* #mapneeds
+* #intensity and its [xml source](/s/intensity/)
+* [The source for this page](/s/intro)
+* #lbne
+* #bnl
+* #root
+* #concurrencyforum
+* #fce
+* #hsf
+* #panda
+* #datamgmt
+* [US ATLAS Tier2s](/e/us^atlas^tier2)
+
+#### How to contribute
+
+* To start contributing, take a few moments to sign up via the Account menu, log in and you'll be immediately able to add and edit contributions. New and revised entries are archived. The archived versions are presented in the app and any can be made primary with a click.
+* The hepsoftware.org sources will soon appear at [github](https://github.com/hepcode).
+* Contact #torre_wenaus to learn more.
+</description>
+<tags> *intro </tags>
+</content>
+
+<comment> tagtree: [tags] = [implicit subtags] </comment>
+<content>
+<name>tagtree</name>
+<description>
+alice = heavyion nuclear
+xsede olcf alcf = hpc 
+in2p3 saclay irfu = france
+infn = italy
+ifae pic = spain
+nikhef = netherlands
+ral = uk
+france netherlands germany uk italy spain = europe
+doe nsf ascr = us
+hpc network = cyberinfrastructure
+gaudihive concurrencyforum coprocessors vectorization gpu cuda opencl = concurrency 
+hpc htc storagemgmt datamgmt wms cloud clustermgmt = facility
+facility wms hpc htc = computing
+gener = simu software theory
+ddm = datamgmt
+desc = lsst
+concurrency = software
+codemgmt buildmgmt tool service development = software infrastructure
+gener = simu
+lqcd = qcd theory
+neutrino = intensity
+rhic = heavyion nuclear
+chep acat = conference 
+</description>
+</content>
+
+<comment> ============================ <a name="org - institutions"></a> ========================= </comment>
+
+<org>
+<name> Brookhaven National Laboratory (BNL) </name>
+<description>
+We advance fundamental research in nuclear and particle physics to gain a deeper understanding of matter, energy, space, and time; apply photon sciences and nanomaterials research to energy challenges of critical importance to the nation; and perform cross-disciplinary research on climate change, sustainable energy, and Earth's ecosystems.
+</description>
+<web> http://www.bnl.gov </web>
+<phonebook> https://www.bnl.gov/search/results.php </phonebook>
+<wikipedia> Brookhaven_National_Laboratory </wikipedia>
+<logo> http://www.bnl.gov/pga/images/Logo_Small.jpg </logo>
+<tags> *bnl us doe lab atlas lsst desc des lbne </tags>
+</org>
+
+<org>
+<name> SLAC National Accelerator Laboratory </name>
+<description>
+SLAC National Accelerator Laboratory, originally named Stanford Linear Accelerator Center, is a United States Department of Energy National Laboratory operated by Stanford University under the programmatic direction of the U.S. Department of Energy Office of Science and located in Menlo Park, California. The SLAC research program centers on experimental and theoretical research in elementary particle physics using electron beams and a broad program of research in atomic and solid-state physics, chemistry, biology, and medicine using synchrotron radiation.
+</description>
+<web> http://slac.stanford.edu </web>
+<phonebook> https://www-public.slac.stanford.edu/phonebook/search.aspx </phonebook>
+<wikipedia> SLAC_National_Accelerator_Laboratory </wikipedia>
+<tags> *slac lab doe atlas </tags>
+</org>
+
+<org>
+<name> Argonne National Laboratory (ANL) </name>
+<description>
+We advance fundamental research in nuclear and particle physics to gain a deeper understanding of matter, energy, space, and time; apply photon sciences and nanomaterials research to energy challenges of critical importance to the nation; and perform cross-disciplinary research on climate change, sustainable energy, and Earth’s ecosystems.
+</description>
+<web> http://www.anl.gov/ </web>
+<phonebook> http://web.anl.gov/directory/ </phonebook>
+<wikipedia> Argonne_National_Laboratory </wikipedia>
+<logo> http://math.iit.edu/~mccomic/uedge/logos/ANL_logo.jpg </logo>
+<tags> *anl us doe lab </tags>
+</org>
+
+<org>
+<name> Lawrence Berkeley National Laboratory (LBNL) </name>
+<description>
+Berkeley Lab is a member of the national laboratory system supported by the U.S. Department of Energy through its Office of Science. It is managed by the University of California (UC) and is charged with conducting unclassified research across a wide range of scientific disciplines.
+</description>
+<web> http://www.lbl.gov/ </web>
+<phonebook> http://www2.lbl.gov/ds/ </phonebook>
+<wikipedia> Lawrence_Berkeley_National_Laboratory </wikipedia>
+<logo> https://cso.lbl.gov/assets/docs/downloads/LBNL_Alt_Logo_StackRight_Final.png </logo>
+<tags> *lbnl lab doe </tags>
+</org>
+
+<org>
+<name> Pacific Northwest National Laboratory (PNNL) </name>
+<description>
+Pacific Northwest National Laboratory (PNNL) is one of the United States Department of Energy National Laboratories, managed by the Department of Energy's Office of Science. The main campus of the laboratory is in Richland, Washington.
+
+PNNL scientists conduct basic and applied research and development to strengthen U.S. scientific foundations for fundamental research and innovation; prevent and counter acts of terrorism through applied research in information analysis, cyber security, and the nonproliferation of weapons of mass destruction; increase the U.S. energy capacity and reduce dependence on imported oil; and reduce the effects of human activity on the environment.
+</description>
+<web> http://www.pnl.gov/ </web>
+<phonebook> http://www.pnnl.gov/contacts/search.asp </phonebook>
+<wikipedia> Pacific_Northwest_National_Laboratory </wikipedia>
+<logo> http://upload.wikimedia.org/wikipedia/en/thumb/1/17/Pacific_Northwest_National_Laboratory_logo.svg/400px-Pacific_Northwest_National_Laboratory_logo.svg.png </logo>
+<tags> *pnnl us doe lab belle2 </tags>
+</org>
+
+<org>
+<name> Oak Ridge National Laboratory (ORNL) </name>
+<description>
+Oak Ridge National Laboratory is DOE’s largest multiprogram science and energy laboratory, with scientific and technical capabilities spanning the continuum from basic to applied research. These resources enable the lab to tackle an exceptionally wide range of R&D assignments, from fundamental nuclear physics to applied R&D on advanced energy systems.
+
+ORNL combines insights from fundamental science with an in-depth technical understanding of applied systems to deliver practical solutions to real-world problems.
+</description>
+<web> http://www.ornl.gov/ </web>
+<phonebook> http://www.ornl.gov/our-people/find-people </phonebook>
+<wikipedia> Oak_Ridge_National_Laboratory </wikipedia>
+<logo> http://www.908devices.com/wp-content/uploads/2013/02/ORNL_logo.jpg </logo>
+<location> Oak Ridge, Tennessee </location>
+<tags> *pnnl us doe lab belle2 </tags>
+</org>
+
+<org>
+<name> TRIUMF</name>
+<description>
+SLAC National Accelerator Laboratory, originally named Stanford Linear Accelerator Center, is a United States Department of Energy National Laboratory operated by Stanford University under the programmatic direction of the U.S. Department of Energy Office of Science and located in Menlo Park, California. The SLAC research program centers on experimental and theoretical research in elementary particle physics using electron beams and a broad program of research in atomic and solid-state physics, chemistry, biology, and medicine using synchrotron radiation.
+</description>
+<web> http://www.triumf.ca/ </web>
+<phonebook> http://www.triumf.ca/directory </phonebook>
+<wikipedia> TRIUMF </wikipedia>
+<tags> *triumf lab canada atlas </tags>
+</org>
+
+<org>
+<name> CERN - European Council for Nuclear Research </name>
+<description>
+The European Council for Nuclear Research, known as CERN is a European research organization whose purpose is to operate the world's largest particle physics laboratory.
+</description>
+<web> http://cern.ch </web>
+<phonebook> https://phonebook.cern.ch/phonebook/ </phonebook>
+<wikipedia> CERN </wikipedia>
+<tags> *cern lab </tags>
+</org>
+
+<org>
+<name> CERN openlab </name>
+<description>
+CERN openlab is a unique public-private partnership between CERN and leading information technology companies. Its mission is to accelerate the development of cutting-edge solutions to be used by the worldwide LHC community. 
+</description>
+<contact> Fons Rademakers </contact>
+<web> http://openlab.web.cern.ch/
+https://twiki.cern.ch/twiki/bin/view/Openlab/WebHome | openlab projects - external documentation
+http://openlab.web.cern.ch/publications | Publications
+</web>
+<tags> *openlab cern lhc software hardware </tags>
+</org>
+
+
+<org>
+<name> DESY - Deutsches Elektronen-Synchrotron </name>
+<description>
+The Deutsches Elektronen-Synchrotron, commonly abbreviated DESY, is a national research center in Germany which operates particle accelerators used to investigate the structure of matter.
+</description>
+<web> http://www.desy.de </web>
+<wikipedia> DESY </wikipedia>
+<tags> *desy lab </tags>
+</org>
+
+<org>
+<name> Fermilab - Fermi National Accelerator Laboratory (FNAL) </name>
+<description>
+Fermilab is America's premier particle physics laboratory. Collaborating with scientists from around the world, we perform pioneering research, operate world-leading particle accelerators and experiments, and develop technologies for science in support of U.S. industry.
+</description>
+<web> http://www.fnal.gov/
+http://intensityfrontier.fnal.gov/ | Intensity frontier dept
+http://www.youtube.com/user/fermilab | YouTube 
+http://twitter.com/fermilabtoday/ | Twitter
+</web>
+<phonebook> http://www-tele.fnal.gov/ </phonebook>
+<wikipedia> Fermilab </wikipedia>
+<tags> *fnal lab doe cms lbne cdf d0 </tags>
+</org>
+
+<org>
+<name> IN2P3 - Institut national de physique nucléaire et de physique des particules</name>
+<description>
+The aim of the National institute of nuclear and particle physics (IN2P3) of the CNRS is to promote and unify research activities in the fields of nuclear physics, particle and astroparticle physics. It coordinates programmes within these fields on behalf of the CNRS and universities, in partnership with CEA.
+</description>
+<web> http://www.in2p3.fr/ </web>
+<web>  http://cc.in2p3.fr/?lang=en | IN2P3 Computing Center </web>
+<wikipedia> Centre_national_de_la_recherche_scientifique </wikipedia>
+<tags> *in2p3 lab cnrs atlas cms </tags>
+</org>
+
+<org>
+<name> CEA Saclay Nuclear Research Center </name>
+<description>
+Focusing principally on technological research, CEA has always relied on fundamental research known for its excellence in both physical and life sciences. This fundamental research accounts for about one third of the organisation's activities and contributes to all its activities - defence, energy and information and health technologies.
+</description>
+<web> http://www-centre-saclay.cea.fr/en </web>
+<wikipedia> Saclay_Nuclear_Research_Centre </wikipedia>
+<tags> *saclay lab stfc </tags>
+</org>
+
+<org>
+<name> INFN - Istituto Nazionale di Fisica Nucleare </name>
+<description>
+A community of researchers who want to discover
+the mechanisms of the universe, an explanation for everything.
+They invent and develop innovative technologies,
+make the most accurate measurements humanly possible.
+</description>
+<web> http://www.infn.it/index.php?lang=en </web>
+<wikipedia> Istituto_Nazionale_di_Fisica_Nucleare </wikipedia>
+<tags> *infn lab atlas cms </tags>
+</org>
+
+<org>
+<name> IRFU </name>
+<description>
+IRFU, Institute of Research into the Fundamental Laws of the Universe, is a basic research institute of the CEA's Direction des sciences de la matière,. Its scientific activities cover the fields of astrophysics, nuclear physics, and particle physics. With such a wide range of topics, the institute must, of course, set itself highly ambitious goals. To that end, it can draw on a number of specific assets: scientific and technical skills, pooled resources, integration within the CEA, organizational structure, management-by-projects culture and, of course, its own experience and background.
+</description>
+<web> http://irfu.cea.fr/en/ </web>
+<tags> *irfu lab atlas cms </tags>
+</org>
+
+<org>
+<name> Jefferson Lab </name>
+<description>
+JLab’s primary mission is to conduct basic research of the atom's nucleus using the lab’s unique particle accelerator, known as the Continuous Electron Beam Accelerator Facility (CEBAF). Jefferson Lab also conducts a variety of research using its Free-Electron Laser, which is based on the same electron-accelerating technology used in CEBAF.
+</description>
+<web> https://www.jlab.org/ </web>
+<wikipedia> Thomas_Jefferson_National_Accelerator_Facility </wikipedia>
+<tags> *jlab us doe lab nuclear </tags>
+</org>
+
+<org>
+<name> NIKHEF - National Institute for Subatomic Physics</name>
+<description>
+Nikhef's research focuses on particle physics and astroparticle physics.
+Nikhef's mission is to study the interactions and structure of all elementary particles and fields at the smallest distance scale and the highest attainable energy.
+</description>
+<web> https://www.nikhef.nl/ </web>
+<wikipedia> NIKHEF </wikipedia>
+<tags> *nikhef lab atlas cms </tags>
+</org>
+
+<org>
+<name> PIC </name>
+<description>
+The PIC, (Port d’Informació Científica: "Scientific Information Port"), is a data center of excellence for scientific-data processing supporting scientific groups working in projects which require strong computing resources for the analysis of massive sets of distributed data.
+</description>
+<web> http://www.pic.es/  </web>
+<tags> *pic lab cyberinfrastructure </tags>
+</org>
+
+<org>
+<name> IFAE </name>
+<description>
+At IFAE, the Institute for High Energy Physics at the Universitat Autònoma de Barcelona (UAB), we conduct experimental and theoretical research at the frontiers of fundamental physics, namely in Particle Physics, Astrophysics and Cosmology. We also work at the cutting edge of detector technology, putting our know-how to the service of more practical goals.
+</description>
+<web> http://www.ifae.es/eng/ </web>
+<wikipedia> IFAE </wikipedia>
+<tags> *ifae lab atlas des neutrino cdf medical </tags>
+</org>
+
+<org>
+<name> Rutherford Appleton Laboratory (RAL) </name>
+<description>
+Operated by STFC and located on the Harwell Oxford Science and Innovation Campus in Oxfordshire, RAL provides a thriving and collaborative environment for research in particle physics any many other sciences.
+Approximately 1,200 staff at RAL support the work of more than 10,000 scientists and engineers, chiefly from the university research community.
+</description>
+<web> http://www.stfc.ac.uk/ </web>
+<wikipedia> Rutherford_Appleton_Laboratory </wikipedia>
+<tags> *ral lab stfc </tags>
+</org>
+
+<org>
+<name> Science and Technology Facilities Council </name>
+<description>
+The Science and Technology Facilities Council (STFC) is a UK government body that carries out civil research in science and engineering, and funds UK research in areas including particle physics, nuclear physics, space science and astronomy (both ground-based and space-based).
+</description>
+<web> http://www.stfc.ac.uk/ </web>
+<wikipedia> Science_and_Technology_Facilities_Council </wikipedia>
+<tags> *stfc uk provider  </tags>
+</org>
+
+<org>
+<name> U Wisconsin at Madison </name>
+<description>
+</description>
+<web> http://www.wisc.edu/ </web>
+<tags> *madison university htcondor atlas cms </tags>
+</org>
+
+<org>
+<name> Northwestern University </name>
+<description>
+</description>
+<web> http://www.physics.northwestern.edu/ </web>
+<tags> *northwestern university </tags>
+</org>
+
+<org>
+<name> University of Washington </name>
+<description>
+</description>
+<web> http://www.phys.washington.edu </web>
+<tags> *uwashington university </tags>
+</org>
+
+<org>
+<name> University of Chicago </name>
+<description>
+</description>
+<web> http://www.uchicago.edu/ </web>
+<tags> *uchicago university mwt2 tier2 atlas cms </tags>
+</org>
+
+<org>
+<name> University of Michigan </name>
+<description>
+</description>
+<web> https://www.umich.edu/ </web>
+<tags> *umichigan university aglt2 tier2 atlas </tags>
+</org>
+
+<org>
+<name> Michigan State University </name>
+<description>
+</description>
+<web> http://www.msu.edu/ </web>
+<tags> *msu university aglt2 tier2 atlas </tags>
+</org>
+
+<org>
+<name> Indiana University Bloomington </name>
+<description>
+</description>
+<web> http://www.iub.edu/~iubphys/ </web>
+<tags> *iub university mwt2 tier2 atlas </tags>
+</org>
+
+<org>
+<name> University of Texas at Arlington </name>
+<description>
+</description>
+<web> http://www.uta.edu/uta/ </web>
+<tags> *uta university swt2 tier2 atlas lbne </tags>
+</org>
+
+<org>
+<name> University of Oklahoma </name>
+<description>
+</description>
+<web> https://www.ou.edu/ </web>
+<tags> *ou university swt2 tier2 atlas </tags>
+</org>
+
+<org>
+<name> Boston University </name>
+<description>
+</description>
+<web> https://bu.edu/ </web>
+<tags> *bu university net2 tier2 atlas cms </tags>
+</org>
+
+<org>
+<name> Harvard University </name>
+<description>
+</description>
+<web> http://www.harvard.edu/ </web>
+<tags> *harvard university net2 tier2 atlas </tags>
+</org>
+
+<org>
+<name> Massachussetts Institute of Technology </name>
+<description>
+</description>
+<web> http://web.mit.edu/ </web>
+<tags> *mit university cms </tags>
+</org>
+
+<org>
+<name> Cornell University </name>
+<description>
+</description>
+<web> http://www.cornell.edu/ </web>
+<tags> *cornell university </tags>
+</org>
+
+<org>
+<name> UC San Diego </name>
+<description>
+</description>
+<web> http://www-physics.ucsd.edu/ </web>
+<tags> *ucsd university </tags>
+</org>
+
+<org>
+<name> University of Nebraska </name>
+<description>
+</description>
+<web> http://www.unl.edu/ </web>
+<tags> *unebraska university </tags>
+</org>
+
+<org>
+<name> Southern Methodist University </name>
+<description>
+</description>
+<web> http://www.smu.edu/ </web>
+<tags> *smu university </tags>
+</org>
+
+<org>
+<name> University of Glasgow </name>
+<description>
+</description>
+<web> http://www.gla.ac.uk/schools/physics/ </web>
+<tags> *uglasgow university </tags>
+</org>
+
+<org>
+<name> University of Pennsylvania</name>
+<description>
+</description>
+<web> http://www.upenn.edu/ </web>
+<tags> *upenn university </tags>
+</org>
+
+<org>
+<name> Caltech </name>
+<description>
+</description>
+<web> http://www.caltech.edu/ </web>
+<tags> *caltech university </tags>
+</org>
+
+<org>
+<name> Iowa State University </name>
+<description>
+</description>
+<web>  </web>
+<tags> *iowastate university </tags>
+</org>
+
+<org>
+<name> Lund University </name>
+<description>
+</description>
+<web> http://www.lunduniversity.lu.se/ </web>
+<tags> *lund university </tags>
+</org>
+
+<comment> =================================== <a name="org - experiments"></a> ========================= </comment>
+
+<org>
+<name> ATLAS Experiment </name>
+<type> experiment </type>
+<description>
+
+[US ATLAS Tier 2s](/e/atlas^tier2^us/)
+
+</description>
+<contact> Richard Mount | Computing coordinator </contact>
+<contact> Eric Lancon | Deputy computing coordinator </contact>
+<web> http://atlas.web.cern.ch/Atlas/Collaboration/ </web>
+<tags> *atlas experiment cern lhc energy </tags>
+<uses> geant4 lxr root cool coral frontier hepmc hadoop xrootd fax panda autopyfactory dq2 rucio gaudi clhep cloudscheduler htcondor osg wlcg twiki python mysql oracle cernvm cvmfs perfmon </uses>
+</org>
+
+<org>
+<name> CMS Experiment </name>
+<type> experiment </type>
+<contact> Maria Girone </contact>
+<web> http://cms.cern.ch/ </web>
+<tags> *cms experiment cern lhc energy </tags>
+<uses> geant4 root coral frontier hepmc xrootd phedex crab3 glideinwms htcondor osg wlcg  </uses>
+</org>
+
+<org>
+<name> LHCb Experiment </name>
+<type> experiment </type>
+<contact> Pere Mato </contact>
+<web> https://lhcb.web.cern.ch/lhcb/ </web>
+<tags> *lhcb experiment cern lhc bphysics intensity energy </tags>
+<uses> gaudi dirac htcondor root geant4 osg wlcg  </uses>
+</org>
+
+<org>
+<name> ALICE Experiment</name>
+<type> experiment </type>
+<contact> Predrag Buncic </contact>
+<web> http://aliceinfo.cern.ch/ </web>
+<tags> *alice experiment cern lhc heavyion </tags>
+<uses> alien htcondor root geant4 osg wlcg </uses>
+</org>
+
+<org>
+<name> COMPASS Experiment</name>
+<type> experiment </type>
+<description>
+COMPASS is a high-energy physics experiment at the Super Proton Synchrotron (SPS) at CERN  in Geneva, Switzerland. The purpose of this experiment is the study of hadron structure and hadron spectroscopy with high intensity muon and hadron beams. 
+</description>
+<web> http://wwwcompass.cern.ch/ </web>
+<tags> *compass experiment cern qcd intensity </tags>
+</org>
+
+<org>
+<name> STAR Experiment </name>
+<description>
+The STAR detector (for Solenoidal Tracker at RHIC) is a large experiment at the Relativistic Heavy Ion Collider (RHIC), Brookhaven National Laboratory, United States.
+</description>
+<web> https://www.star.bnl.gov/ </web>
+<wikipedia> STAR_detector </wikipedia>
+<tags> *star rhic bnl heavyion </tags>
+</org>
+
+<org>
+<name> PHENIX Experiment </name>
+<description>
+The PHENIX detector is a large experiment at the Relativistic Heavy Ion Collider (RHIC), Brookhaven National Laboratory, United States.
+</description>
+<web> http://www.phenix.bnl.gov/ </web>
+<tags> *phenix rhic bnl heavyion </tags>
+</org>
+
+<org>
+<name> Long Baseline Neutrino Experiment (LBNE) </name>
+<type> experiment </type>
+<description>
+Discover and characterize CP violation in the neutrino sector; comprehensive program to measure neutrino oscillations.
+</description>
+<contact>
+Maxim Potekhin | Software and computing co-coordinator
+Elizabeth Sexton-Kennedy | Software and computing co-coordinator
+</contact>
+<web>
+http://lbne.fnal.gov/ | LBNE Collaboration
+https://sharepoint.fnal.gov/project/lbne/LBNE%20at%20Work/LBNE%20Software%20and%20Computing/SitePages/Home.aspx | Software and Computing
+https://sharepoint.fnal.gov/project/lbne/LBNE%20at%20Work/SitePages/Events%20and%20Milestones.aspx | Events and Milestones
+</web>
+<location> #fnal and Homestake Mine, SD, USA </location>
+<status> CD1 Dec 2012; First data 2023 </status>
+<tags> *lbne *lbnf experiment fnal bnl neutrino </tags>
+<uses> root osg sam </uses>
+</org>
+
+<org>
+<name> MicroBooNE Experiment </name>
+<description>
+Located at Fermilab, MicroBooNE will build and operate a large 170 ton Liquid Argon Time Projection Chamber (LArTPC) located along the Booster neutrino beam line. The experiment will measure low energy neutrino cross sections and investigate the low energy excess events observed by the MiniBooNE experiment. The detector serves as a next step in a phased program towards the construction of massive kiloton scale LArTPC detectors.
+
+Research goals: Address MiniBooNE low energy excess; measure neutrino cross sections in LArTPC.
+</description>
+<web> http://www-microboone.fnal.gov/
+http://www.facebook.com/MicroBooNE | Facebook
+https://twitter.com/Microboone | Twitter
+</web>
+<image>
+http://www.fnal.gov/pub/today/images11/MicroBooNE-detector.jpg
+</image>
+<logo>
+http://www-microboone.fnal.gov/css/ublogo.jpg
+</logo>
+<uses> larsoft </uses>
+<location> #fnal </location>
+<status> Physics run 2014 </status>
+<tags> *microboone experiment miniboone neutrino fnal  </tags>
+</org>
+
+<org>
+<name> MiniBooNE Experiment </name>
+<description>
+Located at Fermilab, MicroBooNE will build and operate a large 170 ton Liquid Argon Time Projection Chamber (LArTPC) located along the Booster neutrino beam line. The experiment will measure low energy neutrino cross sections and investigate the low energy excess events observed by the MiniBooNE experiment. The detector serves as a next step in a phased program towards the construction of massive kiloton scale LArTPC detectors.
+</description>
+<web> http://www-microboone.fnal.gov/
+http://www.facebook.com/MicroBooNE | Facebook
+https://twitter.com/Microboone | Twitter
+</web>
+<uses> larsoft </uses>
+<tags> *miniboone experiment microboone neutrino fnal  </tags>
+</org>
+
+<org>
+<name> Mu2e Experiment </name>
+<description>
+Mu2e will directly probe the Intensity Frontier as well as aid research on the Energy and Cosmic frontiers with precision measurements required to characterize the properties and interactions of new particles discovered at the Intensity Frontier.
+
+Observing muon-to-electron conversion will remove a hurdle to understanding why particles in the same category, or family, decay from heavy to lighter, more stable mass states. Physicists have searched for this since the 1940s. Discovering this is central to understanding what physics lies beyond the Standard Model.
+
+Research goal: Charged lepton flavor violation search for &mu;N → eN.
+</description>
+<web> http://mu2e.fnal.gov/ 
+http://mu2e.fnal.gov/public/hep/computing/gettingstarted.shtml | Computing - getting started </web>
+<location> #fnal </location>
+<status> First data 2019 </status>
+<tags> *mu2e experiment neutrino fnal  </tags>
+</org>
+
+<org>
+<name> Muon g-2 Experiment </name>
+<description>
+Muon g-2 will use Fermilab's powerful accelerators to explore the interactions of short-lived particles known as muons with a strong magnetic field in "empty" space. Scientists know that even in a vacuum, space is never empty. Instead, it is filled with an invisible sea of virtual particles that—in accordance with the laws of quantum physics—pop in and out of existence for incredibly short moments of time. Scientists can test the presence and nature of these virtual particles with particle beams traveling in a magnetic field.
+
+Research goal: Definitively measure muon anomalous magnetic moment.
+</description>
+<web> http://muon-g-2.fnal.gov/ </web>
+<location> #fnal </location>
+<status> First data 2016 </status>
+<tags> *g-2 experiment intensity fnal bnl intensity </tags>
+</org>
+
+<org>
+<name> D0 Experiment </name>
+<type> experiment </type>
+<description>
+The D0 experiment consists of a worldwide collaboration of scientists conducting research on the fundamental nature of matter. D0 was one of two major experiments (the other is the CDF experiment) located at the world's second highest-energy accelerator, the Tevatron Collider at Fermilab.
+</description>
+<web> 
+http://www-d0.fnal.gov/ | D0 home
+http://www-d0.fnal.gov/computing/index.html | Computing and core software
+</web>
+<wikipedia> D0_experiment </wikipedia>
+<tags> *d0 experiment fnal tevatron energy </tags>
+<uses> root osg sam </uses>
+</org>
+
+<org>
+<name> CDF Experiment </name>
+<type> experiment </type>
+<description>
+The Collider Detector at Fermilab (CDF) experimental collaboration studies high energy particle collisions at the Tevatron, the world's former highest-energy particle accelerator. The goal is to discover the identity and properties of the particles that make up the universe and to understand the forces and interactions between those particles.
+</description>
+<web>  http://www-cdf.fnal.gov/ </web>
+<wikipedia> Collider_Detector_at_Fermilab </wikipedia>
+<tags> *cdf experiment fnal tevatron energy </tags>
+<uses> root glideinwms osg sam </uses>
+</org>
+
+<org>
+<name> Alpha Magnetic Spectrometer (AMS) </name>
+<description>
+The Alpha Magnetic Spectrometer (AMS) is a state-of-the-art particle physics detector designed to operate as an external module on the International Space Station. It uses the unique environment of space to study the universe and its origin by searching for antimatter and dark matter while performing precision measurements of cosmic ray composition and flux. The AMS observations will help answer fundamental questions, such as "What makes up the universe's invisible mass?" and "What happened to the primordial antimatter?"
+</description>
+<type> experiment </type>
+<web>  http://ams.cern.ch/ </web>
+<tags> *ams experiment darkmatter cosmos cern mit nasa us taiwan </tags>
+<uses> root panda rucio </uses>
+</org>
+
+<org>
+<name> LSST Dark Energy Science Collaboration (DESC) </name>
+<description>
+The nature of Dark Energy is one of the greatest mysteries in science today. It was discovered in 1998, when scientists found that the expansion of the universe is accelerating. We call the force driving this expansion Dark Energy, but beyond that we know very little. LSST will produce a unique dataset of billions of galaxies, which will allow us to measure how Dark Energy behaves over time with unprecedented precision. The LSST dataset will also enable us to tackle several other questions in cosmology and fundamental physics.
+
+The LSST Dark Energy Science Collaboration will prepare for and carry out a variety of cosmological analyses with the LSST survey. In advance of LSST's first observations, DESC will help prepare for LSST science analysis, make synergistic connections with ongoing cosmological surveys and provide the dark energy community with state of the art analysis tools.
+</description>
+<type> experiment </type>
+<web>  http://www.lsst-desc.org/ </web>
+<tags> *desc experiment lsst cosmos darkenergy </tags>
+<uses> root panda pipeline xrootd osg </uses>
+</org>
+
+<org>
+<name> Dark Energy Survey (DES) </name>
+<description>
+The Dark Energy Survey (DES) aims to probe the dynamics of the expansion of the universe and the growth of large scale structure. The survey uses the 4-meter Victor M. Blanco Telescope located at Cerro Tololo Inter-American Observatory (CTIO) in Chile, and the main innovation of that project consists in the development of a new camera which is commonly called DECam. This camera allows astronomers to take more sensitive images in the red part of the visible spectrum and in the near infrared, in comparison to current equipment.
+</description>
+<type> experiment </type>
+<web>  http://www.lsst-desc.org/ 
+https://des.fnal.gov/ | DES project site
+</web>
+<wikipedia> The_Dark_Energy_Survey </wikipedia>
+<logo> http://www.usm.uni-muenchen.de/graphics/DES-Logo.jpg </logo>
+<tags> *des fnal bnl experiment cosmos darkenergy </tags>
+</org>
+
+<org>
+<name> Fermi Gamma-ray Space Telescope (formerly GLAST) </name>
+<description>
+The Fermi Gamma-ray Space Telescope, formerly called the Gamma-ray Large Area Space Telescope (GLAST), is a space observatory being used to perform gamma-ray astronomy observations from low Earth orbit. Its main instrument is the Large Area Telescope (LAT), with which astronomers mostly intend to perform an all-sky survey studying astrophysical and cosmological phenomena such as active galactic nuclei, pulsars, other high-energy sources and dark matter.
+</description>
+<tags> *fermi *glast cosmos experiment nasa gaudi* </tags>
+<wikipedia> Fermi_Gamma-ray_Space_Telescope </wikipedia>
+<web> http://fermi.gsfc.nasa.gov/ </web>
+</org>
+
+<org>
+<name> MINOS Experiment </name>
+<description>
+The MINOS Experiment is a long-baseline neutrino experiment designed to observe the phenomena of neutrino oscillations, an effect which is related to neutrino mass. MINOS uses two detectors, one located at Fermilab, at the source of the neutrinos, and the other located 450 miles away, in northern Minnesota, at the Soudan Underground Mine State Park in Tower-Soudan.
+
+MINOS+ (2013+) research goal: Search for sterile neutrinos, non-standard interactions and exotic phenomena.
+</description>
+<web> http://www-numi.fnal.gov/Minos/ 
+http://www-numi.fnal.gov/PublicInfo/ | Public
+http://www-numi.fnal.gov/Minos/ | MINOS at work
+http://www-numi.fnal.gov/offline_software/srt_public_context/WebDocs/WebDocs.html | Offline software
+http://www-numi.fnal.gov/offline_software/srt_public_context/WebDocs/WebDocs.html | Online software
+http://www-numi.fnal.gov/PublicInfo/forscientists.html | Scientific results
+</web>
+<location> #fnal and #soudan </location>
+<status> NuMI start-up 2013 </status>
+<tags> *minos *minosplus fnal neutrino experiment intensity </tags>
+</org>
+
+<org>
+<name> NOνA Experiment </name>
+<description>
+NOνA (NuMI Off-Axis νe Appearance) is a particle physics experiment designed to detect neutrinos in Fermilab's NuMI (Neutrinos at the Main Injector) beam. Intended to be the successor to MINOS, NOνA will consist of two detectors, one at Fermilab (the near detector), and one in northern Minnesota (the far detector). Neutrinos from NuMI will pass through 810 km of Earth to reach the far detector. NOνA's main goal is to observe the oscillation of muon neutrinos to electron neutrinos. By observing how many neutrinos change from one type to the other, NOνA hopes to accomplish three things:
+
+* Measurement of the mixing angle θ13
+* Measurement of the CP-violating phase δ
+* Determination of the neutrino mass hierarchy
+
+Research goal: Measure νμ-νe and νμ-νμ oscillations; resolve the neutrino mass hierarchy; first information about value of δcp (with T2K)
+</description>
+<web> http://www-nova.fnal.gov/at_work.html </web>
+<wikipedia> NOνA </wikipedia>
+<location> #fnal and   Ash River, MN, USA </location>
+<status> Physics run 2014 </status>
+<tags> *nova fnal neutrino experiment t2k intensity </tags>
+</org>
+
+
+<org>
+<name> ORKA Experiment </name>
+<description>
+Research goal: Precision measurement of K+→π+νν to search for new physics.
+</description>
+<web>  </web>
+<wikipedia>  </wikipedia>
+<location> #fnal </location>
+<status> RnD; CD0 2017+ </status>
+<tags> *orka fnal neutrino experiment intensity </tags>
+</org>
+
+<org>
+<name> Large Synoptic Survey Telescope (LSST) </name>
+<description>
+The LSST is a new kind of telescope. With a light-gathering power among the largest in the world, it will detect faint objects with short exposures. Its uniquely wide field of view allows it to observe large areas of the sky at once; compact and nimble, it can move quickly between images. Taking more than 800 panoramic images each night, it will cover the sky twice each week.
+</description>
+<type> experiment </type>
+<web>  http://www.lsst.org/lsst/ </web>
+<tags> *lsst experiment cosmos darkenergy darkmatter </tags>
+<uses>  </uses>
+</org>
+
+<org>
+<name> HARP (PS214) - The Hadron Production Experiment at the PS </name>
+<description> To study hadron production for the neutrino factory 
+and the atmospheric neutrino flux.
+</description>
+<web> http://harp.web.cern.ch/harp/ </web>
+<uses> gaudi </uses> 
+<tags> *harp cern neutrino experiment </tags>
+</org>
+
+<org>
+<name> MINERvA Experiment </name>
+<description>
+MINERvA is a neutrino scattering experiment which uses the NuMI beamline at Fermilab.
+
+MINERvA seeks to measure low energy neutrino interactions both in support of neutrino oscillation experiments and also to study the strong dynamics of the nucleon and nucleus that affect these interactions.
+
+Research goal: Precise measurements of neutrino-nuclear effects and cross sections at 2-20 GeV.
+</description>
+<web> http://minerva.fnal.gov/ </web>
+<location> #fnal </location>
+<status> Medium Energy Run 2013 </status>
+<tags> *minerva fnal neutrino experiment </tags>
+</org>
+
+<org>
+<name> Belle II Experiment </name>
+<description>
+The Belle II detector is a general purpose spectrometer for the next-generation B-factory experiment at KEK. The Belle II efficiently collects data of e+-e− collisions made by the SuperKEKB accelerator.
+
+Research focus: Heavy flavor physics, CP asymmetries, new matter states.
+</description>
+<web> http://belle2.kek.jp/ </web>
+<location> KEK, Tsukuba, Japan</location>
+<status> Physics run 2016 </status>
+<tags> *belle2 bphysics experiment japan kek pnnl intensity </tags>
+</org>
+
+<org>
+<name> BES III Experiment </name>
+<description>
+Research focus: Precision measurements charm, charmonium, tau; search for and study new states of hadronic matter.
+</description>
+<web>  </web>
+<location> IHEP, Beijing, China</location>
+<status> Running </status>
+<tags> *bes3 bphysics experiment china intensity </tags>
+</org>
+
+<org>
+<name> CAPTAIN Experiment </name>
+<description>
+Cryogenic apparatus for precision tests of argon interactions with neutrinos.
+</description>
+<web>  </web>
+<location>Los Alamos, NM, USA</location>
+<status> RnD; test run 2015 </status>
+<tags> *captain experiment us intensity </tags>
+</org>
+
+<org>
+<name> Daya Bay Experiment </name>
+<description>
+Precise determination of θ13.
+</description>
+<web>  </web>
+<location>Dapeng Penisula, China</location>
+<status> Running </status>
+<tags> *dayabay experiment china bnl lbnl intensity root* gaudi* </tags>
+</org>
+
+<org>
+<name> Heavy photon search </name>
+<description>
+Search for massive vector gauge bosons which may be evidence of dark matter or explain g-2 anomaly.
+</description>
+<web>  </web>
+<location>#jlab, Newport News, VA, USA</location>
+<status> Physics run 2015 </status>
+<tags> *heavyphoton experiment jlab us nuclear intensity </tags>
+</org>
+
+<org>
+<name> K0TO Experiment </name>
+<description>
+Discover and measure KL→π0νν to search for CP violation.
+</description>
+<web>  </web>
+<location>J-PARC, Tokai , Japan</location>
+<status> Running </status>
+<tags> *k0to experiment jlab us nuclear intensity </tags>
+</org>
+
+<org>
+<name> LArIAT </name>
+<description>
+LArTPC in a testbeam; develop particle ID & reconstruction.
+</description>
+<web>  </web>
+<location> #fnal </location>
+<status> RnD; Phase I 2013 </status>
+<tags> *lariat experiment lar fnal us intensity </tags>
+</org>
+
+<comment> =================================== <a name="org - providers"></a> ================================ </comment>
+
+<org>
+<name>US DOE High Energy Physics Office</name>
+<description>
+High Energy Physics Office of the US Department of Energy (DOE).
+
+The mission of the US DOE High Energy Physics (HEP) program is to understand how our universe works at its most fundamental level. We do this by discovering the most elementary constituents of matter and energy, exploring the basic nature of space and time itself, and probing the interactions between them. These fundamental ideas are at the heart of physics and hence all of the physical sciences. To enable these discoveries, HEP supports theoretical and experimental research in both elementary particle physics and fundamental accelerator science and technology. HEP underpins and advances the DOE missions and objectives through this research, and by the development of key technologies and trained manpower needed to work at the cutting edge of science.
+
+</description>
+<web>
+http://science.energy.gov/hep/
+</web>
+<tags> *doe provider</tags>
+</org>
+
+<org>
+<name>US DOE Advanced Scientific Computing Research (ASCR) Office</name>
+<description>
+The ASCR program mission is to discover, develop, and deploy computational and networking capabilities to analyze, model, simulate, and predict complex phenomena important to the US Department of Energy (DOE).
+</description>
+<web>
+http://science.energy.gov/ascr/about/
+</web>
+<tags> *ascr cyberinfrastructure doe provider</tags>
+</org>
+
+<org>
+<name>US National Science Foundation (NSF)</name>
+<description>
+The US National Science Foundation (NSF) is an independent federal agency "to promote the progress of science; to advance the national health, prosperity, and welfare; to secure the national defense…" It is the funding source for approximately one quarter of all federally supported basic research conducted by America's colleges and universities. In many fields such as mathematics, computer science and the social sciences, NSF is the major source of federal backing.
+</description>
+<web> http://www.nsf.gov/ </web>
+<tags> *nsf provider </tags>
+</org>
+
+<comment> =================================== <a name="org - other"></a> ================================ </comment>
+
+<org>
+<name> Open Science Grid (OSG) </name>
+<description>
+A community of scientists, researchers, and experts in high throughput computing, based in the US and extending around the world. The OSG represents US LHC and the US LHC cyberinfrastructure in WLCG.
+
+Production services for operation of access to heterogeneous resources across the US - 5 US labs and over 100 universities:
+
+* US contribution to the successful World Wide LHC Computing Grid.
+* 2012-2016 28FTEs supported by DOE and NSF. Used continuously since 2003.
+* Opportunistic sharing of available resources across a mix of sciences.
+* Past 12 months: over 2.0M CPU hours and 1 Petabytes transferred per day. 
+* Expert consulting for users, developers, and resource administrators.
+
+Collaboration across computer, domain and IT scientists:
+
+* Provision of integrated set of CI middleware driven by research community.
+
+New capabilities requested by stakeholders being deployed:
+
+* Intelligent network monitoring and response (with ESNet, I2).
+* Access to High Performance Computing both DOE and NSF, hardware accelerators, new computer and storage technologies as they emerge.
+* Simpler campus based multiple Identity Management (not just X509). 
+* Federated data systems based on XROOTD and/or IRODS supports sharing across multiple communities.
+* Distributed software distribution using CVMFS from CERN.
+* Enabling campus researchers – as easy access to remote resources as local.
+* Resource provisioning including access to cloud resources.
+* Explore mutual benefits from SBIR/STTR and other commercial engagements.
+</description>
+<credit> Lothar Bauerdick
+Ruth Pordes
+</credit>
+<web> http://www.opensciencegrid.org/ </web>
+<uses> condor glideinwms koji </uses>
+<tags> *osg cyberinfrastructure doe community facility wlcg lhc </tags>
+</org>
+
+<org>
+<name> Worldwide LHC Computing Grid (WLCG) </name>
+<description>
+The Worldwide LHC Computing Grid (WLCG) project is a global collaboration of more than 170 computing centres in  40 countries, linking up national and international grid infrastructures.
+
+The mission of the WLCG project is to provide global computing resources to store, distribute and analyse the ~30 Petabytes (30 million Gigabytes) of data annually generated by the Large Hadron Collider (LHC) at CERN on the Franco-Swiss border.
+</description>
+<web> http://wlcg.web.cern.ch/ </web>
+<tags> *wlcg cyberinfrastructure lhc cern community </tags>
+</org>
+
+<org>
+<name> HEPiX - The High Energy Physics Unix Information Exchange </name>
+<description>
+The HEPiX forum brings together worldwide Information Technology staff, including system administrators, system engineers, and managers from the High Energy Physics and Nuclear Physics laboratories and institutes, to foster a learning and sharing experience between sites facing scientific computing and data challenges. Participating sites include BNL, CERN, DESY, FNAL, IHEP, IN2P3, INFN, JLAB, NIKHEF, RAL, SLAC, TRIUMF and many others. The HEPiX organization was formed in 1991, and its semi-annual meetings are an excellent source of information and sharing for IT experts in scientific computing.
+</description>
+<web>
+https://www.hepix.org/
+</web>
+<tags> *hepix community cyberinfrastructure facilities </tags>
+</org>
+
+<org>
+<name> HEP Software Foundation (HSF) </name>
+<description>
+The HEP Software Foundation is an initiative of CERN and the HEP community, in its formative stages in mid 2014.
+
+The mission of the HEP Software Foundation is to
+
+* promote and facilitate the creation, maintenance and lifecycle management of high quality common software of value to HEP and beyond
+* provide a forum for collaboration between software developers within HEP and with other sciences or endeavors;
+* identify community goals and deliverables, and facilitate community contributions.
+</description>
+<contact> John Harvey </contact>
+<web> http://hep-software-foundation.web.cern.ch </web>
+<tags> *hsf cern community communication fce </tags>
+</org>
+
+<org>
+<name> US HEP Forum for Computational Excellence (FCE) </name>
+<description>
+In the recently released US HEP P5 report, one of the recommendations commented on the importance of taking a more coherent approach to computing challenges in HEP. To address this recommendation, DOE HEP is initiating a “Forum for Computational Excellence” (FCE). The FCE will work in concert with the formative [HEP Software Foundation](/e/hsf).
+</description>
+<docref>
+http://science.energy.gov/~/media/hep/pdf/files/Banner%20PDFs/Computing_Meeting_Report_final.pdf | Report from the Dec 2013 Topical Panel Meeting on Computing and Simulations in High Energy Physics, March 2014
+http://science.energy.gov/~/media/hep/hepap/pdf/May%202014/FINAL_P5_Report_Interactive_060214.pdf | P5 HEP strategic plan, May 2014
+</docref>
+<contact> Salman Habib </contact>
+<contact> Rob Roser </contact>
+<tags> *fce doe community communication hsf </tags>
+</org>
+
+<comment> ============================ <a name="=== TOOLS ==="></a> ================================ </comment>
+
+
+<comment> ============================ <a name="tools - code management"></a> ========================= </comment>
+
+<tool>
+<name> C++ </name>
+<tags> *cpp software language </tags>
+</tool>
+
+<tool>
+<name> Koji </name>
+<description>
+Koji is an RPM-based build system. The Fedora Project uses Koji for their build system, as do ​several other projects.
+
+Koji's goal is to provide a flexible, secure, and reproducible way to build software.
+
+Key features:
+
+    * New buildroot for each build
+    * Robust XML-RPC APIs for easy integration with other tools
+    * Web interface with SSL and Kerberos authentication
+    * Thin, portable command line client
+    * Users can create local buildroots
+    * Buildroot contents are tracked in the database
+    * Versioned data
+</description>
+<web> https://fedorahosted.org/koji/wiki
+http://fedoraproject.org/wiki/Koji | Fedora Koji wiki
+</web>
+<uses> rpm </uses>
+<tags> *koji rpm buildmgmt fedora* </tags>
+</tool>
+
+<tool>
+<name> Jenkins </name>
+<description>
+Jenkins monitors executions of repeated jobs, such as building a software project or jobs run by cron. Among those things, current Jenkins focuses on the following two jobs:
+    * Building/testing software projects continuously. Jenkins provides an easy-to-use so-called continuous integration system, making it easier for developers to integrate changes to the project, and making it easier for users to obtain a fresh build. The automated, continuous build increases productivity.
+    * Monitoring executions of externally-run jobs, such as cron jobs and procmail jobs, even those that are run on a remote machine. For example, with cron, all you receive is regular e-mails that capture the output, and it is up to you to look at them diligently and notice when it broke. Jenkins keeps those outputs and makes it easy for you to notice when something is wrong.
+</description>
+<web> http://jenkins-ci.org/ </web>
+<wikipedia> Jenkins_(software) </wikipedia>
+<uses> rpm cron </uses>
+<tags> *jenkins buildmgmt atlas* panda* </tags>
+</tool>
+
+<tool>
+<name> github.com </name>
+<description>
+Universally popular free platform for hosting open source software with git based repositories.
+</description>
+<web> http://github.com </web>
+<tags> *github git opensource </tags>
+</tool>
+
+<tool>
+<name> openhub (formerly ohloh) </name>
+<description>
+Discover, Track and Compare Open Source
+</description>
+<web> https://www.openhub.net/ </web>
+<tags> *openhub *ohloh git codemgmt webservice opensource doc community </tags>
+</tool>
+
+<tool>
+<name> LXR code indexing and cross referencing system </name>
+<description>
+</description>
+<contact> Alex Undrus </contact>
+<web> http://lxr.sourceforge.net/ </web>
+<wikipedia> LXR_Cross_Referencer </wikipedia>
+<tags> *lxr webservice opensource </tags>
+</tool>
+
+<tool>
+<name> scons </name>
+<tags> *scons opensource </tags>
+</tool>
+
+<comment> ============================ <a name="tools - issue tracking"></a> ========================= </comment>
+
+<tool>
+<name> Savannah </name>
+<tags> *savannah opensource </tags>
+</tool>
+
+<tool>
+<name> JIRA </name>
+<tags> *jira </tags>
+</tool>
+
+<comment> ============================ <a name="tools - hep community"></a> ========================= </comment>
+
+<project>
+<name> LBNE collaboration database web service </name>
+<description>
+Web service with LDAP back end providing a collaboration membership database. Implemented for LBNE, generalizable.
+</description>
+<contact> Brett Viren </contact>
+<web>
+LBNE collaboration database viewer | https://lbne.bnl.gov/web
+</web>
+<tags> *lbnecollabdb lbne bnl communication webservice </tags>
+</project>
+
+<comment> ============================ <a name="tools - database"></a> ========================= </comment>
+
+<project>
+<name> COOL </name>
+<description>
+COOL's goal is to provide common software solutions for the storage and management of the conditions data of the experiments installed on the LHC ring at CERN. COOL software development is the result of a collaboration between Atlas and LHCb, the two LHC experiments that have chosen COOL to manage their conditions data, together with the ES group of the CERN IT Department, which also provides the overall project coordination.
+</description>
+<web> https://twiki.cern.ch/twiki/bin/view/Persistency/Cool </web>
+<tags> *cool db conditions database calibration mysql oracle frontier cpp wlcg  atlas* lhcb* </tags>
+</project>
+
+<project>
+<name> CORAL - COmmon Relational Abstraction Layer </name>
+<description>
+The primary goal of CORAL is to provide functionality for accessing data in relational databases using a C++ and SQL-free API, shielding the user from the technology-specific APIs and removing at the same time the need to submit directly SQL commands. CORAL allows the development of software components that can be used without any code modification or conditional constructs against multiple relational technologies.
+</description>
+<web> https://twiki.cern.ch/twiki/bin/view/Persistency/Coral </web>
+<tags> *coral db  conditions database calibration mysql oracle frontier cpp wlcg </tags>
+</project>
+
+<project>
+<name> Frontier </name>
+<description>
+The Frontier distributed database caching system distributes data from data sources to many clients around the world. The name comes from "N Tier" where N is any number and Tiers are layers of locations of distribution. The protocol is http-based and uses a RESTful architecture which is excellent for caching and scales well. The Frontier system uses the standard web caching tool squid to cache the http objects at every site. It is ideal for applications where there are large numbers of widely distributed clients that read basically the same data at close to the same time, in much the same way that popular websites are read by many clients. 
+</description>
+<uses> tomcat squid oracle </uses>
+<web> http://frontier.cern.ch/ 
+https://twiki.cern.ch/twiki/bin/view/Frontier/FrontierOverview | Overview
+</web>
+<tags> *frontier db conditions database calibration oracle cern fnal atlas* cms* cdf* </tags>
+</project>
+
+<comment> ============================ <a name="tools - communication"></a> ========================= </comment>
+
+<tool>
+<name> reddit </name>
+<tags> *reddit doc communication opensource </tags>
+</tool>
+
+<project>
+<name> HEPsoftware.org </name>
+<description>
+HEPsoftware.org is a grass roots initiative to seed and explore the possibilities of a HEP software and computing community site, service suite and communication platform built from voluntary participation and an open source model of community collaboration, leveraging as much as possible the wider open source community.
+
+The coming years will be marked by major software re-engineering efforts as we adapt to new processor architectures and work to leverage ever more computing platforms in order to maximize the physics return on our computing in a tight budget environment. There is a premium on maximizing collaboration and minimizing redundant efforts. Towards this end HEPsoftware.org seeks to increase communication and awareness across the community.
+
+It aims to 'crowd source' the HEP software and computing community into creating an open site and service platform useful to the community. It is independent of "resource providers" (labs, funding agencies etc.) but of course will collaborate with more formal initiatives emerging from them like the HEP Software Foundation seeded by CERN and the HEP Forum for Computational Excellence (FCE) created by the DOE in the US.
+
+HEPsoftware.org aims to contribute a grass roots element and approach as a complement to more formally organized activities. It seeks to engage HEP developers and technical experts in creating a community that enables them to more effectively collaborate, among themselves and with the wider world, through greater awareness and communication and lower barriers to collaboration.
+</description>
+<contact> Torre Wenaus </contact>
+<uses> django markdown mysql xml </uses>
+<tags> *hepsoftware community communication webservice bnl </tags>
+</project>
+
+<comment> ============================ <a name="tools - documentation"></a> ========================= </comment>
+
+
+
+<comment> ============================ <a name="tools - web"></a> ========================= </comment>
+
+<tool>
+<name> markdown </name>
+<description>
+Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).
+</description>
+<web> http://daringfireball.net/projects/markdown/ </web>
+<web> http://daringfireball.net/projects/markdown/syntax | syntax </web>
+<wikipedia> GitHub_Flavored_Markdown </wikipedia>
+<tags> *markdown  doc web html opensource hepsoftware* </tags>
+</tool>
+
+<tool>
+<name> Foundation </name>
+<description>
+ZURB Foundation is a free collection of tools for creating websites and web applications. It contains HTML and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions.
+</description>
+<web> http://foundation.zurb.com/ </web>
+<wikipedia> Foundation_(framework) </wikipedia>
+<tags> *foundation web html opensource panda* </tags>
+</tool>
+
+<tool>
+<name> twiki </name>
+<description>
+Open Source Enterprise Wiki and Web Application Platform
+</description>
+<web> http://twiki.org/ </web>
+<tags> *twiki doc web html opensource </tags>
+</tool>
+
+<comment> ============================ <a name="=== SOFTWARE ==="></a> ========================= </comment>
+
+
+<comment> ============================ <a name="software - daq/online"></a> ========================= </comment>
+
+<comment> ============================ <a name="software - gener"></a> ========================= </comment>
+
+<project>
+<name> Pythia Event Generator </name>
+<description>
+PYTHIA is a program for the generation of high-energy physics events, i.e. for the description of collisions at high energies between elementary particles such as e+, e-, p and pbar in various combinations. It contains theory and models for a number of physics aspects, including hard and soft interactions, parton distributions, initial- and final-state parton showers, multiple interactions, fragmentation and decay. It is largely based on original research, but also borrows many formulae and other knowledge from the literature.
+
+PYTHIA was originally written in FORTRAN 77, until the release of PYTHIA 8.1 which was rewritten in C++. Both the Fortran and C++ versions are being maintained because not all components were merged into the 8.1 version. However, the latest version already includes new features not available in the Fortran release. Torbjörn Sjöstrand, Stefan Ask, Richard Corke, Stephen Mrenna, Stefan Prestel, and Peter Skands are the main contributors to PYTHIA.
+
+From Heidi: 
+
+Pythia is a primary tool for interpreting data at the Energy Frontier
+
+* Generates complete events of proton-proton collisions up to the detector simulation-level
+* Originated in 1980’s from attempt to understand PETRA data
+* User manual was the most-highly cited HEP publication of 2012
+* Successful because of its responsiveness to experimental and theoretical developments
+
+Current State
+
+* "Best" models of soft physics that underlies hard events
+* Framework is highly adaptive to advances in Standard Model and Exotic theory
+* The primary event generator of all HEP experiments, but also used widely by CF, IF, and theorists
+* 1 FTE in US, 3-4 FTE in Europe 
+* Developers at Lund, CERN, and Fermilab
+</description>
+<credit> Heidi Schellman </credit>
+<web> http://home.thep.lu.se/~torbjorn/Pythia.html </web>
+<wikipedia> PYTHIA </wikipedia>
+<tags> *pythia gener theory qcdgener cpp lund cern fnal atlas* cms* lhc*  </tags>
+</project>
+
+<project>
+<name> HepMC </name>
+<description>
+The HepMC package is an object oriented event record written in C++ for High Energy Physics Monte Carlo Generators. 
+</description>
+<web> http://lcgapp.cern.ch/project/simu/HepMC/ </web>
+<tags> *hepmc cpp gener persistency common cern fnal </tags>
+</project>
+
+<project>
+<name> HepPDT </name>
+<description>
+HepPDT contains the fixed data about each particle type. In other words, it contains the data that can be found in the Review of Particle Properties. 
+</description>
+<web> http://lcgapp.cern.ch/project/simu/HepPDT/
+https://savannah.cern.ch/projects/heppdt/ | savannah
+http://cepa.fnal.gov/psm/stdhep/numbers.shtml | MC particle numbering scheme </web>
+<tags> *heppdt cpp gener common cern fnal </tags>
+</project>
+
+<comment> ============================ <a name="software - detsimu"></a> ========================= </comment>
+
+<project>
+<name> Geant4 </name>
+<description>
+Geant4 (for GEometry ANd Tracking) is a platform for the simulation of the passage of particles through matter, using Monte Carlo methods. It is the C++ successor of the GEANT series of software toolkits developed by CERN. It is managed by the international Geant4 Collaboration. Application areas include high energy physics and nuclear experiments, medical, accelerator and space physics studies. The software is used by many research projects around the world.
+</description>
+<contact> Makoto Asai </contact>
+<web> http://www.geant4.org/ </web>
+<wikipedia> Geant4 </wikipedia>
+<tags> *geant4 geant4mt detsimu simu cpp cern slac </tags>
+</project>
+
+<project>
+<name> Chroma </name>
+<description>
+Chroma is an open source optical photon Monte Carlo which simulates standard physics processes such as diffuse and specular reflections, refraction, absorption, Rayleigh scattering, and scintillation. 
+
+Photons are propagated in parallel on many-core modern GPUs. 
+
+Chroma can propagate 2.5 million photons/sec in a large detector with 29,000 PMTs. This is roughly 200 times faster than the same simulation with Geant4. 
+</description>
+<credit> Mayly Sanchez </credit>
+<contact> Stan Seibert </contact>
+<contact> Anthony LaTorre </contact>
+<web>  </web>
+<tags> *chroma detsimu simu geant4 upenn uchicago intensity </tags>
+</project>
+
+<project>
+<name> Geant4 on HPCs </name>
+<description>
+* ATLAS uses ~800M CPU-hours per year. They have 30K cores pledged for simulation at any given time, but they need and use much more (40-50k). Big backlog.
+* Using these machines in ATLAS will require a front-end which accepts jobs to OSG, starts the job, does the initialization and db access, and then accepts the output and finalizes the job. Back-fill idle time.
+* So where are they at? Geant, ROOT and ALPGEN all have been run at ANL’s Intrepid. 
+* For a taste of performance: generating 100M toy MC using ROOT starting with a polynomial distribution, poisson fluctuation for each bin and fitt to a Gaussian. Takes 18 mins on 0.6% of Intrepid which would take 500 CPU-hours on x86.
+* Right now 10,000 CPU hours of toy MC which is typically run in 200 nodes x 200 hours which gets to the answer in about a week. 
+    * Using HPCs you could do this in a day. 
+* What would it be with Geant4 multithreading?
+</description>
+<credit> Mayly Sanchez </credit>
+<contact> Tom LeCompte </contact>
+<web>  </web>
+<tags> *g4hpc geant4 geant4mt hpc intrepid alcf </tags>
+</project>
+
+<project>
+<name> HepForge </name>
+<description>
+Hepforge is a development environment for high energy physics software projects.
+
+Some of the benefits offered by Hepforge are:
+
+* Unrestricted shell account
+* Web page hosting
+* Public Subversion hosting
+* Mailing lists
+* Bug tracker and wiki system
+</description>
+<web> https://www.hepforge.org// </web>
+<logo> https://www.hepforge.org/images/hepforge-icon-medium </logo>
+<tags> *hepforge community tool webservice development  </tags>
+</project>
+
+<project>
+<name> G4beamline </name>
+<description>
+Used for beamline design. Extensively used at FNAL and by IF experiments. Owned by Muons, Inc.
+
+__img_g4beamline
+</description>
+<credit> Bob Bernstein </credit>
+<web> http://public.muonsinc.com/Projects/G4beamline.aspx  </web>
+<uses> geant4 </uses>
+<tags> *g4beamline simu commercial accelerator neutrino fnal* mu2e* g-2* </tags>
+</project>
+
+<project>
+<name> MARS </name>
+<description>
+* Neutron flux, radiation damage, shielding. 
+* Developed since 1974.
+* Core tool at FNAL, FORTRAN, no migration to modern languages.
+* An easier version of MCNP (used in weapons research). 
+
+__img_mars
+
+</description>
+<credit> Bob Bernstein </credit>
+<web> http://mu2e.fnal.gov/atwork/computing_atwork/mu2emars.shtml | MARS for Mu2e (protected)  </web>
+<tags> *mars simu commercial accelerator neutrino fnal* mu2e* g-2* </tags>
+</project>
+
+<project>
+<name> LArSoft </name>
+<description>
+Historical Context
+
+* Complete package for simulation, reconstruction and analysis of LAr
+* Started with ArgoNeut but general need was obvious
+* Had been "human-intervention" software in ICARUS, wanted  need was coming for a general set of tools in US. 
+* Success wrt multiple experiments are using it, code adaptable to new experiments.  ArgoNeut has published papers using largely detector-agnostic software
+    * Support for operating systems beyond SLF is in development; plans in place to identify most used options
+    * LArSoft is making use of efforts of art group to facilitate distributions to non-FNAL sites
+
+Current State
+
+* This is a unique tool and new groups are looking at it.  Unique methodology as well
+* Multiple experiments (ArgoNeut, microBOONE, LBNE, CAPTAIN, LArIAT, test beams in Japan
+* 10 people on LBNE; 5-6 analyses on ArgoNEUT; 30 post-docs on MicroBOONE.  This is growing, derivative strongly positive as is second derivative
+* FNAL SCD supports it: it is based on “art.”  In steady-state close to 2 FTE.  15 FTE Developers (big overlap with people above)
+
+New Model: cross-experiment software but technology and detectors are similar.  Overall this will reduce cost and enable people to move among experiments
+
+Idea from MINOS/NOvA: use MINOS algorithms for NOvA; here, share knowledge and methods
+
+</description>
+<credit> Bob Bernstein </credit>
+<web> https://cdcvs.fnal.gov/redmine/projects/larsoftsvn </web>
+<tags> *larsoft detsimu reco fnal microboone* lbne* neutrino </tags>
+<paper> 
+http://arxiv.org/abs/1311.6774 | LArSoft: A Software Package for Liquid Argon Time Projection Drift Chambers
+</paper>
+</project>
+
+<comment> ============================ <a name="software - reco"></a> ========================= </comment>
+
+<project>
+<name> GenFit </name>
+<description>
+A generic toolkit for track reconstruction for experiments in particle and nuclear physics
+</description>
+<web> http://genfit.sourceforge.net/Main.html </web>
+<tags> *genfit </tags>
+</project>
+
+
+<comment> ============================ <a name="software - calibration"></a> ========================= </comment>
+
+
+<comment> ============================ <a name="software - data management"></a> ========================= </comment>
+
+<tool>
+<name>bbcp</name>
+<description>
+Historical Context
+
+   * Widely used LAN/WAN peer-to-peer file copy utility
+   * Originally developed at SLAC in the late 90’s for BaBar
+   * Manual at http://www.slac.stanford.edu/~abh/bbcp/
+   * Its expansive feature set, performance capabilities, and well understood command line syntax have made it successful and very popular
+
+Current State
+
+   * bbcp still excels in the state of the art by providing a simple and secure way to copy files at maximum possible speed; has integrated checksums, selectable compression, and optional pre- and post processing; no special infrastructure needed
+   * Widely used in industry/academia/Labs to copy data files across sites
+   * Hanushevsky (original developer) and Kroger support as needed
+   * Open-sourced under BSD and supported on a best-effort basis along with user community contributions
+
+</description>
+<credit> Salman Habib </credit>
+<tags> *bbcp datamgmt
+doecce201412 | presented at
+</tags>
+</tool>
+
+<project>
+<name>XRootD</name>
+<description>
+Historical Context
+
+   * XRootD is a server clustering and high performance data access system
+   * Originally developed at SLAC in early 2000 for BaBar as a persistency replacement for Objectivity/DB
+   * Information on XRootD can be found at http://xrootd.org/
+   * Its ability to cluster any kind of storage and provide secure high speed data access have made it a success
+
+Current State
+
+   * Only scalable diverse storage clustering system of its kind that also provides a high level of performance for random I/O
+   * Widely used in HEP and Astrophysics (ALICE, ATLAS, CMS, BaBar, EXO, Fermi/GLAST, LSST, --) to provide scalable access to experimental data
+   * Development and support provided by the international XRootD Collaboration (CERN, Duke, JINR, SLAC, UCSD, and UNL) with additional contributions from OSG and WLCG (a total of approximately 5 FTE)
+</description>
+<contact> Andy Hanushevsky </contact>
+<credit> Salman Habib </credit>
+<web> http://xrootd.org/ </web>
+<tags> *xrootd slac cern datamgmt storagemgmt opensource aaa* fax* atlas* cms* </tags>
+</project>
+
+<project>
+<name>FAX</name>
+<description>
+Data federation system based on xrootd, designed to
+* Create a common ATLAS namespace across all storage sites, accessible from anywhere 
+* Provide easy to use, homogeneous access to data
+</description>
+<contact> Rob Gardner </contact>
+<contact> Ilija Vukotic </contact>
+<web> 
+http://1-dot-waniotest.appspot.com/ | FAX status board
+</web>
+<uses> xrootd </uses>
+<tags> *fax xrootd datamgmt aaa storagemgmt opensource atlas* </tags>
+</project>
+
+<project>
+<name>AAA - Any data, Anytime, Anywhere</name>
+<description>
+Data federation system based on xrootd.
+</description>
+<contact> Brian Bockelman </contact>
+<web> 
+</web>
+<uses> xrootd </uses>
+<tags> *aaa xrootd aaa datamgmt storagemgmt opensource cms* </tags>
+</project>
+
+<project>
+<name>EOS</name>
+<description>
+The EOS project was started in April 2010 in the IT DSS group. The main goal of the project is to provide fast and reliable disk only storage technology for CERN LHC use cases.
+</description>
+<contact> Dirk Duellmann </contact>
+<web>
+https://eos.cern.ch/ | EOS Project
+https://twiki.cern.ch/twiki/bin/view/EOS/WebHome | EOS twiki
+</web>
+<uses> xrootd </uses>
+<tags> *eos cern datamgmt storagemgmt opensource atlas* cms* lhc* </tags>
+</project>
+
+<definition>
+<name>Federated Storage</name>
+<type>architecture</type>
+<description>
+Historical Context
+
+   * #XRootD is a server clustering and high performance data access system
+   * Originally developed at SLAC in early 2000 for BaBar as a persistency replacement for Objectivity/DB
+   * Its ability to cluster any kind of storage and provide secure high speed data access have made it a success
+
+Current State
+
+   * Only scalable diverse storage clustering system of its kind that also provides a high level of performance for random I/O
+   * Widely used in HEP and Astrophysics (ALICE, ATLAS, CMS, BaBar, EXO, Fermi/GLAST, LSST, --) to provide scalable access to experimental data
+   * Development and support provided by the international XRootD Collaboration (CERN, Duke, JINR, SLAC, UCSD, and UNL) with additional contributions from OSG and WLCG (a total of approximately 5 FTE)
+</description>
+<credit> Salman Habib </credit>
+<tags> *fedstorage datamgmt storagemgmt atlas cms osg xrootd http aaa fax
+</tags>
+</definition>
+
+<project>
+<name> Rucio </name>
+<description>
+Rucio is the new version of ATLAS Distributed Data Management (DDM) system services for allowing the ATLAS collaboration to manage the large volumes of data, both taken by the detector as well as generated or derived, in the ATLAS distributed computing system. Rucio uses to manage accounts, files, datasets and distributed storage systems.
+</description>
+<web> http://rucio.cern.ch/ 
+https://its.cern.ch/jira/browse/RUCIO | Project tracker
+https://www.ohloh.net/p/rucio/ | Code analytics and search
+ </web>
+<repo> https://www.ohloh.net/p/rucio/ </repo>
+<uses> hadoop oracle activemq pig graphite nagios ohloh </uses>
+<tags> *rucio atlas datamgmt </tags>
+</project>
+
+<comment> ============================ <a name="software - distributed processing"></a> ==================== </comment>
+
+<project>
+<name> PanDA Production and Distributed Analysis System </name>
+<description>
+The PanDA Production ANd Distributed Analysis system was developed to meet ATLAS requirements for a data-driven workload management system for production and distributed analysis processing at LHC's massive data processing scale. It subsequently has been extended for use beyond ATLAS for distributed computational science up to the exascale. PanDA currently processes well over an exabyte of (input) data per year.
+</description>
+<contact> Kaushik De, Alexei Klimentov, Torre Wenaus </contact>
+<web>
+https://twiki.cern.ch/twiki/bin/view/PanDA/PanDA | PanDA home
+https://twiki.cern.ch/twiki/bin/viewauth/AtlasComputing/PanDA | PanDA ATLAS internal home
+http://bigpanda.cern.ch | BigPanDA monitor -- ATLAS
+http://pandawms.org | BigPanDA monitor -- OSG et al
+http://atlascloud.org:8080/pandawms/ | BigPanDA home
+</web>
+<uses> htcondor apache python mysql oracle autopyfactory </uses>
+<tags> *panda distsw wms datamgmt atlas bnl uta ascr doe webservice nersc olcf mira</tags>
+</project>
+
+<project>
+<name> HTCondor </name>
+<description>
+HTCondor is an open-source high-throughput computing software framework for coarse-grained distributed parallelization of computationally intensive tasks. It can be used to manage workload on a dedicated cluster of computers, and/or to farm out work to idle desktop computers – so-called cycle scavenging.
+</description>
+<contact> Miron Livny  </contact>
+<web> http://research.cs.wisc.edu/htcondor/ 
+http://research.cs.wisc.edu/htcondor/anniversary.html | 2014 is HTCondor's 30th anniversary!
+</web>
+<wikipedia> HTCondor </wikipedia>
+<tags> *htcondor *condor distsw wms opensource </tags>
+</project>
+
+<project>
+<name> glideinWMS </name>
+<description>
+The purpose of GlideinWMS is to provide a simple way to access Grid resources. GlideinWMS is a Glidein Based WMS (Workload Management System) that works on top of HTCondor. Glideins are like placeholders, are a mechanism by which one or more remote resources temporarily join a local HTCondor pool. The HTCondor system is used for scheduling and job control.
+</description>
+<web>
+http://www.uscms.org/SoftwareComputing/Grid/WMS/glideinWMS/doc.prd/index.html
+</web>
+<uses> htcondor  </uses>
+<tags> *glideinwms distsw wms cms ucsd fnal cdf</tags>
+</project>
+
+<task>
+<name> Workload Management </name>
+<description>
+* LHC computing has always involved utilizing highly distributed, heterogeneous resources for its processing
+* The future is even more challenging: more resources, more heterogeneous (HPCs, clouds, volunteer computing, …), and the need to utilize diverse distributed resources opportunistically extends well beyond the LHC
+* Processing is data intensive and at a large scale – ATLAS data volume currently 150 PB, processed on ~160k cores globally in steady state
+* Operational demands must be low – manpower is scarce – requiring high automation, robustness, effective monitoring/diagnostics
+* These requirements met through workload management systems
+* Common tools include
+    * HTCondor, the indispensable backbone. SE middleware used but not needed beyond providing a HTCondor endpoint.
+    * PanDA, the distributed production and analysis system of ATLAS, now being extended to other experiments and sciences (CMS, AMS, ALICE, ASCR/DOE-HEP BigPanDA project…)
+    * glideinWMS, an extension over HTCondor allowing easy, uniform access to distributed HTCondor resources. Used by CMS, OSG Vos
+* FTEs: Significant. PanDA draws on ~4-5 FTEs in ATLAS (3 FTEs on core PanDA) and the BigPanDA program currently supports 3 more.
+* Future: an area of active evolutionary growth. Systems proven and hardened at the LHC being extended for Run 2 and generalized for take-up by other communities.
+</description>
+<credit> Torre Wenaus </credit>
+<uses> jobexec </uses>
+<tags> *wms distsw  </tags>
+</task>
+
+<task>
+<name> Job Execution and Resource Provisioning </name>
+<description>
+* LHC computing has been very successful in utilizing the High-Throughput Computing approach in a distributed environment where heterogeneous and increasingly transient resources are provided by a large variety of sites
+* In future the LHC requires to marshal more more resources that are more heterogeneous (HPCs, clouds, volunteer computing, …). The need to utilize diverse distributed resources opportunistically extends well beyond the LHC.
+* In the Open Science Grid (and the Worldwide LHC Computing Grid) the approach of running a “Job Execution Overlay” based on a Pilot-Job infrastructure has proven very successful
+    * Pilot jobs get scheduled at sites through site submission interfaces, and “Pilot Factories” hide the details of how to submit jobs to site
+    * Pilot jobs then can pull “payload” jobs from workload management systems, which orchestrate and schedule the production and analysis workload of the experiments
+    * This pilot approach is flexible, not tied to any particular VO, and coherently provides features such as monitoring, logging, profiling, etc 
+* Common tools include
+    * HTCondor, the indispensable backbone, providing scheduling and encapsulating resource access, including site security and access control, traceability etc
+    * glideinWMS, an extension over HTCondor allowing easy, uniform access to distributed HTCondor resources. Used by CMS, OSG VOs
+    * The AutoPyFactory system, providing the pilot infrastructure for the PanDA workload management system for Atlas and others
+* Future: Open Science Grid started to define a “Resource Provisioning” architecture to provision CPU resources more dynamically, accountably and configurably, this way enabling coherent access to clouds and allocation-based resources
+</description>
+<credit> Lothar Bauerdick </credit>
+<credit> Torre Wenaus </credit>
+<uses> htcondor </uses>
+<tags> *jobexec distsw pilotjobs autopyfactory* glideinwms* panda* </tags>
+</task>
+
+<task>
+<name> Data Access and Management </name>
+<description>
+* LHC’s large scale data-intensive computing is distributed across  over 100 sites, making the distribution and management of data very challenging
+* Storage is the most expensive component of LHC computing (manpower aside) so optimizing storage usage and data management to minimize storage needs is crucial, and a major focus of the LHC computing upgrades now underway
+* A very welcome trend is underway to better utilize our own invention, http, as a highly scalable and very well supported basis for data access and movement
+* Common tools include
+    * Xrootd
+    * Grid middleware: gridftp, FTS, SEs, …
+    * Federated storage systems, based on xrootd today and also http in the (near) future
+    * Data management systems developed in-house in the experiments: DQ2 and Rucio (ATLAS), Phedex (CMS), … have some but not extensive usage beyond their originating experiments (correct for ATLAS at least)
+    * Very strong leverage of open source particularly for http based data access; the whole http ecosystem. Also object store technologies like S3
+* Future: next-gen in-experiment systems like Rucio, object stores,…
+* FTEs: loads. DQ2/Rucio alone is 5-7 FTEs (all non US).
+
+</description>
+<credit> Torre Wenaus </credit>
+<tags> *datamgmt distsw rucio phedex dq2  </tags>
+</task>
+
+<definition>
+<name>Distributed Network Aware Systems</name>
+<description>
+* Looking Back: Resources and challenges grew at different rates: Compare Tevatron vs LHC (2003-12)
+    * Computing capacity/experiment: 30+ X; Storage capacity: 100-200 X
+    * Data served per day: 400 X; WAN Capacity to Host Lab 100 X
+    * TA Network Transfers Per Day 100 X
+* Looking Forward: Storage and networking unlikely to be affordable within constant budgets, with our current methodology
+* We need to make better use of all of: dedicated, opportunistic resources, cloud resources
+* Coordinating storage, computing and networks: all as active elements of a new class of global scale distributed system
+* Built-in intelligence for data placement, efficient workflow, and reducing operational complexity is a must.  
+* We need to build on deep experience with key technologies: high throughput among storage systems over networks (e.g. FDT); autonomous global monitoring systems (e.g MonALISA); software defined networking
+* We need to leverage experience and ongoing developments in relevant projects: LHCONE, DYNES, and ANSE
+</description>
+<credit> Harvey Newman </credit>
+<tags> *smartnet network facility  distsw  lhcone dynes anse lhc cyberinfrastructure datamgmt wms </tags>
+</definition>
+
+<project>
+<name>US LHCnet</name>
+<description>
+* Mission-oriented transatlantic network for HEP data transport, focused on LHC
+    * Integral part of LHCOPN and LHCONE
+    * US CMS and US ATLAS resource
+    * Network managed and operated by Caltech (H. Newman’s group)
+        * In close collaboration with CERN
+    * Services to US Tier 1s provided in collaboration with ESnet
+    * Focused on high-availability and high-throughput services through solid design including Layer 1, 2 and 3 components and services
+* Success due to mission focus,  comprehensive system approach, industry relations, focused R&D, long-term planning for scalability in sync with HEP needs
+    * Direct feedback between production, R&D, pre-production instantiation!
+* Active in Research and Development for best next generation solutions
+    * OLiMPS: research use of OpenFlow for optimizing throughput and robustness
+    * ANSE: interface between CMS/ATLAS data and workflow management and advanced network capabilities (Monitoring, capacity allocation)
+    * DYNES: bringing dynamic circuit services to 40 US campuses, including US Tier2s
+Current State
+* Used by CERN/BNL/FNAL (LHCOPN), all LHC computing sites (LHCONE)
+* Solid operations, unprecedented robustness in transatlantic R&E networking
+* Investing in research of next generation technologies and their use in HEP computing
+* Network as an active resource, not a passive service!
+* Currently 4 FTEs (US LHCNet team) + 2 R&D FTEs in synergistic projects (ANSE (NSF), OLiMPS (DOE/OASCR))
+</description>
+<credit> Harvey Newman </credit>
+<credit> Artur Barczyk </credit>
+<tags> *uslhcnet network facility lhcone dynes anse lhc cyberinfrastructure </tags>
+</project>
+
+<project>
+<name>LHCONE (LHC Open Network Environment)</name>
+<description>
+* Started in 2010 to address/avert intercontinental connectivity bottleneck for Tier2 related LHC traffic
+    * maintain high quality services for the LHC community
+    * protect R and E network infrastructures against effects of large data flows
+* Today has 2 main components:
+    * transitioning to operational status: multipoint service similar to existing general internet, but private to the LHC community
+    * under construction: point-to-point service with dedicated capacity and traffic separation
+* Investigating use of SDN in the future
+* Fits/supports ScienceDMZ model
+* Multipoint service today connects 44 LHC computing sites (Tier0/1/2)
+* Supported/provided by many NRENs in US and Europe, Asia, and soon South America
+* Success yet to be evaluated
+    * First feedback 'encouraging', but struggling with complexity in current deployment
+    * Operational model yet to emerge
+* Global engagement, hard to quantify, many fractional FTEs in NRENs and at LHC computing sites
+</description>
+<credit> Harvey Newman </credit>
+<credit> Artur Barczyk </credit>
+<tags> *lhcone network facility lhcopn dynes anse lhc cyberinfrastructure </tags>
+</project>
+
+<project>
+<name>LHCOPN (LHC Optical Private Network)</name>
+<description>
+* Layer 2 network between LHC Tier1s
+* Created ca 2005 in order to guarantee good network performance for the data transfer between CERN and Tier1s
+* Extended to encompass Tier1-Tier1 connectivity
+* Proved highly resilient and scalable. Main success factors
+    * simplicity of design
+    * simple operational model
+    * driven by users (Tier0+Tier1s)
+* Currently forms the most stable backbone for primary LHC data movement
+* Each Tier0/1 site contributes operational manpower
+    * thanks to maturity of solution, effort required is minimal, typically integrated in data center network staff
+    * underlying Layer 1 and 2 services sourced from NRENs and commercial carriers
+</description>
+<credit> Harvey Newman </credit>
+<credit> Artur Barczyk </credit>
+<tags> *lhcopn network facility lhcone dynes anse lhc cyberinfrastructure </tags>
+</project>
+
+<org>
+<name>ESnet</name>
+<description>
+ESnet provides the high-bandwidth, reliable connections that link scientists at US national laboratories, universities and other research institutions, enabling them to collaborate on some of the world's most important scientific challenges including energy, climate science, and the origins of the universe. Funded by the DOE Office of Science, and managed and operated by the ESnet team at Lawrence Berkeley National Laboratory, ESnet provides scientists with access to unique DOE research facilities and computing resources. 
+
+ESnet is committed to support HEP.
+
+* Historical Context
+    * 2004-2006: While the network serves all of DOE's Office of Science, HEP large flows dominate ESnet's traffic
+    * 2007-2009: Built ESnet4, first national-scale network for data-intensive science
+    * ATLAS and CMS Tier 1's US traffic supported for LHCOPN
+    * Three pronged approach to networking
+        * Requirements gathering from the SC community driving network bandwidth and targeted services, especially HEP
+        * Design and build multi-domain services to enable high-performance use of networks by global science collaborations
+        * Anticipate and develop future network capabilities with an active program of research, innovation and software development.
+    * Invested in two widely adopted open-source software activities + evangelism to the entire global NREN community to help HEP
+        * perfSONAR: distributed, multi-domain, performance monitoring (900 deployments globally, specific LHC experiment dashboards)
+        * OSCARS: on-demand virtual circuits, led standards development to increase adoption within global community. About 40% of ESnet traffic and most of HEP traffic carried over these circuits, software installed in about 40+ networks.
+* Current State and Future Activities
+    * 2010-2012: Built ESnet5, world’s first 100Gbps national scale Science Network w/ capacity for 13 Tbps (13,000 miles dark fiber)
+    * 2012-2013: Good performance requires end-to-end architecture optimized for science: ScienceDMZ
+        * NSF CC-NIE grants have funded ScienceDMZ deployments and high-speed WAN services for science at over 50 universities
+    * Leadership in current LHCONE VRFs and planned LHCONE P2P experiment, supporting HEP innovations in computing and data distribution
+    * ~45 FTE distributed team supporting Network Engineering, Science Engagement, Operations and Network Innovation
+        * World-class Network Engineering team providing the core foundation of ESnet services for science
+        * Operational facility orientation provides high-network availability and quick response time
+        * Newly formed Science Engagement team helps scientists solve end-to-end performance problems and better use the network
+        * Network Innovation and Research team tackles longer-term application-network issues making it easier and more visible to apps
+        * Open-source software development and visualization tools ultimately help accelerate science outcomes through wide adoption
+        * Active standards participation and global R&E network engagement helps provide consistency for HEP global collaborations
+    * Near Future:
+        * Build a European extension of ESnet’s core network across the Atlantic – the project still under discussion
+        * Internationally recognized for innovations in applying Software-Defined Networking (SDN) to science problems, new technology to       help bridge current gap between applications and networks
+</description>
+<credit> Inder Monga </credit>
+<web> http://www.es.net/ </web>
+<wikipedia> Energy_Sciences_Network </wikipedia>
+<tags> *esnet doe ascr lbnl network facility us lhcone lhcopn perfsonar oscars lhc cyberinfrastructure sciencedmz* </tags>
+</org>
+
+<org>
+<name>ASCR Computing Facilities</name>
+<description>
+* Historical Context
+    * 1974: NERSC founded (as MFECC); 1983: NERSC role expanded to support research funded by all Office of Science programs
+    * 2004: LCF centers at ORNL and ANL, INCITE program established to support research at the highest end, regardless of funding source
+    * 2010: ASCR Leadership Computing Challenge (ALCC) established to support projects related to the DOE’s mission and broadening the community of researchers on leadership computing resources
+* Current State
+    * ALCF operates Mira: IBM BG/Q, 10 PF/s peak, 49,152 nodes, 786,432 IBM PowerPC A2 cores, 786 TB memory, 27.5 PB online storage, HPSS tape storage, #5 in Top500
+    * OLCF operates Titan: Cray XK7, 27 PF/s peak, 18,688 compute nodes, 299,008 AMD Opteron cores, 598 TB of non-GPU memory, and 18,688 NVIDIA K20 Kepler GPUs with 112 TB of memory, 40 PB online storage, HPSS tape storage, #2 in Top500
+    * NERSC operates Edison: Cray XC30, 2.4 PF/s peak, 5,200 compute nodes, 124,800 Intel Ivy Bridge cores, 332 TB memory, 6 PB online storage, and Hopper: Cray XE6, 1.3 PF peak, 6,384 compute nodes, 153,216 AMD Magny Cours cores, 212 TB memory, 2 PB online storage
+    * All systems are heavily used by HEP research projects, LQCD, astrophysics, cosmology, accelerator design
+* Near Future
+    * ~Dec. 2013, selection of NERSC-8 system late 2013/early 2014, 10-30 times the sustained performance over Hopper, which is 144 TF)
+    * ~2014Q2, selection of ALCF-3 and OLCF-4 systems, 100-200 PF peak each
+* Future Activities
+    * 2015: NERSC-8 system delivered
+    * 2017: ALCF-3 and OLCF-4 delivered
+</description>
+<credit> Paul Messina </credit>
+<web>  </web>
+<wikipedia>  </wikipedia>
+<tags> *ascrfacilities ascr doe ascr lbnl facility hpc us lhc cyberinfrastructure</tags>
+</org>
+
+<comment> ===================== <a name="software - analysis/framework/toolkit"></a> ================== </comment>
+
+<project>
+<name> ROOT Data Analysis Framework</name>
+<description>
+ROOT is an object-oriented program and library developed by CERN. It was originally designed for particle physics data analysis and contains several features specific to this field, but it is also used in other applications such as astronomy and data mining.
+
+ROOT is
+
+* An analysis package (replaced PAW)
+    * Used by pretty much the entire field
+    * Typical uses are minutes on desktops to hours on local clusters
+* A toolkit for application building (CERNLIB on steroids)
+    * For example, the ATLAS (and probably others) event data model is built on top of ROOT
+    * Exanple Applications: RooStats, Baysean Analysis Toolkit
+        * One analysis has used 1 million CPU-hours of BAT alone
+
+Current State
+
+* Ubiquitous throughout and beyond HEP (quantitative finance)
+* FTE (development) = a few; FTE (users) ~ everybody
+</description>
+<contact> Pere Mato </contact>
+<web> http://root.cern.ch/
+https://indico.cern.ch/category/526/ | ROOT Framework meetings, CERN SFT group
+http://twitter.com/ROOT_Project | Twitter
+</web>
+<wikipedia> ROOT </wikipedia>
+<logo> http://root.cern.ch/root/htmldoc/guides/primer/figures/logo.png </logo>
+<uses> cling </uses>
+<tags> *root *rootio cern analysis cpp graphics math statistics common atlas* cms* lhcb* alice* </tags>
+</project>
+
+<project>
+<name> Cling </name>
+<description>
+Cling is an interactive C++ interpreter, built on the top of LLVM and Clang libraries. Its advantages over the standard interpreters are that it has command line prompt and uses just-in-time (JIT) compiler for compilation. Many of the developers (e.g. Mono in their project called CSharpRepl) of such kind of software applications name them interactive compilers.
+
+One of Cling's main goals is to provide contemporary, high-performance alternative of the current C++ interpreter in the ROOT project - CINT. The backward-compatibility with CINT is major priority during the development.
+</description>
+<web> http://root.cern.ch/drupal/content/cling </web>
+<wikipedia> ROOT </wikipedia>
+<tags> *cling cpp opensource root* </tags>
+</project>
+
+<tool>
+<name> LLVM </name>
+<description>
+The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.
+
+Clang is an "LLVM native" C/C++/Objective-C compiler, which aims to deliver amazingly fast compiles.
+
+Cling is an interactive C++ interpreter, built on the top of LLVM and Clang libraries.
+</description>
+<web> http://llvm.org/ </web>
+<tags> *llvm cpp opensource cling* clang* root* </tags>
+</tool>
+
+<tool>
+<name> Clang </name>
+<description>
+Clang is a compiler front end for the C, C++, Objective-C and Objective-C++ programming languages. It uses LLVM as its back end and has been part of the LLVM release cycle since LLVM 2.6.
+
+It is designed to offer a complete replacement to the GNU Compiler Collection (GCC). It is open-source, developed by Apple; other companies such as Google, ARM, Sony and Intel are involved.
+
+Clang aims to deliver amazingly fast compiles.
+</description>
+<web> http://clang.llvm.org/ </web>
+<wikipedia> Clang </wikipedia>
+<uses> llvm </uses>
+<tags> *clang cpp opensource root* </tags>
+</tool>
+
+<project>
+<name> CERN Program Library (CERNLIB) </name>
+<description>
+A venerable, retired collection of general purpose libraries and modules from the FORTRAN era.
+</description>
+<web> http://cernlib.web.cern.ch/cernlib/ </web>
+<wikipedia> CERN_Program_Library </wikipedia>
+<tags> *cernlib cern software fortran common </tags>
+</project>
+
+<project>
+<name> CLHEP </name>
+<description>
+CLHEP (short for A Class Library for High Energy Physics) is a C++ library that provides utility classes for general numerical programming, vector arithmetic, geometry, pseudorandom number generation, and linear algebra, specifically targeted for high energy physics simulation and analysis software. 
+
+CLHEP is in maintenance mode (accepting bug fixes but no further development is expected).
+</description>
+<web> http://wwwasd.web.cern.ch/wwwasd/lhc++/clhep/
+http://git.cern.ch/pubweb/CLHEP.git | git repository
+</web>
+<wikipedia> CLHEP </wikipedia>
+<tags> *clhep software common cpp geant4* </tags>
+</project>
+
+<project>
+<name> Gaudi </name>
+<description>
+The Gaudi project is a open project for providing the necessary interfaces and services for building HEP experiment frameworks in the domain of event data processing applications. The Gaudi framework is experiment independent.
+</description>
+<contact> Pere Mato </contact>
+<web> http://proj-gaudi.web.cern.ch/proj-gaudi/ 
+https://twiki.cern.ch/twiki/bin/viewauth/C4Hep/WebHome | Concurrent Gaudi (C4Hep)
+http://lcgapp.cern.ch/git/Gaudi | git repository
+http://acode-browser.usatlas.bnl.gov/lxr/source/Gaudi/ | LXR code browser
+</web>
+<docref>
+http://inspirehep.net/search?p=find+j+cphcb,140,45 | GAUDI - A software architecture and framework for building HEP data processing applications | gaudipaper2001
+</docref>
+<tags> *gaudi cern framework gaudihive common cpp harp* minerva* atlas* lhcb* </tags>
+</project>
+
+<project>
+<name> art event processing framework </name>
+<description>
+art is a framework for job control, I/O operations, and tracking of data provenance.
+
+Developed and maintained by the Scientific Computing Division at Fermilab by computing professionals. It has perhaps the largest user base within IF at this time. 
+
+Increased resources for this framework could enable some of the needs experiments such as more accesible parallelization of experiment’s code, for example using  standard thread libraries (OpenMP, TBB). 
+
+__img_art-heidi.png 
+
+</description>
+<contact>  </contact>
+<credit> Heidi Schellman </credit>
+<credit> Mayly Sanchez  </credit>
+<web>  https://web.fnal.gov/project/ArtDoc/SitePages/Home.aspx
+https://oink.fnal.gov/new_tut/tutorial.html | Tutorial </web>
+<tags> *art framework cpp fnal common lbne* g-2* nova*  </tags>
+</project>
+
+<project>
+<name> Fabric For Frontier Experiments (FIFE) </name>
+<description>
+* Strategy to enable world class science through high performance computing  through provide common computing infrastructure for post-Run II, non-LHC experiments supported at Fermilab – currently includes MINOS, Minerva, MicroBooNE, NOvA, LBNE, Muon g-2, Lariat, Seaquest, DES, Darkside..
+* Ensure support for remote computing infrastructure integrates well with local infrastructures across Fermilab, other Labs,  the Universities, and external providers such as HPC and Clouds.
+* Provide to provide collective for:
+    * providing an integrated framework that allows researchers to focus on analysis with as little focus on computing infrastructure or design as possible 
+    * consulting with and providing a forum for experiments to improve offline computing models where appropriate and address end-to-end solutions for simulation, production and analysis.
+    * incorporating new tools and resources from experiments and other communities 
+    * enabling optimal and convenient use of computing resources at  Fermilab, universities, outside research institutions, other national  laboratories, and commercial computing providers
+    * Providing a reference set of principles and architecture for future work 
+* Common experiment forum for Fermilab supported experiments to together  interface to other projects – e.g. Open Science Grid,  Cloud providers, Software development projects etc.
+* Small core effort of 1-2 FTE leverages many others efforts across Fermilab, experiments and other projects.
+</description>
+<credit> Mike Kirby </credit>
+<web> https://sharepoint.fnal.gov/org/scd/fife/SitePages/Home.aspx </web>
+<tags> *fife fnal infrastructure common minos* minerva* microboone* nova* lbne* g-2* lariat* seaquest* des* darkside* </tags>
+</project>
+
+<comment> ===================== <a name="software - concurrency"></a> ================== </comment>
+
+<definition>
+<name> Concurrency</name>
+<description>
+</description>
+<contributor> </contributor>
+<credit>  </credit>
+<web> 
+https://twiki.cern.ch/twiki/bin/viewauth/C4Hep/WebHome | Concurrency for HEP twiki
+ </web>
+<wikipedia> </wikipedia>
+<tags> *concurrency c4hep gaudihive athenahive geant4mt concurrencyforum </tags>
+</definition>
+
+<org>
+<name> ATLAS Future Software Technology Forum (FSTF)</name>
+<description>
+Goals of the ATLAS Future Software Technology Forum (FSTF):
+
+* Collect and exchange experience from various groups within ATLAS who are investigating new software technologies.
+* Create a knowledge pool.
+* Improve communication within developer communities.
+* Improve exchange with other experiments.
+</description>
+<contact> Sami Kama </contact>
+<contact> Graeme Stewart </contact>
+<contributor> </contributor>
+<credit>  </credit>
+<web> 
+https://indico.cern.ch/category/4347/ | Meetings
+http://indico.cern.ch/event/214319/contribution/0/material/slides/0.pdf | Talk about the forum at its inception, 2012
+ </web>
+<tags> *fstf atlas concurrency concurrencyforum </tags>
+</org>
+
+<org>
+<name> Concurrency for HEP twiki</name>
+<description>
+Our goal is to bring concurrency in the modern HEP data processing. We work on Concurrent Gaudi, in ordet to allow to process multiple events concurrently and execute several data processing algorithms simultaneously.
+</description>
+<contact>  </contact>
+<contributor> </contributor>
+<credit>  </credit>
+<web> 
+https://twiki.cern.ch/twiki/bin/viewauth/C4Hep/WebHome | Concurrency for HEP twiki
+ </web>
+<wikipedia> </wikipedia>
+<repo> </repo>
+<uses>  </uses>
+<tags> *c4hep concurrency gaudihive lhcb </tags>
+</org>
+
+<org>
+<name> Concurrency Forum </name>
+<description>
+</description>
+<contact> Pere Mato </contact>
+<web> 
+ </web>
+<tags> *concurrencyforum concurrency cern fnal software </tags>
+</org>
+
+<project>
+<name> GaudiHive </name>
+<description>
+The Gaudi project is a open project for providing the necessary interfaces and services for building HEP experiment frameworks in the domain of event data processing applications. The Gaudi framework is experiment independent.
+</description>
+<contact> Pere Mato </contact>
+<web> http://proj-gaudi.web.cern.ch/proj-gaudi/
+http://lcgapp.cern.ch/git/GaudiMT | git repository
+http://concurrency.web.cern.ch/GaudiHive | Concurrent Framework Project home page, presentations, papers
+https://indico.cern.ch/category/1790/ | Frameworks Project (GaudiHive) meetings, CERN SFT group
+</web>
+<tags> *gaudihive athenahive cern framework mt gaudi lhcb* atlas* </tags>
+</project>
+
+<project>
+<name> AthenaHive </name>
+<description>
+ATLAS Athena variant of GaudiHive
+</description>
+<contact> Paolo Calafiura </contact>
+<web> https://twiki.cern.ch/twiki/bin/view/C4Hep/AthenaHive </web>
+<tags> *athenahive gaudihive framework mt gaudi athena atlas* </tags>
+</project>
+
+<comment> ============================ <a name="=== SYSTEMS ==="></a> ========================= </comment>
+
+<project>
+<name> Scientific Linux </name>
+<description>
+SL is a Linux release put together by Fermilab, CERN, and various other labs and universities around the world. Its primary purpose is to reduce duplicated effort of the labs, and to have a common install base for the various experimenters.
+
+__img_scilinux
+
+</description>
+<credit> Heidi Schellman </credit>
+<web> https://www.scientificlinux.org/ </web>
+<wikipedia> Scientific_Linux </wikipedia>
+<uses> redhat </uses>
+<tags> *scilinux linux cern fnal os infrastructure system opensource </tags>
+</project>
+
+<project>
+<name> Fedora </name>
+<description>
+Fedora is an operating system based on the Linux kernel, developed by the community-supported Fedora Project and owned by Red Hat. Fedora contains software distributed under a free and open source license and aims to be on the leading edge of such technologies.
+</description>
+<web> http://fedoraproject.org/
+https://fedoraproject.org/wiki/Fedora_Project_Wiki | Fedora project wiki
+ </web>
+<wikipedia> Fedora_(operating_system) </wikipedia>
+<uses> redhat </uses>
+<tags> *fedora linux os infrastructure system opensource </tags>
+</project>
+
+<comment> ============================ <a name="=== facilities ==="></a> ========================= </comment>
+
+<org>
+<name>XSEDE</name>
+<description>
+Extreme Science and Engineering Discovery Environment (XSEDE) is a single virtual system constituted from supercomputer facilities across that US that scientists can use to interactively share computing resources, data, and expertise.
+</description>
+<web> https://www.xsede.org/ </web>
+<tags> *xsede nsf hpc </tags>
+</org>
+
+<org>
+<name>Argonne Leadership Computing Facility (ALCF)</name>
+<description>
+The Argonne Leadership Computing Facility (ALCF) is one of two leadership computing facilities supported by the U.S. Department of Energy (DOE). The ALCF provides the computational science community with a world-class computing capability dedicated to breakthrough science and engineering. It began operation in 2006 with its team providing expertise and assistance to support user projects to achieve top performance of applications and to maximize benefits from the use of ALCF resources.
+
+ALCF hosts the Mira and Intrepid supercomputers. 
+</description>
+<web> https://www.alcf.anl.gov/ </web>
+<tags> *alcf *mira *intrepid anl hpc </tags>
+</org>
+
+<org>
+<name>Oak Ridge Leadership Computing Facility (OLCF)</name>
+<description>
+The Oak Ridge Leadership Computing Facility (OLCF) was established at Oak Ridge National Laboratory in 2004 with the mission of accelerating scientific discovery and engineering progress by providing outstanding computing and data management resources to high-priority research and development projects. The OLCF gives the world’s most advanced computational researchers an opportunity to tackle problems that would be unthinkable on other systems.
+
+OLCF hosts the Titan supercomputer. 
+</description>
+<web> https://www.olcf.ornl.gov/ </web>
+<tags> *olcf *titan ornl hpc </tags>
+</org>
+
+<org>
+<name>National Energy Research Scientific Computing Center (NERSC)</name>
+<description>
+The National Energy Research Scientific Computing Center (NERSC) is the primary scientific computing facility for the Office of Science in the U.S. Department of Energy. As one of the largest facilities in the world devoted to providing computational resources and expertise for basic scientific research, NERSC is a world leader in accelerating scientific discovery through computation. NERSC is a division of the Lawrence Berkeley National Laboratory, located in Berkeley, California.  NERSC itself is located at the UC Oakland Scientific Facility in Oakland, California.
+
+NERSC hosts the Edison, Hopper and Carver supercomputers, as well as the PDSF farm.
+</description>
+<web> https://www.nersc.gov/ </web>
+<tags> *nersc *edison *hopper *carver *pdsf lbnl hpc </tags>
+</org>
+
+<org>
+<name>ATLAS Tier 1 at BNL</name>
+<description>
+ATLAS Tier 1 Facility at BNL
+</description>
+<web> http://www.usatlas.bnl.gov/usatlas_tier1/Tier1.shtml </web>
+<uses> dcache hpss ceph perfmon openstack </uses>
+<tags> *t1bnl tier1 atlas bnl us facility </tags>
+</org>
+
+<org>
+<name>ATLAS Midwest Tier 2 (MWT2) </name>
+<description>
+ATLAS Midwest Tier 2 at U Chicago, Indiana U and U Illinois at Urbana-Champagne (MWT2)
+</description>
+<web> http://mwt2.usatlasfacility.org/ </web>
+<tags> *mwt2 tier2 atlas us facility </tags>
+</org>
+
+<org>
+<name>ATLAS Northeast Tier 2 (NET2) </name>
+<description>
+ATLAS Northeast Tier 2 at Boston U and Harvard U (NET2)
+</description>
+<web> http://egg.bu.edu/atlas/ </web>
+<tags> *net2 tier2 atlas us facility </tags>
+</org>
+
+<org>
+<name>ATLAS Great Lakes Tier 2 (NET2) </name>
+<description>
+ATLAS Great Lakes Tier 2 at U Michigan and Michigan State (AGLT2)
+</description>
+<web> https://www.aglt2.org/wiki/AGLT2/ </web>
+<tags> *aglt2 tier2 atlas us facility </tags>
+</org>
+
+<org>
+<name>ATLAS Southwest Tier 2 (SWT2) </name>
+<description>
+ATLAS Southwest Tier 2 at UT Arlington and U Oklahoma (SWT2)
+</description>
+<web> http://www-hep.uta.edu/SWT2/ </web>
+<tags> *swt2 tier2 atlas us facility </tags>
+</org>
+
+<org>
+<name>ATLAS Western Tier 2 (WT2) </name>
+<description>
+ATLAS Western Tier 2 at SLAC (WT2)
+</description>
+<web> http://wt2.slac.stanford.edu/ </web>
+<tags> *wt2 tier2 atlas us facility </tags>
+</org>
+
+<definition>
+<name> Muon Accelerator Program (MAP) modeling </name>
+<description>
+
+MAP mission:
+to develop and demonstrate the concepts and critical technologies required to produce, capture, condition, accelerate, and store intense beams of muons for Muon Colliders and Neutrino Factories
+
+Key codes used by MAP:
+
+   * #G4beamline
+   * #ICOOL
+   * #MARS
+   * Detector simulation codes (future)
+
+__img_mapneeds_1
+
+What needs to be modeled?
+Proton driver, target, front end, muon cooling systems, acceleration systems, decay ring for neutrino factories, collider ring for muon colliders, machine-detector interface (MDI),nufac detector, collider detector 
+
+__img_mapneeds_2
+
+Along with conventional beam dynamics and EM modeling, MAP requires:
+
+* modeling beam-material interactions (cooling, shielding), unconventional beams (large emittance, decays multi-species,...), unconventional geometries (helices, bent solenoids,...)
+* MAP D and S began at NERSC in 2012; big role in ongoing initial baseline selection process
+* Parallel design optimization is a very high priority
+</description>
+<credit> Rob Roser </credit>
+<tags> *mapneeds accelerator modeling g4beamline 
+icool | key code used
+mars | key code used
+detsim | key code for the future
+</tags>
+</definition>
+
+<definition>
+<name> Intensity Frontier </name>
+<description>
+#### Software and computing needs of the intensity frontier
+
+* Frameworks
+    * The Fermilab-based IF experiments (from g-2, NOvA to LAr experiments including MicroBooNE and LBNE) have converged on ART as a framework for job control, I/O operations, and tracking of data provenance. 
+    * Experiments outside of Fermilab (or before ART) use LHC derived frameworks such as Gaudi or homegrown frameworks like MINOS(+), IceTray and RAT.
+* Software packages
+    * #ROOT and #Geant4 are the bread and butter of all HEP experiments. They are critical to all experiments in IF. Support for these packages is essential.
+        * Geant4 has traditionally focused on EF experimental support. More ties/stronger support to IF experiments is a requirement. 
+        * As an example, Geant4 is barely suitable for large scintillation detectors; given a complex geometry and large number of photons to track. 
+        * Community desires improved efficiency for both of these packages. For example better ROOT I/O and Geant multi-threading (latter in beta?).
+    * Neutrino experiments use specialized packages for neutrino interactions: GENIE and Neut. GENIE is a public package that would benefit from continued support as it is heavily used in US experiments.  
+        * Comprehensive simulation of neutrino-nucleus interactions with state-of-the-art generators (GENIE) has been added GEANT4.  
+    * #LArSoft is a common simulation, reconstruction and analysis toolkit for use by experiments using liquid argon time projection chambers (LArTPCs) that is managed by Fermilab. All US experiments using LArTPCs currently use LArSoft. Similarly the LAr and NOvA experiments share a simulation toolkit. 
+        * Joint efforts where possible make better use of development and maintenance resources. 
+    * There are a number of other specialized physics packages in use by the community, for example: FLUKA for beam line simulations, CRY for simulating cosmic ray particles, NEST for determining ionization and light production in noble liquid detectors GLOBES for experiment design. 
+        * By no means a comprehensive list can be discussed here. More complete responses to the survey will be made available. 
+    * Less specialized packages but equally important are those relating to infrastructure access for code management, data management, grid access, electronic log books and document management. Experiments differ much more on these than on the specialized ones (unless lab centralized).
+* Access to dedicated resources
+    * Hardware demands of IF experiments and IF R&D modest compared to those of EF experiments. However the needs are NOT insignificant. 
+        * As an example, each Fermilab based IF experiment will require 1000s of dedicated batch slots. NOvA will need ~5M CPU hours to generate just simulation files. LBNE expects to use PB of storage, even smaller experiments like MicroBoone and MINERvA expect to use close to a PB. 
+    * Efficient use of available grid resources has had/could have a huge impact on IF experiments and IF R&D. 
+        * As an example experiments like T2K run intensively on grid resources in Europe and Canada. The US groups use a combination of local university and international resources (albeit with lower priority on the latter).
+    * Dedicated storage resources are needed for internationally or university run IF experiments as well as IF R&D.
+        * Data storage in T2K will also get to PB scale is distributed in Japan, Canada (Triumf), UK (RAL). SNO+ similarly uses Canada and UK grid storage. Slow link to the US for local analysis of data/simulations.
+    * Access to grid resources is all important and high on every experiment’s list. 
+* Data handling and storage
+    * The use of Fermigrid and Open-Science Grid are essential to all experiments responding to the survey.
+    * Fermilab-based experiments indicated that all data is stored on site. The infrastructure there handles active storage as well as archiving of data. SAM was noted as the preferred data distribution system for these experiments. Heavy I/O for analysis of large numbers of smaller sized events is an issue for systems like BlueArc.
+    * Professional support is required for methods to seamlessly use Fermilab and non-Fermilab resources through job submission protocols. 
+        * For Fermilab-based experiments university and other national lab resources are used in the production of Monte Carlo files. A common protocol to access these resources such as OSG is in the current plans.
+        * All international efforts would benefit from an ATLAS-like model where institutions can set up official, verified mirrors of data and simulations. For these experiments, only UK and Canada grid sites are available to store data.
+* Computing model
+    * We found  a high degree of commonality among the various experiments’ computing models despite large differences in type of data analyzed, the scale of processing, or the specific workflows followed.
+    * The model is summarized as a traditional event driven analysis and Monte Carlo simulation using centralized data storage that are distributed to independent analysis jobs running in parallel on grid computing clusters. Peak usage can be 10x than planned usage. 
+    * For large computing facilities such a Fermilab, it is useful to design a set of scalable solutions corresponding to these patterns, with associated toolkits that would allow access and monitoring. Provisioning an experiment or changing a computing model would then correspond to adjusting the scales in the appropriate processing units.
+    * Computing should be made transparent to the user, such that non-experts can perform any reasonable portion of the data handling and simulation. Moreover, all experiments would like to see computing become more distributed across sites. Users without a home lab or large institution require equal access to dedicated resources.
+* Evolution of computing model
+    * The evolution of the computing model follows several lines including taking advantage of new computing paradigms, like storage clouds, different cache schemes, GPU and multicore processing.
+        * As regards computing technology, there is a concern that as the number of cores in CPUs increases, RAM capacity and memory bandwidth will not keep pace, causing the single-threaded batch processing model to be progressively less efficient on future systems unless special care is taken to design clusters with this use case in mind. 
+        * There is no current significant use of multi-threading, since the main bottlenecks are GEANT4 (single-threaded) and file I/O. However there is interest in real parallelization at the level of ART for example. 
+        * Greater availability of multi-core/GPU hardware in grid nodes would provide motivation for upgrading code to use it. For example currently we can only run GPU-accelerated code on local, custom-built systems.  A proposed example for GPU use included “repeated frequent tasks like quick down-going cosmics identification for pre-reconstruction filtering”. 
+</description>
+<credit> Mayly Sanchez </credit>
+<tags> *intensity art geant4 root genie neut gaudi fnal</tags>
+</definition>
+
+<comment> ============================ <a name="=== TASKS ==="></a> ========================= </comment>
+
+<task>
+<name> Calibration </name>
+<description>
+Use of online monitoring, calibration runs, slow controls data etc for calibrations applied to offline processing.
+
+* Can involve substantial offline processing in itself to calculate calibrations
+* Calibrations, alignments, other non-event data typically maintained in a conditions database
+* Conditions DB provides retrieval of selected data objects valid at a particular time or for a particular run, carrying a particular calibration tag/version, etc.
+* Common tools include
+* Frontier, an interface to Oracle-based conditions DB providing distributed, cached access via http, making possible highly scalable and robust distributed access to centralls managed conditions data. Developed at FNAL originally for CDF, used by CMS, ATLAS, …
+* COOL, a C++ interface to conditions data supporting a number of back end data repositories including Oracle, MySQL, Frontier, ROOT files. Developed by LCG Applications Area. Used by ATLAS, LHCb
+* CORAL, the C++/python access layer for relational DBs used by COOL. Used by ATLAS, CMS, LHCb
+* FTEs – the mentioned common tools are mostly in maintenance mode, not a high FTE level, but important support responsibilities.
+* Future – at least in ATLAS, existing common tools meet the needs well including the scaled up needs of future running. Current software upgrade programs don’t involve significant changes in this area.
+</description>
+<credit> Torre Wenaus </credit>
+<uses> cool coral frontier </uses>
+<tags> *calibration conditions software database reco </tags>
+</task>
+
+
+<comment> ============================ <a name="=== PEOPLE ==="></a> ========================= </comment>
+
+<people>
+<description>
+David Adams | bnl reco cpp 
+Makoto Asai | slac atlas 
+Artur Barczyk | caltech network
+Lothar Bauerdick | osg fnal cms
+Bob Bernstein | fnal mu2e
+Ian Bird | cern wlcg 
+Brian Bockelman | unebraska cms 
+Anders Borgland | slac fermi
+Rene Brun | cern root
+Predrag Buncic | cern cernvm  alice
+Jose Caballero | bnl autopyfactory oasis
+Paolo Calafiura | lbnl atlas athena concurrency performance
+Philippe Canal | fnal root
+Marco Clemencic | cern lhcb concurrency
+Kaushik De | uta panda atlas 
+Dirk Duellmann | cern datamgmt storagemgmt
+Michael Ernst | bnl t1bnl
+Rob Gardner | uchicago atlas mwt2 fax
+Maria Girone | cern cms
+Steve Gottlieb | iub lqcd 
+Tony Johnson | slac desc lsst pipeline
+Salman Habib | anl astro lsst desc
+Andy Hanushevsky | xrootd slac atlas
+John Harvey | cern wlcg lhcb
+Benedikt Hegner | cern concurrency gaudihive
+John Hover | bnl autopyfactory
+Vincenzo Innocente | cern cms performance
+Sami Kama | smu atlas fstf performance concurrency
+Mike Kirby | fnal
+Alexei Klimentov | bnl panda atlas
+Eric Lancon | saclay atlas
+Anthony LaTorre | uchicago intensity
+Wim Lavrijsen | lbnl atlas root pyroot athena python
+Tom LeCompte | anl atlas
+Charles Leggett | lbnl athena gaudi gaudihive atlas
+Miron Livny | madison htcondor
+Tadashi Maeno | bnl atlas panda jedi python eventservice
+David Malon | anl atlas persistency rootio
+Pere Mato | cern lhcb root gaudi concurrency
+Paul Messina | doe ascr
+Inder Monga | esnet ascr doe
+Richard Mount | slac richard.mount@slac.stanford.edu atlas
+Paul Nilsson | bnl atlas panda python eventservice
+Harvey Newman | caltech network cms
+Andrzej Nowak | cern openlab performance
+Marcin Nowak | bnl atlas persistency rootio
+Sergey Panitkin | bnl hpc cloud
+Ruth Pordes | fnal osg
+Maxim Potekhin | bnl lbne 
+Fons Rademakers | openlab cern alice root
+Rob Roser | fnal
+Mayly Sanchez | iowastate intensity
+Heidi Schellman | northwestern fnal
+Stan Seibert | upenn intensity
+Steve Sharpe | lqcd uwashington theory
+Elizabeth Sexton-Kennedy | fnal sexton@fnal.gov cms lbne 
+Graeme Stewart | uglasgow atlas fstf
+Vakho Tsulaia | lbnl atlas athena athenamp eventservice geomdb
+Alex Undrus | bnl atlas infrastructure 
+Peter Van Gemmeren | anl atlas persistency rootio
+Brett Viren | bnl  bv@bnl.gov lbne dayabay
+Roberto Vitillo | concurrency performance
+Ilija Vukotic | uchicago atlas mwt2 fax
+Shuwei Ye | bnl root proof athena persistency
+Torre Wenaus | bnl  wenaus@gmail.com panda atlas desc lsst eventservice
+</description>
+</people>
+
+<comment> ============================ <a name="=== MEETINGS ==="></a> ========================= </comment>
+
+<definition>
+<name> Computing in High Energy Physics (CHEP) Conference </name>
+<description>
+The primary international conference in HEP computing, held every 18 months.
+</description>
+<tags> *chep community conference series </tags>
+</definition>
+
+<definition>
+<name> CERN Computing Seminars </name>
+<description>
+CERN Computing Seminars. Webcasts and archives available. 
+</description>
+<web> http://cseminar.web.cern.ch/cseminar/ </web>
+<tags> *cerncompseminars community series </tags>
+</definition>
+
+<definition>
+<name> Advanced Computing and Analysis Techniques in physics research (ACAT) Conference </name>
+<description>
+The ACAT workshop series' main purpose is to gather three different communities: experimental and theoretical researchers as well as computer scientists to critically analyze past achievements and to propose new or advanced techniques to building better computing tools to boost scientific research, in particular in physics.
+</description>
+<tags> *acat community conference series </tags>
+</definition>
+
+<meeting>
+<name> CHEP 2012 </name>
+<description>
+The 19th International Conference on Computing in High Energy and Nuclear Physics (CHEP) took place in New York City, from Monday October 14th and concluding Friday the 18th.
+</description>
+<web> http://www.chep2012.org/ </web>
+<date> 2012-05-21 </date>
+<location> Amsterdam, The Netherlands </location>
+<tags> *chep2012 chep netherlands </tags>
+</meeting>
+
+<meeting>
+<name> CHEP 2013 </name>
+<description>
+The 20th International Conference on Computing in High Energy and Nuclear Physics (CHEP) took place in Amsterdam, The Netherlands, from Monday October 14th and concluding Friday the 18th.
+</description>
+<web> http://www.chep2013.org/ </web>
+<date> 2013-10-14 </date>
+<location> Amsterdam, The Netherlands </location>
+<tags> *chep2013 chep netherlands </tags>
+</meeting>
+
+<meeting>
+<name> CHEP 2015 </name>
+<description>
+The 21st International Conference on Computing in High Energy and Nuclear Physics (CHEP) will take place April 13-17, 2015 in Okinawa, Japan.
+</description>
+<date> 2015-04-13 </date>
+<location> Okinawa, Japan </location>
+<web> http://chep2015.kek.jp/ </web>
+<tags> *chep2015 chep japan </tags>
+</meeting>
+
+<meeting>
+<name> HEPiX Spring 2014 </name>
+<description>
+The spring 2014 meeting was held at LAPP, Annecy-le-Vieux, France, from 19 to 23 May 2014.
+</description>
+<date> 2014-05-19 </date>
+<location> Annecy-le-Vieux, France </location>
+<tags> *hepixspring2014 hepix france </tags>
+<web> http://indico.cern.ch/event/274555/ </web>
+</meeting>
+
+<meeting>
+<name> ACAT 2014 </name>
+<description>
+The 16th International workshop on Advanced Computing and Analysis Techniques in physics research (ACAT) will take place in Prague, 1-5 September 2014.
+</description>
+<date> 2014-09-01 </date>
+<location> Prague, Czech Republic </location>
+<web> https://indico.cern.ch/event/258092/ </web>
+<tags> *acat2014 acat czech </tags>
+</meeting>
+
+<meeting>
+<name> HEPiX Fall 2014 </name>
+<description>
+The fall 2014 meeting will be held at University of Nebraska-Lincoln, U.S.A., from 13 to 17 October 2014
+</description>
+<date> 2014-10-13 </date>
+<location> University of Nebraska-Lincoln, U.S.A. </location>
+<tags> *hepixfall2014 hepix us </tags>
+<web> http://indico.cern.ch/e/hepix-unl </web>
+</meeting>
+
+<meeting>
+<name> Forum on Concurrent Programming Models and Frameworks</name>
+<description>
+A series of meetings to share knowledge and technology between current and future HEP experiments for efficiently exploiting future many-core processor architectures. The idea is to use these meetings to follow and discuss progress on a number of 'demonstrators' that have has been defined and are being executed by different teams.
+</description>
+<contact> Pere Mato </contact>
+<date> 2014-01-15 </date>
+<location> #cern </location>
+<tags> *cforum201401 concurrencyforum cern </tags>
+<web> http://indico.cern.ch/event/289677/ </web>
+</meeting>
+
+<meeting>
+<name> Annual Concurrency Forum Meeting </name>
+<description>
+This is the third Annual Concurrency Forum meeting of a series on meetings held at Fermilab in 2011 and 2013 to explore the possibility that interested High Energy Physics (HEP) institutions and projects collaborate on concurrent frameworks and applications R&D. The main goal of the Concurrency Forum is to communicate and exchange information and results.
+</description>
+<contact> Pere Mato </contact>
+<date> 2014-04-01 </date>
+<location> #cern </location>
+<tags> *cforum201404 concurrencyforum cern </tags>
+<web> http://indico.cern.ch/event/289682/ </web>
+</meeting>
+
+<meeting>
+<name> Forum on Concurrent Programming Models and Frameworks</name>
+<description>
+A series of meetings to share knowledge and technology between current and future HEP experiments for efficiently exploiting future many-core processor architectures. The idea is to use these meetings to follow and discuss progress on a number of 'demonstrators' that have has been defined and are being executed by different teams.
+</description>
+<contact> Pere Mato </contact>
+<date> 2014-03-12 </date>
+<location> #cern </location>
+<tags> *cforum201403 concurrencyforum cern </tags>
+<web> https://indico.cern.ch/event/304418/ </web>
+</meeting>
+
+<meeting>
+<name> Forum on Concurrent Programming Models and Frameworks</name>
+<description>
+A series of meetings to share knowledge and technology between current and future HEP experiments for efficiently exploiting future many-core processor architectures. The idea is to use these meetings to follow and discuss progress on a number of 'demonstrators' that have has been defined and are being executed by different teams.
+</description>
+<contact> Pere Mato </contact>
+<date> 2014-02-12 </date>
+<location> #cern </location>
+<tags> *cforum201402 concurrencyforum cern </tags>
+<web> https://indico.cern.ch/event/300809/ </web>
+</meeting>
+
+<meeting>
+<name> Forum on Concurrent Programming Models and Frameworks</name>
+<description>
+A series of meetings to share knowledge and technology between current and future HEP experiments for efficiently exploiting future many-core processor architectures. The idea is to use these meetings to follow and discuss progress on a number of 'demonstrators' that have has been defined and are being executed by different teams.
+</description>
+<contact> Pere Mato </contact>
+<date> 2014-01-29 </date>
+<location> #cern </location>
+<tags> *cforum20140129 concurrencyforum cern </tags>
+<web> http://indico.cern.ch/event/297154/ </web>
+</meeting>
+
+<meeting>
+<name> Distributed ROOT I/O working group </name>
+<description>
+Cross-domain working group to improve ROOT I/O performance in deployed, distributed environments, with particular but not exclusive attention to analysis use cases.
+</description>
+<contact> David Malon </contact>
+<date> 2014-04-22 </date>
+<tags> *rootio20140422 root </tags>
+<web> https://indico.cern.ch/event/314951/ </web>
+</meeting>
+
+<meeting>
+<name> ROOT I/O Workshop </name>
+<description>
+Workshop to discuss the current bottlenecks in ROOT I/O and any potential solution.
+</description>
+<contact> Philippe Canal </contact>
+<date> 2014-03-24 </date>
+<location> #anl </location>
+<tags> *rootio20140324 root </tags>
+<web> https://indico.fnal.gov/conferenceDisplay.py?confId=8077 </web>
+</meeting>
+
+<meeting>
+<name> Distributed ROOT I/O working group </name>
+<description>
+Cross-domain working group to improve ROOT I/O performance in deployed, distributed environments, with particular but not exclusive attention to analysis use cases.
+</description>
+<contact> David Malon </contact>
+<date> 2014-06-17 </date>
+<tags> *rootio20140617 root </tags>
+<web> https://indico.cern.ch/event/325239/ </web>
+</meeting>
+
+<meeting>
+<name> HEP Software Collaboration (now Foundation) Meeting </name>
+<description>
+Formative meeting for a HEP wide community collaboration on software and computing.
+</description>
+<contact> John Harvey </contact>
+<date> 2014-04-03 </date>
+<location> #cern </location>
+<tags> *hsf201403 hsf cern </tags>
+<web> https://indico.cern.ch/event/297652/ </web>
+</meeting>
+
+<meeting>
+<name> 2nd CERN Advanced Performance Tuning workshop </name>
+<description>
+During this two day workshop focused on Advanced Performance Tuning, the latest trends in tuning will be presented by industry leaders ARM, Calxeda, Google and Intel.
+</description>
+<contact> Andrzej Nowak </contact>
+<date> 2013-11-21 </date>
+<location> #cern </location>
+<tags> *tuning2013 cern openlab software performance perf gooda vtune intel arm </tags>
+<web> http://indico.cern.ch/event/280897/ </web>
+</meeting>
+
+<meeting>
+<name> XRootD Workshop 2015</name>
+<description>
+We are pleased to announce the first XRootD Workshop! This workshop is geared for those who would like to learn about XRootD in sufficient detail to be able to install, configure and run XRootD as well as resolve common site-related issues. As such, many sessions will include hands-on exercises.
+</description>
+<contact> Andy Hanushevsky </contact>
+<date> 2015-01-27 </date>
+<location> #ucsd </location>
+<tags> *xrootd2015 slac xrootd datamgmt storagemgmt </tags>
+<web> http://xrootd.t2.ucsd.edu/Workshop-2015/Announce.html
+https://indico.cern.ch/event/330212/ | Agenda </web>
+</meeting>
+
+<definition>
+<name> Tools and frameworks for physics analysis </name>
+<tags> *analysis </tags>
+</definition>
+
+<definition>
+<name> Code management </name>
+<tags> *codemgmt buildmgmt </tags>
+</definition>
+
+<definition>
+<name> Build management </name>
+<tags> *buildmgmt codemgmt </tags>
+</definition>
+
+<definition>
+<name> Detector simulation </name>
+<description>
+Software simulating particles and detector response.
+</description>
+<tags> *detsimu </tags>
+</definition>
+
+<definition>
+<name> Distributed software </name>
+<description>
+Systems for distributed data, workload, and information management.
+</description>
+<tags> *distsw </tags>
+</definition>
+
+<definition>
+<name> Event Generators </name>
+<description>
+* First stage of simulation (pre-Geant); produce particle 4-momenta from Monte Carlo collisions
+    * Many packages: Pythia, Herwig, Alpgen, Sherpa, MCFM, Madgraph...
+        * Written mostly by theorists
+    * Often used in combination, e.g. Alpgen + Pythia
+* Current State
+    * Support needed from both authors (code itself) and experimenters (integration with frameworks)
+    * A few FTEs per package for authors (5 theoristsx 10 packages)
+    * A few FTEs per experiment for integration (4-5 total)
+</description>
+<credit> Tom LeCompte </credit>
+<tags> *gener theory </tags>
+</definition>
+
+<definition>
+<name> QCD Event Generators </name>
+<description>
+* Simulation of jet physics at particle colliders
+    * General-purpose programs developed for 30 years, starting with hadronization models (Isajet/Pythia) and gradually involving more aspects of perturbative QCD as collider energies kept increasing
+    * Also many dedicated large scale programs for parton-level calculations (MCFM,BlackHat) and simulation of specific physics scenarios
+* Current State
+    * Modern generators compute cross sections and particle spectra in NLO pQCD fully automatically and process independent, and combine calculations with resummation and hadronization  
+    * Modular, extensible  structure, plug-in capabilities, partial parallelization, starting to use supercomputer centers to extend range of applications
+    * Used for both parton level and particle level predictions
+    * Used for data analysis, experiment design, phenomenology 
+    * Mostly international collaborations
+</description>
+<credit> Tom LeCompte </credit>
+<tags> *qcdgener gener simu theory </tags>
+</definition>
+
+<task>
+<name> First Pass Reconstruction </name>
+<description>
+* Reconstruction is the act of turning raw data into something suitable for analysis (possibly after additional steps) 
+    * This is (historically) usually done centrally
+        * If practical, at the experiment’s site (not the South Pole)
+    * Reconstruction code is usually updated infrequently
+    * Intensive data handling
+* Current State
+    * Unique to each experiment
+    * Scale: ATLAS = ~6000 cores
+    * FTE (operations, coding) = ?
+</description>
+<credit> Tom LeCompte </credit>
+<tags> *recopass1 reco software </tags>
+</task>
+
+<task>
+<name> Reprocessing </name>
+<description>
+* Repeating reconstruction using updated software
+    * Once or twice a year
+    * Intensive data handling
+    * Sometimes done at the experiment’s site, sometimes distributed
+    * Often in parallel with regular data taking
+        * Backlogs if using the same resources
+        * Scale is comparable to original reconstruction
+    * Current State
+        * Unique to each experiment
+        * FTE (operations, coding) = ?
+</description>
+<credit> Tom LeCompte </credit>
+<tags> *reprocessing reco software </tags>
+</task>
+
+<definition>
+<name> Web based services and associated tools </name>
+<tags> *web </tags>
+</definition>
+
+<definition>
+<name> Resource providers </name>
+<description>
+Funding agencies, government agencies supporting cyberinfrastructure, grant issuing bodies, etc.
+</description>
+<tags> *provider </tags>
+</definition>
+
+<definition>
+<name> High Throughput Computing (HTC) </name>
+<description>
+The use of many computing resources over long periods of time to accomplish a computational task.
+Goes hand in hand with distributed computing. Very often data intensive.
+Experimental HEP computing is typically HTC.
+</description>
+<wikipedia> High-throughput_computing </wikipedia>
+<tags> *htc </tags>
+</definition>
+
+<definition>
+<name> High Performance Computing (HPC)</name>
+<description>
+Broadly, computing with supercomputers.
+</description>
+<wikipedia> High-performance_computing (HTC)</wikipedia>
+<tags> *hpc </tags>
+</definition>
+
+<definition>
+<name> Fermilab Tevatron hadron collider 1980s-2012</name>
+<tags> *tevatron </tags>
+</definition>
+
+<comment> ============================ <a name="=== DOCUMENTS ==="></a> ========================= </comment>
+
+<project>
+<name> INSPIRE </name>
+<description>
+CERN, DESY, Fermilab and SLAC have built the next-generation High Energy Physics (HEP) information system, INSPIRE. It combines the successful SPIRES database content, curated at DESY, Fermilab and SLAC, with the Invenio digital library technology developed at CERN. INSPIRE is run by a collaboration of CERN, DESY, Fermilab, IHEP, and SLAC, and interacts closely with HEP publishers, arXiv.org, NASA-ADS, PDG, HEPDATA and other information resources.
+</description>
+<web> http://inspirehep.net/info/general/project/index </web>
+<wikipedia> INSPIRE-HEP </wikipedia>
+<tags> *inspire webservice doc cern desy fermilab slac community communication </tags>
+</project>
+
+<project>
+<name> arXiv </name>
+<description>
+CERN, DESY, Fermilab and SLAC have built the next-generation High Energy Physics (HEP) information system, INSPIRE. It combines the successful SPIRES database content, curated at DESY, Fermilab and SLAC, with the Invenio digital library technology developed at CERN. INSPIRE is run by a collaboration of CERN, DESY, Fermilab, IHEP, and SLAC, and interacts closely with HEP publishers, arXiv.org, NASA-ADS, PDG, HEPDATA and other information resources.
+</description>
+<web> http://inspirehep.net/info/general/project/index </web>
+<wikipedia> ArXiv </wikipedia>
+<tags> *arxiv webservice cornell doc community communication </tags>
+</project>
+
+<definition>
+<name> Lattice QCD </name>
+<description>
+__img_lattice-qcd
+
+__img_lqcd-gottlieb
+
+</description>
+<credit> Steve Sharpe </credit>
+<credit> Steve Gottlieb </credit>
+<web>  </web>
+<wikipedia> Lattice_QCD </wikipedia>
+<tags> *lqcd physics theory </tags>
+</definition>
+
+<definition>
+<name> Lattice QCD Hardware </name>
+<description>
+__img_lqcd-hw
+</description>
+<credit> Steve Sharpe </credit>
+<tags> *lqcdhw lqcd physics theory hardware facility</tags>
+</definition>
+
+<definition>
+<name> Lattice QCD Software </name>
+<description>
+__img_lqcd-sw
+</description>
+<credit> Steve Sharpe </credit>
+<tags> *lqcdsw lqcd lqcdhw physics theory software</tags>
+</definition>
+
+<definition>
+<name> Green code </name>
+<description>
+__img_green-code
+</description>
+<credit> Heidi Schellman </credit>
+<tags> *greencode software needs</tags>
+</definition>
+
+<definition>
+<name> Authentication Documentation </name>
+<description>
+__img_authdoc
+</description>
+<credit> Heidi Schellman </credit>
+<tags> *authdoc infrastructure authentication needs fnal </tags>
+</definition>
+
+<project>
+<name> Automated Workflow Engine (Pipeline) </name>
+<description>
+
+Automates complex data processing tasks
+
+* Designed to automate data handling for Fermi Gamma-Ray space telescope
+    * In continuous use since 2007
+    * Handles all data processing, and all large scale simulation
+        * Supports massive parallelization
+        * Highly reliable (under 0.01% job failure rate)
+    * Full featured web interface for monitoring and management
+* Designed from outset to be experiment independent
+    * Now in use by EXO, CDMS, LSST, others
+* Support for multiple distributed batch systems
+    * LSF, BQS, Condor, GridEngine, easy to add others
+    * Being adapted to work with Grid based systems
+        * Dirac (Fermi European Collaborators), Panda (BNL)
+* Supported by SLAC Scientific Computing Applications group
+    * Current support FTE under 0.5, further adoption limited by support 
+
+</description>
+<credit> Anders Borgland </credit>
+<contact> Tony Johnson </contact>
+<tags> *pipeline slac fermi lsst desc wms panda dirac </tags>
+</project>
+
+<org>
+<name> interactions.org </name>
+<description>
+Particle physics news and resources
+</description>
+<web> http://www.interactions.org/ </web>
+<tags> *interactionsorg community communication </tags>
+</org>
+
+<org>
+<name> Super-Kamiokande (Super-K) </name>
+<description>
+Super-Kamiokande (full name: Super-Kamioka Neutrino Detection Experiment, abbreviated to Super-K or SK) is a neutrino observatory which is under Mount Kamioka near the city of Hida, Gifu Prefecture, Japan. The observatory was designed to search for proton decay, study solar and atmospheric neutrinos, and keep watch for supernovae in the Milky Way Galaxy.
+
+Research goal: Long-baseline neutrino oscillation with T2K, nucleon decay, supernova neutrinos, atmospheric neutrinos.
+</description>
+<web> http://www-sk.icrr.u-tokyo.ac.jp/sk/index-e.html </web>
+<wikipedia> Super-Kamiokande </wikipedia>
+<location> Mozumi Mine, Gifu, Japan </location>
+<status> Running </status>
+<tags> *superk experiment kek japan neutrino </tags>
+</org>
+
+<org>
+<name> T2K </name>
+<description>
+T2K is a neutrino experiment designed to investigate how neutrinos change from one flavour to another as they travel (neutrino oscillations). An intense beam of muon neutrinos is generated at the J-PARC nuclear physics site on the East coast of Japan and directed across the country to the Super-Kamiokande neutrino detector in the mountains of western Japan. The beam is measured once before it leaves the J-PARC site, using the near detector ND280, and again at Super-K: the change in the measured intensity and composition of the beam is used to provide information on the properties of neutrinos.
+
+Research goal: Measure νμ-νe and νμ-νμ oscillations; resolve the neutrino mass hierarchy; first information about value of δcp (with NOvA).
+</description>
+<web> http://t2k-experiment.org/ </web>
+<wikipedia> T2K_experiment </wikipedia>
+<location> J-PARC, Tokai and Mozumi Mine, Gifu, Japan </location> 
+<status> Running; Linac upgrade 2014 </status>
+<tags> *t2k experiment kek superk japan neutrino nova intensity </tags>
+</org>
+
+<org>
+<name> US-NA61 </name>
+<description>
+Research goal: Measure hadron production cross sections crucial for neutrino beam flux estimations needed for NOvA, LBNE.
+</description>
+<web> http://t2k-experiment.org/ </web>
+<wikipedia> T2K_experiment </wikipedia>
+<location> #cern </location> 
+<status> Target runs 2014-15 </status>
+<tags> *na61 experiment cern neutrino intensity </tags>
+</org>
+
+<org>
+<name> US Short-Baseline Reactor </name>
+<description>
+Research goal: Short-baseline sterile neutrino oscillation search.
+</description>
+<web> http://t2k-experiment.org/ </web>
+<wikipedia> T2K_experiment </wikipedia>
+<location> Site(s) TBD </location> 
+<status> RnD; First data 2016 </status>
+<tags> *sbreactor experiment us neutrino intensity nuclear </tags>
+</org>
+
+<project>
+<name> WIRED Event Display </name>
+<description>
+Experiment-independent 3D event display
+
+* Easily interfaced to new experiments
+* Supports many 3D projections
+    * Including specialized projections (fish-eye, rho-Z etc)
+* Scale, Rotate, Interactive filtering, display physical attributes on tracks and hits
+    * Full undo/redo support 
+* Graphics export to PDF, SVG, EMF, PNG, GIF...
+* Used by BaBar, Fermi, ILC, Geant4, others…
+* Scriptable and extensible
+* Supported by SLAC Scientific Computing Applications group
+    * Current support FTE under 0.1, further adoption limited by support 
+</description>
+<credit> Anders Borgland </credit>
+<paper> http://www.slac.stanford.edu/pubs/slacpubs/10000/slac-pub-10809.html | WIRED 4 - A Generic Event Display Plugin for JAS 3 </paper>
+<web> http://conferences.fnal.gov/g4tutorial/g4cd/Documentation/Visualization/G4WIREDTutorial/G4WIREDTutorial.html </web>
+<tags> *wired slac graphics geant4 software </tags>
+</project>
+
+<project>
+<name> SCA Data Catalog </name>
+<description>
+Database for tracking location and provenance of data
+
+* Data format and storage technology independent
+* Supports arbitrary user-defined meta-data
+* Built-in Search engine 
+* Decouples the physical location of files from the user
+* Download manager for reliable bulk-file download
+* Web, command line and Web Service API
+* Developed for Fermi Gamma-Ray space telescope
+    * In continuous use since 2007
+    * Experiment independent, reused by EXO, CDMS, LSST, others
+* Supported by SLAC Scientific Computing Applications group
+    * Current support FTE under 0.5, further adoption limited by support
+
+</description>
+<credit> Anders Borgland </credit>
+<web> https://confluence.slac.stanford.edu/display/SCA/Data+Catalog+2.0 </web>
+<tags> *scadata slac datamgmt software fermi* lsst* </tags>
+</project>
+
+<project>
+<name> SAM </name>
+<description>
+SAM is a data handling system organized as a set of servers which work together, communicating via CORBA, to store and retrieve files and associated metadata, including a complete record of the processing which has used the files. 
+
+</description>
+<web> http://www-d0.fnal.gov/computing/sam/ 
+http://projects.fnal.gov/samgrid/WhatisSAM.html ! What is SAM? </web>
+<tags> *sam datamgmt database fnal d0* cdf* lbne*  </tags>
+</project>
+
+<project>
+<name> Rocks - Open Source Toolkit for Real and Virtual Clusters</name>
+<description>
+Rocks is an open-source Linux cluster distribution that enables end users to easily build computational clusters, grid endpoints and visualization tiled-display walls. Hundreds of researchers from around the world have used Rocks to deploy their own cluster (see the Rocks Cluster Register).
+
+Since May 2000, the Rocks group has been addressing the difficulties of deploying manageable clusters. We have been driven by one goal: make clusters easy. By easy we mean easy to deploy, manage, upgrade and scale. We are driven by this goal to help deliver the computational power of clusters to a wide range of scientific users. It is clear that making stable and manageable parallel computing platforms available to a wide range of scientists will aid immensely in improving the state of the art in parallel tools.
+</description>
+<web> http://www.rocksclusters.org/ 
+http://www.rocksclusters.org/rocks-doc/papers/two-pager/paper.pdf | Rocks avalanche installer (BitTorrent cache system)</web>
+<tags> *rocks clustermgmt fnal  </tags>
+</project>
+
+<project>
+<name> Semantic MediaWiki (SMW) </name>
+<description>
+Semantic MediaWiki (SMW) is a free, open-source extension to MediaWiki – the wiki software that powers Wikipedia – that lets you store and query data within the wiki's pages.
+
+Semantic MediaWiki is also a full-fledged framework, in conjunction with many spinoff extensions, that can turn a wiki into a powerful and flexible knowledge management system. All data created within SMW can easily be published via the Semantic Web, allowing other systems to use this data seamlessly.
+</description>
+<web> https://semantic-mediawiki.org/ </web>
+<tags> *smw documentation opensource community   </tags>
+</project>
+
+<project>
+<name> OpenACC </name>
+<description>
+OpenACC is a programming standard for parallel computing developed by Cray, CAPS, Nvidia and PGI. The standard is designed to simplify parallel programming of heterogeneous CPU/GPU systems.
+
+The OpenACC Application Program Interface describes a collection of compiler directives to specify loops and regions of code in standard C, C++ and Fortran to be offloaded from a host CPU to an attached accelerator. OpenACC is designed for portability across operating systems, host CPUs, and a wide range of accelerators, including APUs, GPUs, and many-core coprocessors.
+</description>
+<wikipedia> OpenACC </wikipedia>
+<web> http://www.openacc-standard.org/ </web>
+<tags> *openacc concurrency nvidia gpu api compiler cpp opensource </tags>
+</project>
+
+<project>
+<name> OpenCL </name>
+<description>
+The open standard for parallel programming of heterogeneous systems
+
+Open Computing Language (OpenCL) is a framework for writing programs that execute across heterogeneous platforms consisting of CPUs, GPUs, digital signal processors (DSPs), field-programmable gate arrays (FPGAs) and other processors. OpenCL includes a language (based on C99) for programming these devices, and application programming interfaces (APIs) to control the platform and execute programs on the compute devices. OpenCL provides parallel computing using task-based and data-based parallelism. OpenCL is an open standard maintained by the non-profit technology consortium Khronos Group. It has been adopted by Apple, Intel, Qualcomm, Advanced Micro Devices (AMD), Nvidia, Altera, Samsung, Vivante, Imagination Technologies and ARM Holdings.
+</description>
+<wikipedia> OpenCL </wikipedia>
+<web> https://www.khronos.org/opencl/ </web>
+<tags> *opencl concurrency nvidia gpu api compiler cpp opensource  </tags>
+</project>
+
+<project>
+<name> CUDA </name>
+<description>
+CUDA (Compute Unified Device Architecture) is a parallel computing platform and programming model created by NVIDIA and implemented by the graphics processing units (GPUs) that they produce. CUDA gives program developers direct access to the virtual instruction set and memory of the parallel computational elements in CUDA GPUs.
+</description>
+<wikipedia> CUDA </wikipedia>
+<web> http://www.nvidia.com/object/cuda_home_new.html </web>
+<tags> *cuda concurrency nvidia gpu api compiler cpp opensource  </tags>
+</project>
+
+<project>
+<name> Gooda </name>
+<description>
+Gooda is a low overhead open source performance monitoring unit (pmu) event analysis package. A CPU profiler.
+It was developed in a collaboration between Google and LBNL.
+</description>
+<wikipedia> CUDA </wikipedia>
+<web> https://code.google.com/p/gooda/ 
+http://www.slideshare.net/RobertoAgostinoVitil/gooda-tutorial2012 | Gooda Tutorial, #roberto_vitillo
+https://code.google.com/p/gooda-visualizer/ | Gooda visualizer 
+https://gooda-visualizer.googlecode.com/git/index.html# | Demo </web>
+<paper>
+http://iopscience.iop.org/1742-6596/396/5/052072/pdf/1742-6596_396_5_052072.pdf | GOoDA: The Generic Optimization Data Analyzer
+</paper>
+<tags> *gooda software performance testing monitoring analysis google lbnl compiler cpp opensource atlas* athena*  </tags>
+</project>
+
+<project>
+<name>VTune </name>
+<description>
+Intel VTune Amplifier is a commercial application for software performance analysis for 32 and 64-bit x86 based machines, and has both GUI and command line interfaces. It is available for both Linux and Microsoft Windows operating systems. Although basic features work on both Intel and AMD hardware, advanced hardware-based sampling requires an Intel-manufactured CPU.
+</description>
+<wikipedia> VTune </wikipedia>
+<web> https://software.intel.com/en-us/intel-vtune-amplifier-xe </web>
+<tags> *vtune software performance testing monitoring analysis cpp intel </tags>
+</project>
+
+<project>
+<name> gperftools </name>
+<description>
+These tools are for use by developers so that they can create more robust applications. Especially of use to those developing multi-threaded applications in C++ with templates. Includes TCMalloc, heap-checker, heap-profiler and cpu-profiler.
+</description>
+<web> https://code.google.com/p/gperftools/ </web>
+<tags> *gperftools software performance testing monitoring concurrency cpp analysis </tags>
+</project>
+
+<project>
+<name> PAPI </name>
+<description>
+Performance Application Programming Interface
+
+PAPI provides the tool designer and application engineer with a consistent interface and methodology for use of the performance counter hardware found in most major microprocessors. PAPI enables software engineers to see, in near real time, the relation between software performance and processor events.
+</description>
+<web> http://icl.cs.utk.edu/papi/</web>
+<tags> *papi software performance monitoring concurrency api </tags>
+</project>
+
+<definition>
+<name> Software Performance </name>
+<description>
+Software performance monitoring, testing, metrics, analysis
+</description>
+<web> http://en.wikipedia.org/wiki/Software_performance_testing | Software performance testing - Wikipedia
+https://code.google.com/hosting/search?q=label:Performance | Performance software in Google Code </web>
+<tags> *performance software testing monitoring analysis  </tags>
+</definition>
+
+<presentation>
+<name> Gooda - Generic Optimization Data Analyzer </name>
+<description>
+</description>
+<contact> Roberto Vitillo </contact>
+<web>  https://indico.cern.ch/event/149557/session/6/contribution/19/material/slides/0.pdf | slides </web>
+<tags> *gooda_chep2012 gooda roberto_vitillo lbnl chep2012 </tags>
+</presentation>
+
+<presentation>
+<name> Computational Efficiency in Experimental HEP </name>
+<description>
+</description>
+<contact> Vincenzo Innocente </contact>
+<web>  http://indico.cern.ch/event/280897/session/0/contribution/2/material/slides/0.pdf | slides </web>
+<tags> *tuning2013_innocente tuning2013 software performance </tags>
+</presentation>
+
+<presentation>
+<name> Preparing HEP Software For Concurrency </name>
+<description>
+The necessity for really thread-safe experiment software has recently become very evident, largely driven by the evolution of CPU architectures towards exploiting increasing levels of parallelism, For high-energy physics this represents a real paradigm shift, as concurrent programming was previously only limited to special, well-defined domains like control software or software framework internals. This paradigm shift, however, falls into the middle of the successful LHC programme and many million lines of code have already been written without the need for parallel execution in mind. In this presentation we will have a closer look at the offline processing applications of the LHC experiments and their readiness for the many-core era. We will review how previous design choices impact the move to concurrent programming. We present our findings on transforming parts of the LHC experiments' reconstruction software to thread-safe code, and the main design patterns that have emerged during the process. A plethora of parallel-programming patterns are well known outside the HEP community, but only a few have turned out to be straight forward enough to be suited for non-expert physics programmers. Finally, we propose a potential strategy for the migration of existing HEP experiment software to the many-core era.
+</description>
+<contact> Marco Clemencic </contact>
+<web>  https://concurrency.web.cern.ch/sites/concurrency.web.cern.ch/files/CHEP_2013_Preprint_1.pdf | proceedings </web>
+<tags> *chep2013_preparing_concurrency chep2013 concurrency cern  </tags>
+</presentation>
+
+<presentation>
+<name> Introducing Concurrency in the Gaudi Data Processing Framework </name>
+<description>
+In the past, the increasing demands for HEP processing resources could be fulfilled by distributing the work to more and more physical machines. Limitations in power consumption of both CPUs and entire data centers are bringing an end to this era of easy scalability. To get the most CPU performance per Watt, future hardware will be characterised by less and less memory per processor, as well as thinner, more specialized and more numerous cores per die, and rather heterogeneous resources. To fully exploit the potential of the many cores, HEP data processing frameworks need to allow for parallel execution of reconstruction or simulation algorithms on several events simultaneously. We describe our experience in introducing concurrency related capabilities into Gaudi, a generic data processing software framework, which is currently being used by several HEP experiments, including the ATLAS and LHCb experiments at the LHC. After a description of the concurrent framework and the most relevant design choices driving its development, we demonstrate its projected performance emulating data reconstruction workflows of the LHC experiments. As a second step, we describe the behaviour of the framework in a more realistic environment, using a subset of the real LHCb reconstruction workflow, and present our strategy and the used tools to validate the physics outcome of the parallel framework against the results of the present, purely sequential LHCb software. We then summarize the measurement of the code performance of the multithreaded application in terms of memory and CPU usage and I/O load.
+</description>
+<contact> Benedikt Hegner </contact>
+<web>  https://indico.cern.ch/event/214784/contribution/203 </web>
+<tags> *chep2013_introducing_concurrency chep2013 concurrency cern  </tags>
+</presentation>
+
+
+</hepsoftware>
+

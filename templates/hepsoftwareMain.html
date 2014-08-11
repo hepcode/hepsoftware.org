@@ -1,0 +1,21 @@
+{% extends "hepsoftwareBase.html" %}
+{% load url from future %}
+
+{% block bodyheader %}  {% endblock %}
+
+{% block mainbody %}
+
+<table width=800>
+<tr><td>
+<span><div width=800 height=200><img src="/static/img/hepsoftware-logo-white-200.png" width="200px" height="200px"/> <font size=+3> &nbsp; &nbsp; &nbsp; Welcome to HEPsoftware.org</font> </span></div>
+<br>
+
+{{ description|safe }}
+
+</td></tr>
+</table>
+
+<br>
+<a href="http://twitter.com/hepsoftware"><img src="/static/img/twitter.png" width=30></a> &nbsp; <a href="https://twitter.com/hepsoftware">@hepsoftware</a> &nbsp; <a href="https://twitter.com/hashtag/hepsoftware">#hepsoftware</a> &nbsp; <a href="https://twitter.com/hashtag/hepcomputing">#hepcomputing</a>
+
+{% endblock %}

@@ -1,0 +1,316 @@
+{% extends "hepsoftwareBase.html" %}
+{% load url from future %}
+
+{% block bodyheader %}
+{% if logo %}
+<div> <img align=left width=160 src='{{ logo }}'/> &nbsp; &nbsp; <a href="/e/{{ tagname }}">{{ ent.name }}</a> </div><br>
+{% else %}
+<a href="/e/{{ tagname }}">{{ ent.name }}</a>
+{% endif %}
+{% if image %}
+<img align=right width=300 src='{{ image.url }}'/>
+{% endif %}
+{% endblock %}
+
+
+{% block premainbody %}
+
+{% if 'rev' in requestParams %}
+<p >
+<table><tr>
+<td> This is revision <b> {{ requestParams.rev }} </b> </td>
+{% if loggedin %}
+<td> <a href="/e/{{ tagname }}/?rev={{ requestParams.rev }}&save_to_db">Make this the current version</a> </td>
+{% endif %}
+<td> <a href="/e/{{ tagname }}">Go to the current version</a> </td>
+</tr></table>
+
+</p>
+{% endif %}
+
+{% endblock %}
+
+{% block mainbody %}
+
+{% if mytags or tags %}
+<p>
+<table>
+<tr><td> <b>Tagged as:</b> &nbsp; 
+{% for tag in mytags %}
+{% if tag == tagname %} <b>{{tag}}</b> {% else %} {{tag}} {% endif %} &nbsp; 
+{% endfor %}
+</td></tr><tr><td> <b>Associated tags:</b> &nbsp;
+{% for tag in tags %}
+ <a href="/e/{{tag}}">{{tag}}</a> &nbsp; 
+{% endfor %}
+</td></tr>
+</table></p>
+{% endif %}
+
+{% if ent %}
+
+{% if ent.description %}
+<table width=1000>
+<tr><td>
+{{ ent.description|safe }}
+</td></tr></table>
+{% endif %}
+
+{% if refs %}
+<p><table>
+{% for ref in refs %}
+
+{% if ref.type == 'wikipedia' %}
+<tr><td> <b>wikipedia</b> </td><td> <a href="{{ ref.description }}">{{ ref.textref }}</a> </td></tr>
+
+{% elif ref.type == 'email' %}
+<tr><td> email </td><td> <a href="mailto:{{ ref.textref }}">{{ ref.textref }}</a> </td></tr>
+
+{% elif ref.type == 'web' %}
+<tr><td> {% if ref.description == '' %} <b>homepage</b> </td><td> <a href="{{ ref.textref }}">{{ ref.textref }}</a> {% else %} <b>web</b> </td><td> <a href="{{ ref.textref }}">{{ref.description|safe}}</a> {% endif %} </td></tr>
+
+{% elif ref.type == 'repo' %}
+<tr><td> <b><a href="{{ ref.textref }}">{% if ref.description == 'repo' %} Code repository {% else %} {{ref.description}} {% endif %}</a></b> </td> </td><td></tr>
+
+{% elif ref.type == 'phonebook' %}
+<tr><td> <b> {{ref.description}} </b> </td> <td>  <a href="{{ ref.textref }}">{{ ref.textref }}</a> </td></tr>
+
+{% elif ref.type == 'image_inline' %}
+
+{% elif ref.type == 'date' %}
+<tr><td> <b>date</b> </td><td> {{ref.textref}} </td></tr>
+
+{% elif ref.type == 'status' %}
+<tr><td> <b>status</b> </td><td> {{ref.textref|safe}} </td></tr>
+
+{% elif ref.type == 'paper' %}
+<tr><td> <b><a href="{{ ref.textref }}">paper</a>:</b> {{ref.description|safe}} </td></tr>
+
+{% elif ref.type == 'talk' %}
+<tr><td> <b><a href="{{ ref.textref }}">talk</a></b> </td><td> {{ref.description|safe}} </td></tr>
+
+{% elif ref.type == 'docref' %}
+<tr><td> <b>document</b> </td><td> <a href="{{ ref.textref }}">{{ref.description|safe}}</a> </td></tr>
+
+{% elif ref.type == 'contact' %}
+<tr><td> <b>{{ref.type}}</b> </td><td> <a href="/e/{{ ref.tagref }}">{{ ref.textref|safe }}</a> {% if ref.description and ref.description != ref.type %} ({{ ref.description }}) {% endif %}</td></tr>
+
+{% elif ref.type == 'contributor' %}
+
+{% elif ref.type == 'credit' %}
+
+{% elif ref.type == 'location' %}
+<tr><td> <b>location</b> </td><td> {{ ref.textref|safe }} </td></tr>
+
+{% elif ref.type == 'uses' %}
+<tr><td> <b>{{ref.description}}</b> </td><td> <a href="/e/{{ ref.textref }}">{{ ref.textref }}</a> </td></tr>
+
+{% else %}
+<tr><td> <b><a href="{{ ref.textref }}">{{ ref.description }}</a></b> </td></tr>
+
+{% endif %}
+{% endfor %}
+</table></p>
+{% endif %}
+
+{% if ents or uses or usedby %}
+<p><table>
+
+{% if ents %}
+<tr><th> Associated entries </th> </tr>
+{% for ent in ents %}
+{% if ent.mytag != tag.name %}
+<tr>
+<td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+</tr>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if uses %}
+<tr height=10px colspan=20></th>
+<tr><th> Uses </th></tr>
+{% for ref in uses %}
+<tr><td> <a href="/e/{{ ref.tagref }}">{{ ref.name }}</a> {{ ref.description }}</td></tr>
+{% endfor %}
+{% endif %}
+
+{% if usedby %}
+<tr height=10px colspan=20></th>
+<tr><th> Used by </th></tr>
+{% for ub in usedby %}
+<tr>
+<td><a href="/e/{{ ub.tagref }}">{% if ub.name %}{{ ub.name }}{% else %} {{ ub.tagref }} {% endif %}</a> {{ ub.description }} </td>
+</tr>
+{% endfor %}
+</table></p>
+{% endif %}
+{% endif %}
+
+<p>
+<table>
+<tr class='tablesection'><th colspan=20> Entries that tag {{ tagname }} </th></tr>
+
+{% if esw %}
+<tr height=10px colspan=20></th>
+<tr><th> Software </th><th> Tags </th><th> Type </th></tr>
+{% for ent in esw %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+ <td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td> 
+</tr>
+{% endfor %}
+{% endif %}
+
+{% if eorg %}
+<tr height=10px colspan=20></th>
+<tr><th> Organizations </th><th> Tags </th><th> Type </th></tr>
+{% for ent in eorg %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+ <td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td> 
+</tr>
+{% endfor %}
+{% endif %}
+
+{% if eother %}
+<tr height=10px colspan=20></th>
+<tr><th> Entry </th><th> Tags </th><th> Type </th></tr>
+{% for ent in eother %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+<td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td> 
+</tr>
+{% endfor %}
+{% endif %}
+
+{% if epeople %}
+<tr height=10px colspan=20></th>
+<tr><th> People </th><th colspan=5> Tags </th></tr>
+{% for ent in epeople %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td colspan=5><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+</tr>
+{% endfor %}
+{% endif %}
+
+</table>
+</p>
+
+{% if emeet %}
+<p>
+<table>
+<tr class='tablesection'><th> Meetings </th><th> Date </th><th> Location </th><th> Tags </th><th> Type </th></tr>
+{% for ent in emeet %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td> {{ ent.date|date:'Y-m-d' }} </td> <td> {{ ent.location|safe }} </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+ <td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td> 
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% if refstothis %}
+<p><table>
+<tr class='tablesection'><th> References </th><th> Type </th><th> Description </th></tr>
+{% for ref in refstothis %}
+<tr><td> <a href="/e/{{ ref.entity }}">{{ ref.name }}</a> </td><td> <a href="/rl/?type={{ ref.type }}&tagref={{ ent.mytag }}">{{ ref.type }}</a></td><td> {% if ref.description != ref.type %} {{ ref.description|safe }} {% endif %}</td></tr>
+{% endfor %}
+</table></p>
+{% endif %}
+
+{% if refs %}
+<p><table>
+{% for ref in refs %}
+{% if ref.type == 'image_inline' %}
+<tr><td> <font size=-1>inline image <a href="{{ ref.textref }}">{{ref.textref}}</a></font></td></tr>
+{% endif %}
+{% endfor %}
+</table></p>
+{% endif %}
+
+</table>
+</p>
+
+<p>
+<table>
+{% if loggedin %}
+<tr><td> <a href="/in/{{ ent.mytag }}">Edit</a> &#8226; 
+<a href="/e/{{ ent.mytag }}/?save_to_json">Archive</a> &#8226; 
+Hide </td></tr>
+{% endif %}
+<!-- <tr><td> <a href="/s/{{ent.mytag}}">XML source</a> </td></tr> -->
+{% if ent.type %}
+<tr><td> Type: &nbsp; <a href="/el/{{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/{{ ent.subtype }}{% endif %} </td></tr>
+{% endif %}
+
+{% if contributor %}
+<tr><td> Page contributors: {{ contributor|safe }} </td></tr>
+{% endif %}
+
+{% if credit %}
+<tr><td> Page credits: {{ credit|safe }} </td></tr>
+{% endif %}
+
+<tr><td> Created {{ ent.created_at|date }}{% if ent.created_at != ent.updated_at %}, updated {{ ent.updated_at|date }} {% endif %} </td></tr>
+
+{% if revisionfiles %}
+<tr><td> Revisions:
+{% for rev in revisionfiles %}
+<br> <a href="/e/{{ tagname }}/?rev={{ rev }}">{{ rev }}</a>
+{% endfor %}
+</td></tr>
+{% endif %}
+</table>
+
+{% else %}
+<p>
+Entry for <b>{{ entname }}</b> not found.
+</p>
+{% endif %}
+{% endblock %}

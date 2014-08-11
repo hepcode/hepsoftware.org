@@ -1,0 +1,88 @@
+{% extends "hepsoftwareBase.html" %}
+{% load url from future %}
+
+{% block bodyheader %}
+{% if requestParams.type == 'credit' %}
+Credit
+{% elif requestParams.type == 'contact' %}
+Contact
+{% elif requestParams.type == 'contact' %}
+Contributor
+{% elif requestParams.type == 'docref' %}
+Document reference
+{% elif requestParams.type == 'status' %}
+Status reference
+{% elif requestParams.type == 'web' %}
+Web reference
+{% elif requestParams.type == 'paper' %}
+Paper reference
+{% elif requestParams.type == 'contributions' %}
+Contributions from 
+{% else %}
+{{ refs|length }} references
+{% endif %}
+{% if tagname %} {{ tagname }} {% endif %}
+{% endblock %}
+
+{% block mainbody %}
+
+{% if refs %}
+<p>
+<table>
+<tr class='tablesection'><th> Reference </th> <th> Entry </th> <th> Type </th> <th> Created </th><th> Updated </th></tr>
+
+{% for ref in refs %}
+<tr>
+<td>
+{% if ref.type == 'web' %}
+<a href="{{ ref.textref }}"> {% if ref.description %} {{ ref.description }} {% else %} {{ ref.textref }} {% endif %} </a>
+
+{% elif ref.type == 'paper' %}
+<a href="{{ ref.textref }}"> {% if ref.description %} {{ ref.description }} {% else %} {{ ref.textref }} {% endif %} </a>
+
+{% elif ref.type == 'logo' %}
+<a href="{{ ref.textref }}"> {{ ref.textref }} </a>
+
+{% elif ref.type == 'image' or ref.type == 'image_inline' %}
+<a href="{{ ref.textref }}"> {{ ref.textref }} </a>
+
+{% elif ref.type == 'repo' %}
+<a href="{{ ref.textref }}"> {{ ref.textref }} </a>
+
+{% elif ref.type == 'wikipedia' %}
+<a href="http://en.wikipedia.org/wiki/{{ ref.textref }}"> {{ ref.textref }} </a>
+
+{% elif ref.type == 'docref' %}
+<a href="{{ ref.textref }}"> {{ ref.description }} </a>
+
+{% elif ref.type == 'contributions' %}
+<a href="/e/{{ ref.tagref }}">{{ ref.textref}} </a>
+
+{% elif ref.tagref %}
+<a href="/e/{{ ref.tagref }}">{{ ref.textref}} </a>
+
+{% elif ref.textref %}
+{{ ref.textref }}
+
+{% else %}
+{{ ref.textref }}
+
+{% endif %}
+
+{% for key, value in ref.items %}
+{% if value and key != 'id' and key != 'textref'  and key != 'tagref' and key != 'description' and key != 'name' and key != 'entity' and key != 'created_at' and key != 'updated_at' and key != 'type' %}
+<b>{{ key }}</b>:{{ value|safe }}
+{% endif %}
+{% endfor %}
+</td>
+<td> <a href="/e/{{ ref.entity }}">{% if ref.name %} {{ ref.name }} {% else %} {{ ref.entity }} {% endif %}</a> </td>
+<td> <a href="/rl/?type={{ ref.type }}">{{ ref.type }}</a> </td>
+<td> {{ ref.created_at|date }} </td>
+<td> {% if ref.updated_at != ref.created_at %}{{ ref.updated_at|date }}{% endif %} </td>
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% endblock %}

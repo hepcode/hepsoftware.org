@@ -1,0 +1,45 @@
+{% extends "hepsoftwareBase.html" %}
+{% load url from future %}
+
+{% block bodyheader %}
+{% if entity %}
+<a href="/e/{{ entity.mytag }}">{{ entity.name }}</a>
+{% elif xmlsource %}
+XML Source
+{% endif %}
+{% endblock %}
+
+{% block mainbody %}
+{% if entity %}
+<table width=600><tr><td>
+This is the XML source of the <a href="/e/{{ entity.mytag }}">{{ entity.mytag }}</a> entry.
+Feel free to cut and paste and send improvements, corrections, additional entries to <a href="mailto:wenaus@gmail.com">Torre Wenaus</a>.
+Descriptions are formatted as <a href="http://daringfireball.net/projects/markdown/syntax">markdown</a>. For inline images, either use markdown or send along with your revisions the images as png files and use the __img_filename syntax to reference them inline. Entries can be referenced inline via #tagname, it will be expanded to a link. The tagname for an entry is the first tag in the &lt;tags> element that is prefixed by an asterisk (indicating that the entry is the owner of that tag).
+</tr></td></table>
+<table width=1000><tr><td>
+&lt;{{ entity.type }}><br>
+&lt;name>{{entity.name}}&lt;/name><br>
+<br>
+&lt;description><br>
+<pre>
+{{entity.description_html}}</pre>
+&lt;/description><br>
+{% if uses %}<br>&lt;uses> {{ uses }} &lt;/uses>{% endif %}
+{% if usedby %}<br>&lt;usedby> {{ usedby }} &lt;/usedby>{% endif %}
+{% for ref in refs %}
+<br>&lt;{{ ref.type }}> {% if ref.textref %}{{ ref.textref }} {% else %} {{ ref.tagref }} {% endif %} {% if ref.description and ref.description != ref.type %} | {{ ref.description }} {% endif %} &lt;/{{ ref.type }}>
+{% endfor %}
+<br>&lt;tags> {% for tag in mytagl %} *{{ tag }} {% endfor %} {% for tag in othertagl %} {{ tag }} {% endfor %} &lt;/tags>
+<br>&lt;/{{entity.type}}>
+{% else %}
+{% if xmlsource %}
+<pre>
+{{ xmlsource }}
+</pre>
+{% else %}
+No entry with tag={{ tagname }} found.
+{% endif %}
+</td></tr></table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+Annotated pseudo-xml for a HEPsoftware.org DB contribution:
+
+<tool> (or <project> <org> <task> <need> <meeting> .... <definition> ... can add more )
+<name> Any Old Descriptive Name. Not unique, it is the uniquetagname that is the unique key. </name>
+<description>
+The meat goes here. Uses markdown. Plus a convention for 'in-house images'
+__img_filename
+where filename.png is kept in the images area of the app. But inline images can also be done via markdown.
+http://daringfireball.net/projects/markdown/syntax
+Can also use #CaseInsensitiveHash of a tag which is turned into a link with the full name of the tag.
+</description>
+<contact> Name Here  </contact> (will expect a tag name_here; define the tag in the people element, see below)
+<contributor> Name Here </contributor> (not really using this one)
+<credit> Name Here </credit>  (I use this when I create entries from other peoples material)
+<web> can be just a url or...
+http://one.com | can be urls on multiple lines
+http://two.com | with an optional description following a vertical bar </web>
+<wikipedia> just the wiki keyword, not the full url </wikipedia>
+<repo> url </repo>
+<uses> tags of things that use this </uses>
+<tags> *uniquetagname other tags  </tags>
+<date> </date>
+<location> Can be plain text or #HashOfAPlace like #cern which will associate the meeting with the place (as will a tag) </location>
+<docref> url_goes_here | with an optional description here </docref>
+</tool>
+
+<people>
+Name Here | slac lbne ... tags associated with the person
+Another Name | bnl atlas
+</people>

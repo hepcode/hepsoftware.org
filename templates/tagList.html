@@ -1,0 +1,27 @@
+{% extends "hepsoftwareBase.html" %}
+{% load url from future %}
+
+{% block bodyheader %} {{ tags|length }} tags {% endblock %}
+
+{% block mainbody %}
+
+{% if requestParams %}
+<p>
+{% for key, value in requestParams.items %}
+{{key}}={{value}} &nbsp;
+{% endfor %}
+</p>
+{% endif %}
+
+<table>
+<tr> <th> Tag </th> <th> Full name of corresponding entry</th> <th> Implies other tags </th> </tr>
+{% for tag in tags %}
+<tr> 
+<th> {{ tag.name }} </th>
+<td> {% if tag.fullname %} <a href="/e/{{ tag.name }}">{{ tag.fullname }}</a> {% else %}  No DB entry for this tag. {% if loggedin %} <a href="/in/{{ tag.name }}">Create a DB entry for {{ tag.name }}</a> {% else %} If you register and login you can create one. {% endif %} {% endif %}</td>
+<td> {% if tag.implicit %} {{ tag.implicit }} {% endif %} </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

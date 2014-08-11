@@ -1,0 +1,61 @@
+{% extends "hepsoftwareBase.html" %}
+{% load url from future %}
+
+{% block bodyheader %}
+{{ title|safe }}
+{% endblock %}
+
+{% block premainbody %}
+
+<noscript><b>This form will work better if you enable javascript in your browser.</b></noscript>
+
+{% endblock %}
+
+{% block mainbody %}
+
+<form action="/in/" method="post">
+
+{{ form.non_field_errors }}
+
+<table width=900 class='formtable'>
+    {% csrf_token %}
+
+{{ xform.as_table }}
+
+{% for field in form %}
+
+{% if field.is_hidden %}
+{{ field }}
+{% else %}
+    <tr class="fieldWrapper"><td>
+        {% for error in field.errors %}
+            {% if error != "This field is required." %}
+                <p>{{ error }}</p>
+            {% endif %}
+        {% endfor %}
+{% if field.field.required %}
+<b>{{ field.field.label }} *</b>
+{% else %}
+{{ field.field.label }}
+{% endif %}
+<br><font color=grey> {{ field.help_text|safe }} </font>
+         {{ field }}
+    </td></tr>
+
+{% endif %}
+
+{% endfor %}
+
+{% if not emptyform %}
+{% comment %} Only need to show the submit button if there's more to the form than the type selection {% endcomment %}
+<tr><td>
+<input type="submit" name="save" class="subButton" value="Submit" />
+ &nbsp; &nbsp;
+<input type="submit" name="cancel" class="subButton" value="Cancel" />
+</td></tr>
+{% endif %}
+
+</table>
+</form>
+
+{% endblock %}

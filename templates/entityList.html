@@ -1,0 +1,223 @@
+{% extends "hepsoftwareBase.html" %}
+{% load url from future %}
+
+{% block bodyheader %}
+{% if title  and title != tagname %}
+
+{% if titletag %}<a href="/e/{{ titletag }}">{{ title }}</a>{% else %} {{ title }} {% endif %}
+
+{% else %}
+
+{% if QUERY_TYPE == 'meeting' %}  Meetings 
+{% elif QUERY_TYPE == 'experiment' %}  Experiments
+{% elif QUERY_TYPE == 'person' %}  People
+{% elif QUERY_TYPE == 'org' %}  Organizations
+{% elif QUERY_TYPE == 'lab' %}  Laboratories
+{% elif QUERY_TYPE == 'university' %}  Universities
+{% elif QUERY_TYPE == 'facility' %}  Computing facilities
+{% elif QUERY_TYPE == 'supercomputing' %}  Supercomputing
+{% elif QUERY_TYPE == 'network' %}  Networking
+{% elif QUERY_TYPE == 'computing' %}  Computing
+{% elif QUERY_TYPE == 'software' %}  Software
+{% elif QUERY_TYPE == 'ddm' %}  Data management
+{% elif QUERY_TYPE == 'wms' %}  Workload management
+{% elif QUERY_TYPE == 'analysis' %}  Analysis tools
+{% elif QUERY_TYPE == 'provider' %}  Resource providers
+{% elif QUERY_TYPE == 'cosmos' %}  Astrophysics and cosmology
+{% elif QUERY_TYPE == 'intensity' %}  Intensity frontier
+{% elif QUERY_TYPE == 'energy' %}  Energy frontier
+{% elif QUERY_TYPE == 'nuclear' %}  Nuclear physics
+{% elif QUERY_TYPE == 'accelerator' %}  Accelerators
+{% elif QUERY_TYPE == 'bphysics' %}  b physics
+{% elif QUERY_TYPE == 'project' %}  Software projects
+{% elif QUERY_TYPE == 'tool' %}  Software tools and services
+{% elif QUERY_TYPE == 'infrastructure' %} Software tools, services, infrastructure
+{% elif QUERY_TYPE == 'db' %} Database software
+{% elif QUERY_TYPE == 'definition' %} Definitions
+{% elif QUERY_TYPE == 'community' %} Community
+{% elif QUERY_TYPE == 'buildmgmt' %} Build management
+{% elif QUERY_TYPE == 'webservice' %} Web services
+{% elif QUERY_TYPE == 'reco' %} Reconstruction
+{% elif QUERY_TYPE == 'conference' %} Conferences
+{% elif QUERY_TYPE == 'theory' %} Theory
+{% elif QUERY_TYPE == 'qcd' %} QCD
+{% elif QUERY_TYPE == 'neutrino' %} Neutrino physics
+{% elif QUERY_TYPE == 'database' %} Databases
+{% elif QUERY_TYPE == 'graphics' %} Graphics
+{% elif QUERY_TYPE == 'series' %} Meeting and conference series
+{% elif QUERY_TYPE == 'opensource' %} Open source
+{% elif QUERY_TYPE == 'infomgmt' %} Information management
+{% elif title != '' %} {{ title }}
+{% else %} {{ ents|length }} selections
+{% endif %}
+
+{% endif %}
+
+{% endblock %}
+
+{% block mainbody %}
+
+{% if usedby %}
+<p><table>
+<tr class='tablesection'><th> Used by </th></tr>
+{% for ub in usedby %}
+<tr>
+<td><a href="/e/{{ ub.tagref }}">{{ ub.name }}</a> {{ ub.description }} </td>
+</tr>
+{% endfor %}
+</table></p>
+{% endif %}
+
+{% if ents %}
+
+{% comment %}
+&nbsp; {{ ents|length }} entries selected:
+{% endcomment %}
+
+{% if esw %}
+<p>
+<table>
+<tr class='tablesection'><th> Software &amp; Tools </th><th> Tags </th><th> Type </th></tr>
+{% for ent in esw %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+<td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td>
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% if eother %}
+<p>
+<table>
+<tr class='tablesection'><th> Related entries </th><th> Tags </th><th> Type </th></tr>
+{% for ent in eother %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+<td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td> 
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% if eorg %}
+<p>
+<table>
+<tr class='tablesection'><th> Organizations </th><th> Tags </th><th> Type </th></tr>
+{% for ent in eorg %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+ <td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td>
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% if emeet %}
+<p>
+<table>
+<tr class='tablesection'><th> Meetings </th><th> Date </th><th> Location </th><th> Tags </th><th> Type </th></tr>
+{% for ent in emeet %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td> {{ ent.date|date:'Y-m-d' }} </td> <td> {{ ent.location|safe }} </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+ <td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td> 
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% if epeople %}
+<p>
+<table>
+<tr class='tablesection'><th> People </th><th> Tags </th><th> Type </th></tr>
+{% for ent in epeople %}
+<tr><td> <a href="/e/{{ ent.mytag }}">{{ ent.name }}</a> </td>
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+<td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td>
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% comment %}
+<table>
+<tr> <td> <b>Name</b> </td><td> <b>Tags</b> (<b>owned</b> and other) </td> {% if QUERY_TYPE == '' %} <td> <b>Type</b> </td> {% endif %} </tr>
+{% for ent in ents %}
+<tr> 
+
+<td> <b><a href="/e/{{ ent.mytag }}">{{ ent.name }}</a></b> </td>
+
+<td><font size=-1>
+{% for tag in ent.mytagl %}
+<a href="/e/{{ tag }}"><b>{{ tag }}</b></a> &nbsp;
+{% endfor %}
+{% for tag in ent.othertagl %}
+<a href="/e/{{ tag }}">{{ tag }}</a> &nbsp;
+{% endfor %}
+</font></td>
+
+<!-- <td> {{ ent.description|safe }} </td> -->
+<td> <a href="/el/?type={{ ent.type }}">{{ ent.type }}</a>{% if ent.subtype %}/<a href="/el/?type={{ ent.type }}&subtype={{ ent.subtype }}">{{ ent.subtype }}</a> {% endif %}</td> 
+</tr>
+{% endfor %}
+</table>
+{% endcomment %}
+
+{% else %}
+
+No matches
+
+{% endif %}
+
+{% endblock %}

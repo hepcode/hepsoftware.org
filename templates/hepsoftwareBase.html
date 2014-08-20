@@ -57,9 +57,15 @@
     </ul>
 
     {% if loggedin %}
+    <!-- Right Nav Section -->
     <ul class="right">
-        <li class="divider"></li>
-        <li> <a href="/in/">Add entry</a> </li>
+      <li class="has-dropdown">
+        <a href="#">Edit</a>
+        <ul class="dropdown">
+            <li> <a href="/in/">Add entry</a> </li>
+            <li> <a href="/me/">Manage entries</a> </li>
+        </ul>
+      </li>
     </ul>
     {% endif %}
 

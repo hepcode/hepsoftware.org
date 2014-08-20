@@ -1,0 +1,46 @@
+{% extends "hepsoftwareBase.html" %}
+{% load url from future %}
+
+{% block bodyheader %}
+Manage {% if staff %} all {% else %} my {% endif %} {{ ents|length }} entries
+{% endblock %}
+
+{% block mainbody %}
+
+{% if ents %}
+<p>
+<table>
+<tr><th rowspan=2> Entry <br> <font color=grey>tag</font> </th>
+<th>Updated</th><th>Created</th><th> Owner </th> <th> State </th>
+<tr><th colspan=10> <font color=blue> actions </font> </th>
+</tr>
+{% for ent in ents %}
+<tr>
+<td rowspan=2> <a href='/e/{{ ent.mytag }}'>{{ ent.name }}</a> <br> <font color=grey> {{ ent.mytag }} </font> </td>
+<td> {{ ent.updated_at|date:"Y-m-d H:i" }} </td>
+<td> {{ ent.created_at|date:"Y-m-d H:i" }} </td>
+<td> {{ ent.owner|safe }} </td> 
+<td> <span class="{{ ent.state }}">{{ ent.state }}</span> {% if ent.hidden %} &nbsp; <span class="hidden">hidden</span> {% endif %} </td>
+</tr>
+<tr><td colspan=20>
+<form action="/act/" method="post" style="margin:0px">    {% csrf_token %}
+<input type="hidden" name="user" value="{{ full_name }}"/>
+{% if ent.state != 'deleted' %}
+{% if ent.state != 'locked' and ent.state != 'deleted' %} <a name="action" value="edit" type="submit">edit</a> &nbsp; {% endif %}
+{% if ent.state == 'online' %} <a href="/act/{{ ent.mytag }}/?action=set_draft">set_draft</a> &nbsp;  {% endif %}
+{% if ent.state == 'draft' %} set_online &nbsp;  {% endif %}
+{% if ent.state == 'locked' %} unlock {% else %} lock {% endif %} &nbsp; 
+{% if ent.state != 'review' and ent.state != 'deleted' %} review &nbsp;  {% endif %}
+{% if ent.hidden %} unhide {% else %} hide {% endif %} &nbsp; 
+{% if ent.state != 'locked' %} delete {% endif %}
+{% else %}
+undelete
+{% endif %}
+ </form> </td>
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+
+{% endblock %}

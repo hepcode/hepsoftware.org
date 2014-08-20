@@ -167,3 +167,10 @@ border-color:grey;
 	position:relative;
 	top:1px;
 }
+
+.review { color:gold }
+.online { color:forestgreen }
+.draft { color:grey }
+.lock { color:black }
+.deleted { color:red }
+.hidden { color:lightgrey }

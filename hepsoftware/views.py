@@ -37,9 +37,11 @@ else:
 QUERY_TYPE = ''
 
 PERSONS = []
-people = Entity.objects.filter(type='person').values('name').order_by('name')
+PERSONS_DICT = {}
+people = Entity.objects.filter(type='person').values('name','mytag').order_by('name')
 for p in people:
     PERSONS.append(p['name'])
+    PERSONS_DICT[p['mytag']] = p['name']
 
 AUTOCOMPLETE_ENTITIES = []
 autoents = Entity.objects.exclude(type__in=('meeting','person','doc','paper','presentation','content',)).values('mytag').order_by('mytag')
@@ -1165,6 +1167,87 @@ def strTags(tagstr, sep, exclude=[], include=[]):
     if csv.endswith(sep): csv = csv[:-1]
     return csv
 
+@login_required(login_url='/accounts/login/')
+def actionOnEntity(request, mytag):
+    if not request.user.is_authenticated():
+        ## not logged in, can't do nuthin'
+        messages.warning(request, "You are not logged in, you cannot manage entries.")
+        return mainPage(request)
+    if not request.user.is_staff:
+        ## general users can manage entries they have contributed to or are credited on or are a contact for
+        messages.info(request, "You can manage entries you have contributed to.")
+        usertag = request.user.get_full_name().lower().replace(' ','_')
+        myrefs = Reference.objects.filter(tagref=usertag)
+        myents = {}
+        for r in myrefs:
+            myents[r['entity']] = 1
+        myentsl = []
+        for e in myents:
+            myentsl.append(e)
+        myentsl.sort()
+        if mytag not in myentsl:
+            messages.warning(request, "You are not authorized to modify the %s entry." % mytag)
+            return mainPage(request)
+
+    if request.method == 'POST':
+        requestParams = request.POST.copy()
+        print 'post', requestParams
+    else:
+        requestParams = request.GET.copy()
+        print 'get', requestParams
+    if 'action' in requestParams:
+        action = requestParams['action']
+    else:
+        messages.info(request, "No action requested")
+        return mainPage(request)
+
+    ents = Entity.objects.filter(mytag=mytag)
+    if len(ents) == 0:
+        messages.error(request, "Entry with tag '%s' not found." % mytag )
+        return mainPage(request)
+    ent = ents[0]
+
+    if ent.state == 'deleted' and action != 'undelete':
+        messages.warning(request,"The only permitted action on a deleted entry is 'undelete'.")
+        return manageEntries(request)
+
+    msg = "<a href='/e/%s/'>%s</a> update: %s" % ( mytag, mytag, action )
+    messages.info(request, msg)
+
+    if action == 'edit':
+        return entityForm(request, mytag)
+    elif action == 'set_draft':
+        ent.state = 'draft'
+        ent.save()   
+    elif action == 'set_online':
+        ent.state = 'online'
+        ent.save()
+    elif action == 'lock':
+        ent.state = 'locked'
+        ent.save()
+    elif action == 'unlock':
+        ent.state = 'online'
+        ent.save()
+    elif action == 'review':
+        ent.state = 'review'
+        ent.save()
+    elif action == 'hide':
+        ent.hidden = True
+        ent.save()
+    elif action == 'unhide':
+        ent.hidden = False
+        ent.save()
+    elif action == 'delete':
+        ent.state = 'deleted'
+        ent.save()
+    elif action == 'undelete':
+        ent.state = 'online'
+        ent.save()
+    else:
+        messages.warning(request, "Requested action '%s' not understood" % action)
+
+    return manageEntries(request)
+
 def editEntry(request, mytag, type='', form=None, formdata={}):
     objq = None
     obj = None
@@ -1489,3 +1572,65 @@ def expandText(txt, owntag, type='', description=''):
     txt = txt.replace(u'"',u'\\"')
     txt = txt.replace(u'[[hash]]',u'#')
     return txt
+
+@login_required(login_url='/accounts/login/')
+def manageEntries(request):
+    if not request.user.is_authenticated():
+        ## not logged in, can't do nuthin'
+        messages.warning(request, "You are not logged in, you cannot manage entries.")
+        return mainPage(request)
+    query = {}
+    if not request.user.is_staff:
+        ## general users can manage entries they have contributed to or are credited on or are a contact for
+        messages.info(request, "You can manage entries you have contributed to.")
+        usertag = request.user.get_full_name().lower().replace(' ','_')
+        myrefs = Reference.objects.filter(tagref=usertag)
+        myents = {}
+        for r in myrefs:
+            myents[r['entity']] = 1
+        myentsl = []
+        for e in myents:
+            myentsl.append(e)
+        myentsl.sort()
+        query['mytag__in'] = myentsl
+
+    ## staff users can manage all
+    ents = getEntities(request, query)
+    ents = sorted(ents, key=lambda x:x['name'].lower())
+    title = titletag = ""
+    for ent in ents:
+        alltagl = ent['alltags'].split()
+        mytagl = ent['allmytags'].split()
+        othertagl = []
+        for t in alltagl:
+            if t not in mytagl: othertagl.append(t)
+        ent['mytagl'] = mytagl
+        ent['othertagl'] = othertagl
+        if ent['owner'] in PERSONS_DICT:
+            ent['owner'] = "<a href='/e/%s'>%s</a>" % ( ent['owner'], PERSONS_DICT[ent['owner']] )
+    if request.META.get('CONTENT_TYPE', 'text/plain') == 'application/json':
+        return  HttpResponse('json', mimetype='text/html')
+    else:
+        data = {
+            'request' : request,
+            'requestParams' : request.GET,
+            'user' : request.user,
+            'full_name' : request.user.get_full_name(),
+            'loggedin' : request.user.is_authenticated(),
+            'staff' : request.user.is_staff,
+            'ents': ents,
+            'QUERY_TYPE' : QUERY_TYPE,
+            'title' : title,
+            'titletag' : titletag,
+        }
+        return render_to_response('manageEntries.html', data, RequestContext(request))
+
+action_choices = [ 'edit', 'set_draft', 'set_online', 'lock', 'unlock', 'review', 'hide', 'unhide', 'delete', 'undelete', ]
+
+class ActionForm(forms.Form):
+    class Media:
+        css = {"all": ("app.css",)}
+
+    error_css_class = 'error'
+    required_css_class = 'required'
+    action = forms.ChoiceField(label='Action', choices=action_choices, widget=forms.Select( attrs= { 'onchange' : 'this.form.submit()' }) )

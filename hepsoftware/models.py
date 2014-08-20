@@ -16,6 +16,9 @@ class Entity(models.Model):
     alltags = models.CharField('alltags', max_length=500, unique=False, null=True) # tagstring: all tags associated with this entity
     created_at = models.DateTimeField('created_at', auto_now_add=True, null=False)
     updated_at = models.DateTimeField('updated_at', auto_now=True, null=False)
+    hidden = models.BooleanField('date', null=False, default=False)    
+    state = models.CharField('state', max_length=30, unique=False, null=True)
+    owner = models.CharField('owner', max_length=100, unique=False, null=True)
 
     def get_absolute_url(self):
         return "/e/%s" % self.mytag.encode('utf8','ignore')
@@ -47,3 +50,4 @@ class Reference(models.Model):
     textref_original = models.CharField('textref', max_length=200, unique=False, null=True) # reference
     created_at = models.DateTimeField('created_at', auto_now_add=True, null=False)
     updated_at = models.DateTimeField('updated_at', auto_now=True, null=False)
+    hidden = models.BooleanField('date', null=False, default=False)    

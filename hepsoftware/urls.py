@@ -28,6 +28,9 @@ urlpatterns = patterns('',
     url(r'^/tl/$', hepswviews.tagList, name='tagList'),
     url(r'^/rl/$', hepswviews.referList, name='referList'),
 
+    url(r'^/me/$', hepswviews.manageEntries, name='manageEntries'),
+    url(r'^me/$', hepswviews.manageEntries, name='manageEntries'),
+
     url(r'^s/$', hepswviews.viewSource, name='viewSource'),
     url(r'^s/(?P<name>.*)/$', hepswviews.viewSource, name='viewSource'),
 
@@ -36,6 +39,9 @@ urlpatterns = patterns('',
 
     url(r'^in/$', hepswviews.entityForm, name='entityForm'),
     url(r'^in/(?P<mytag>.*)/$', hepswviews.entityForm, name='entityForm'),
+
+    url(r'^act/$', hepswviews.actionOnEntity, name='actionOnEntity'),
+    url(r'^act/(?P<mytag>.*)/$', hepswviews.actionOnEntity, name='actionOnEntity'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

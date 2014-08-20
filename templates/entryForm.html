@@ -23,9 +23,14 @@
 {{ xform.as_table }}
 
 {% for field in form %}
-
 {% if field.is_hidden %}
 {{ field }}
+{% elif field.field.label == 'Date' %}
+<tr><td> Date 
+
+<input type="text" id="id_date_year" name="date_year" value=2014 style="width:50px; margin:0px;">-<input type="text" id="id_date_month" name="date_month" value=12 style="width:40px;">-<input type="text" id="id_date_day" name="date_day" value=31 style="width:40px;">
+
+</td></tr>
 {% else %}
     <tr class="fieldWrapper"><td>
         {% for error in field.errors %}

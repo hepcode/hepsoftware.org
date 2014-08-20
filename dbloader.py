@@ -285,7 +285,7 @@ def saveEntity(obj, owntag, type=None, allmytags='', alltags=''):
     desc8 = unicode(desc)
     desc_html8 = unicode(desc_original)
     entity_dict[owntag] = 1
-    query = u'insert into hepsoftware_entity (mytag,date,name,type,subtype,description,description_markup,location,allmytags,alltags,created_at,updated_at) values ("%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s") on duplicate key update date="%s", name="%s", type="%s", subtype="%s", description="%s", description_markup="%s", location="%s", allmytags="%s", alltags="%s", updated_at="%s"' % ( owntag, date, name, type, subtype, desc8, desc_html8, location, allmytags, alltags, tnow, tnow, date, name, type, subtype, desc8, desc_html8, location, allmytags, alltags, tnow )
+    query = u'insert into hepsoftware_entity (mytag,date,name,type,subtype,description,description_markup,location,allmytags,alltags,created_at,updated_at,hidden,owner,state) values ("%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s","%s",False,"torre_wenaus","online") on duplicate key update date="%s", name="%s", type="%s", subtype="%s", description="%s", description_markup="%s", location="%s", allmytags="%s", alltags="%s", updated_at="%s"' % ( owntag, date, name, type, subtype, desc8, desc_html8, location, allmytags, alltags, tnow, tnow, date, name, type, subtype, desc8, desc_html8, location, allmytags, alltags, tnow )
     if debug: print query
     dictcursor.execute(query)
 
@@ -351,7 +351,7 @@ def addReferenceExe(entity, type, textref, description='', tagref=''):
         description = expandText(description, entity, type=type)
         textref8 = unicode(textref)
         description8 = unicode(description)
-        query = u'insert into hepsoftware_reference (entity,type,textref,tagref,description,created_at,updated_at) values ("%s","%s","%s","%s","%s","%s","%s") on duplicate key update type="%s", textref="%s", tagref="%s", description="%s", updated_at="%s"' % ( entity, type, textref8, tagref, description8, tnow, tnow, type, textref8, tagref, description8, tnow )
+        query = u'insert into hepsoftware_reference (entity,type,textref,tagref,description,created_at,updated_at,hidden) values ("%s","%s","%s","%s","%s","%s","%s",False) on duplicate key update type="%s", textref="%s", tagref="%s", description="%s", updated_at="%s", hidden=False' % ( entity, type, textref8, tagref, description8, tnow, tnow, type, textref8, tagref, description8, tnow )
         if debug: print query
         dictcursor.execute(query)
         #if type == 'contact':
@@ -519,7 +519,7 @@ def proc_people(obj):
         if debug: print 'savetags people'
         entity_dict[nametag] = 1
         owntag, allmytags, alltags = saveTags(pobj)
-        query = u'insert into hepsoftware_entity (mytag,name,type,subtype,description,allmytags,alltags,created_at,updated_at) values ("%s","%s","%s","%s","%s","%s","%s","%s", "%s") on duplicate key update name="%s", type="%s", subtype="%s", description="%s", allmytags="%s", alltags="%s", updated_at="%s"' % ( nametag, name, type, subtype, desc, allmytags, alltags, tnow, tnow, name, type, subtype, desc, allmytags, alltags, tnow )
+        query = u'insert into hepsoftware_entity (mytag,name,type,subtype,description,allmytags,alltags,created_at,updated_at,hidden,owner,state) values ("%s","%s","%s","%s","%s","%s","%s","%s", "%s",False,"torre_wenaus","online") on duplicate key update name="%s", type="%s", subtype="%s", description="%s", allmytags="%s", alltags="%s", updated_at="%s"' % ( nametag, name, type, subtype, desc, allmytags, alltags, tnow, tnow, name, type, subtype, desc, allmytags, alltags, tnow )
         if debug: print query
         dictcursor.execute(query)
 

@@ -7,6 +7,22 @@ Manage {% if staff %} all {% else %} my {% endif %} {{ ents|length }} entries
 
 {% block mainbody %}
 
+<form style="margin:0px; display: inline-block;" action="/act/" method="post" id="controlform">    {% csrf_token %}
+<input type="hidden" name="user" value="{{ full_name }}"/>
+<input type="hidden" name="mytag" id="mytag_id"/>
+<input type="hidden" name="action" id="action_id"/>
+</form>
+
+<script type="text/javascript">
+function ControlAction(mytag,action)
+{
+document.getElementById("mytag_id").value=mytag;
+document.getElementById("action_id").value=action;
+document.getElementById("controlform").submit();
+}
+</script>
+
+
 {% if ents %}
 <p>
 <table>
@@ -22,21 +38,48 @@ Manage {% if staff %} all {% else %} my {% endif %} {{ ents|length }} entries
 <td> {{ ent.owner|safe }} </td> 
 <td> <span class="{{ ent.state }}">{{ ent.state }}</span> {% if ent.hidden %} &nbsp; <span class="hidden">hidden</span> {% endif %} </td>
 </tr>
+
 <tr><td colspan=20>
-<form action="/act/" method="post" style="margin:0px" id="form1">    {% csrf_token %}
-<input type="hidden" name="user" value="{{ full_name }}"/>
 {% if ent.state != 'deleted' %}
-{% if ent.state != 'locked' and ent.state != 'deleted' %} <a href="javascript:{}" name="action" value="edit" onclick="document.getElementById('form1').submit(); return false;">edit</a> &nbsp; {% endif %}
-{% if ent.state == 'online' %} <a href="/act/{{ ent.mytag }}/?action=set_draft">set_draft</a> &nbsp;  {% endif %}
-{% if ent.state == 'draft' %} set_online &nbsp;  {% endif %}
-{% if ent.state == 'locked' %} unlock {% else %} lock {% endif %} &nbsp; 
-{% if ent.state != 'review' and ent.state != 'deleted' %} review &nbsp;  {% endif %}
-{% if ent.hidden %} unhide {% else %} hide {% endif %} &nbsp; 
-{% if ent.state != 'locked' %} delete {% endif %}
-{% else %}
-undelete
+
+{% if ent.state != 'locked' and ent.state != 'deleted' %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','edit_from_db')">edit</a> &nbsp; 
 {% endif %}
- </form> </td>
+
+{% if ent.state == 'online' %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','set_draft')">set_draft</a> &nbsp; 
+{% endif %}
+
+{% if ent.state == 'draft' %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','set_online')">set_online</a> &nbsp;
+{% endif %}
+
+{% if ent.state == 'locked' %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','unlock')">unlock</a>
+{% else %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','lock')">lock</a>
+{% endif %} &nbsp; 
+
+{% if ent.state != 'review' and ent.state != 'deleted' %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','review')">review</a> &nbsp;
+{% endif %}
+
+{% if ent.hidden %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','unhide')">unhide</a>
+{% else %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','hide')">hide</a>
+{% endif %} &nbsp; 
+
+{% if ent.state != 'locked' %}
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','delete')">delete</a>
+{% endif %}
+
+{% else %}
+
+<a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','undelete')">undelete</a>
+
+{% endif %}
+ </td>
 </tr>
 {% endfor %}
 </table>

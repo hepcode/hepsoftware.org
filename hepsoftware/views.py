@@ -969,7 +969,14 @@ def entityForm(request, mytag=''):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         formdata = request.POST.copy()
+        if 'action' in request.POST and request.POST['action'] == 'edit_from_db':
+            eo = Entity.objects.filter(mytag=mytag).values()
+            if len(eo) > 0:
+                ent = eo[0]
+                for p in ent:
+                    formdata[p] = ent[p]
         title = ''
+        print 'formdata', formdata
         if 'mytag' in formdata and formdata['mytag'] != '':
             title = 'Edit the entry <b>%s</b>' % formdata['name']
             mytag = formdata['mytag']
@@ -978,25 +985,25 @@ def entityForm(request, mytag=''):
         if request.user.is_authenticated():
             if 'contributor' not in formdata or formdata['contributor'] == '':
                 formdata['contributor'] = request.user.get_full_name()
-        if request.POST['type'] == 'person':
+        if formdata['type'] == 'person':
             if title == '': title = 'Add a person'
-            if 'name' in request.POST and request.POST['name'] != '':
-                mytag = makeNameTag(request.POST['name'])
+            if 'name' in formdata and formdata['name'] != '':
+                mytag = makeNameTag(formdata['name'])
             form = PersonForm(formdata)
-        elif request.POST['type'] == 'meeting':
+        elif formdata['type'] == 'meeting':
             if title == '': title = 'Add a meeting'
             form = MeetingForm(formdata)
-        elif request.POST['type'] == 'document':
+        elif formdata['type'] == 'document':
             if title == '': title = 'Add a reference to a document'
             form = DocumentForm(formdata)
-        elif request.POST['type'] == 'org':
+        elif formdata['type'] == 'org':
             if title == '': title = 'Add an organization'
             form = OrgForm(formdata)
-        elif request.POST['type'] in ( 'project', 'tool', 'package' ):
-            if title == '': title = 'Add software %s' % request.POST['type']
+        elif formdata['type'] in ( 'project', 'tool', 'package' ):
+            if title == '': title = 'Add software %s' % formdata['type']
             form = SoftwareForm(formdata)
-        elif request.POST['type'] in ( 'definition', 'task' ):
-            if title == '': title = 'Add a %s' % request.POST['type']
+        elif formdata['type'] in ( 'definition', 'task' ):
+            if title == '': title = 'Add a %s' % formdata['type']
             form = SoftwareForm(formdata)
         else:
             form = EntityForm(formdata)
@@ -1169,6 +1176,15 @@ def strTags(tagstr, sep, exclude=[], include=[]):
 
 @login_required(login_url='/accounts/login/')
 def actionOnEntity(request, mytag=''):
+    if request.method == 'POST':
+        requestParams = request.POST.copy()
+        print 'post', requestParams
+    else:
+        requestParams = request.GET.copy()
+        print 'get', requestParams
+
+    if 'mytag' in requestParams:
+        mytag = requestParams['mytag']
     if not request.user.is_authenticated():
         ## not logged in, can't do nuthin'
         messages.warning(request, "You are not logged in, you cannot manage entries.")
@@ -1189,15 +1205,10 @@ def actionOnEntity(request, mytag=''):
             messages.warning(request, "You are not authorized to modify the %s entry." % mytag)
             return mainPage(request)
 
-    if request.method == 'POST':
-        requestParams = request.POST.copy()
-        print 'post', requestParams
-    else:
-        requestParams = request.GET.copy()
-        print 'get', requestParams
     if 'action' in requestParams:
         action = requestParams['action']
     else:
+        print requestParams
         messages.info(request, "No action requested")
         return mainPage(request)
 
@@ -1214,7 +1225,7 @@ def actionOnEntity(request, mytag=''):
     msg = "<a href='/e/%s/'>%s</a> update: %s" % ( mytag, mytag, action )
     messages.info(request, msg)
 
-    if action == 'edit':
+    if action.startswith('edit'):
         return entityForm(request, mytag)
     elif action == 'set_draft':
         ent.state = 'draft'

@@ -1168,7 +1168,7 @@ def strTags(tagstr, sep, exclude=[], include=[]):
     return csv
 
 @login_required(login_url='/accounts/login/')
-def actionOnEntity(request, mytag):
+def actionOnEntity(request, mytag=''):
     if not request.user.is_authenticated():
         ## not logged in, can't do nuthin'
         messages.warning(request, "You are not logged in, you cannot manage entries.")

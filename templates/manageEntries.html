@@ -23,10 +23,10 @@ Manage {% if staff %} all {% else %} my {% endif %} {{ ents|length }} entries
 <td> <span class="{{ ent.state }}">{{ ent.state }}</span> {% if ent.hidden %} &nbsp; <span class="hidden">hidden</span> {% endif %} </td>
 </tr>
 <tr><td colspan=20>
-<form action="/act/" method="post" style="margin:0px">    {% csrf_token %}
+<form action="/act/" method="post" style="margin:0px" id="form1">    {% csrf_token %}
 <input type="hidden" name="user" value="{{ full_name }}"/>
 {% if ent.state != 'deleted' %}
-{% if ent.state != 'locked' and ent.state != 'deleted' %} <a name="action" value="edit" type="submit">edit</a> &nbsp; {% endif %}
+{% if ent.state != 'locked' and ent.state != 'deleted' %} <a href="javascript:{}" name="action" value="edit" onclick="document.getElementById('form1').submit(); return false;">edit</a> &nbsp; {% endif %}
 {% if ent.state == 'online' %} <a href="/act/{{ ent.mytag }}/?action=set_draft">set_draft</a> &nbsp;  {% endif %}
 {% if ent.state == 'draft' %} set_online &nbsp;  {% endif %}
 {% if ent.state == 'locked' %} unlock {% else %} lock {% endif %} &nbsp; 

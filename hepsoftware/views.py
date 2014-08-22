@@ -1222,8 +1222,8 @@ def actionOnEntity(request, mytag=''):
         messages.warning(request,"The only permitted action on a deleted entry is 'undelete'.")
         return manageEntries(request)
 
-    msg = "<a href='/e/%s/'>%s</a> update: %s" % ( mytag, mytag, action )
-    messages.info(request, msg)
+    #msg = "<a href='/e/%s/'>%s</a> update: %s" % ( mytag, mytag, action )
+    #messages.info(request, msg)
 
     if action.startswith('edit'):
         return entityForm(request, mytag)

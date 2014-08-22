@@ -22,7 +22,6 @@ document.getElementById("controlform").submit();
 }
 </script>
 
-
 {% if ents %}
 <p>
 <table>
@@ -50,7 +49,7 @@ document.getElementById("controlform").submit();
 <a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','set_draft')">set_draft</a> &nbsp; 
 {% endif %}
 
-{% if ent.state == 'draft' %}
+{% if ent.state == 'draft' or ent.state == 'review' %}
 <a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','set_online')">set_online</a> &nbsp;
 {% endif %}
 
@@ -60,7 +59,7 @@ document.getElementById("controlform").submit();
 <a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','lock')">lock</a>
 {% endif %} &nbsp; 
 
-{% if ent.state != 'review' and ent.state != 'deleted' %}
+{% if ent.state != 'review' %}
 <a href="javascript:{}" onclick="ControlAction('{{ ent.mytag }}','review')">review</a> &nbsp;
 {% endif %}
 
